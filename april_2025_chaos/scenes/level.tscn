@@ -1,13 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://cd76yyqk6xweu"]
 
-[ext_resource type="PackedScene" uid="uid://4dfqjwovfwh" path="res://sheep.tscn" id="1_05io8"]
-[ext_resource type="PackedScene" uid="uid://di14b32uuj7nb" path="res://player.tscn" id="2_mm71f"]
+[ext_resource type="PackedScene" uid="uid://4dfqjwovfwh" path="res://scenes/sheep.tscn" id="1_05io8"]
+[ext_resource type="PackedScene" uid="uid://di14b32uuj7nb" path="res://scenes/player.tscn" id="2_mm71f"]
 
 [node name="level" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("2_mm71f")]
 position = Vector2(667, 568)
-scale = Vector2(0.5, 0.5)
 
 [node name="sheep" type="Node" parent="."]
 

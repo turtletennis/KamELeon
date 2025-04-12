@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=3 uid="uid://4dfqjwovfwh"]
 
-[ext_resource type="Script" uid="uid://gdd8k4nixpmp" path="res://sheep.gd" id="1_0ukbv"]
-[ext_resource type="Texture2D" uid="uid://cb430a8q5cb3q" path="res://sheep_walk.png" id="2_ou2i8"]
+[ext_resource type="Script" uid="uid://gdd8k4nixpmp" path="res://scripts/sheep.gd" id="1_0ukbv"]
+[ext_resource type="Texture2D" uid="uid://cb430a8q5cb3q" path="res://assets/sheep_walk.png" id="2_ou2i8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4hl5a"]
 atlas = ExtResource("2_ou2i8")

@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var speed : int = 100
 @export var player_avoid_radius : int = 100
 @export var gather_radius : int = 60
+@export var separation_radius : int = 55
 @onready var player = GameManager.player
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var all_sheep : Array = []
@@ -23,21 +24,21 @@ func _process(delta: float) -> void:
 		move_vector += distance_to_player.normalized() * (1.0 - distance_to_player_length / player_avoid_radius ) * speed
 	
 	# Gather together
-	var center_position : Vector2 = Vector2.ZERO
-	var nearby_sheep : int = 0
+	#var center_position : Vector2 = Vector2.ZERO
+	#var nearby_sheep : int = 0
 	
-	for sheep in all_sheep:
-		if sheep == self:
-			continue
-		var distance = global_position.distance_to(sheep.global_position)
-		if distance < gather_radius:
-			center_position += sheep.global_position
-			nearby_sheep += 1
-	
-	if nearby_sheep > 0:
-		center_position /= nearby_sheep
-		var gather_direction = (center_position - global_position).normalized()
-		move_vector += gather_direction * gather_strength * speed
+	#for sheep in all_sheep:
+		#if sheep == self:
+			#continue
+		#var distance = global_position.distance_to(sheep.global_position)
+		#if distance < gather_radius and distance > separation_radius:
+			#center_position += sheep.global_position
+			#nearby_sheep += 1
+	#
+	#if nearby_sheep > 0:
+		#center_position /= nearby_sheep
+		#var gather_direction = (center_position - global_position).normalized()
+		#move_vector += gather_direction * gather_strength * speed
 
 
 
@@ -70,6 +71,3 @@ func animation_control():
 			animated_sprite_2d.play("up_idle")
 		if direction == 4:
 			animated_sprite_2d.play("down_idle")
-
-func run_from_player():
-	pass
