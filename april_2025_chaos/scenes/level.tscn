@@ -1,38 +1,46 @@
-[gd_scene load_steps=3 format=3 uid="uid://cd76yyqk6xweu"]
+[gd_scene load_steps=5 format=3 uid="uid://cd76yyqk6xweu"]
 
-[ext_resource type="PackedScene" uid="uid://4dfqjwovfwh" path="res://scenes/sheep.tscn" id="1_05io8"]
-[ext_resource type="PackedScene" uid="uid://di14b32uuj7nb" path="res://scenes/player.tscn" id="2_mm71f"]
+[ext_resource type="PackedScene" uid="uid://4dfqjwovfwh" path="res://prefabs/sheep.tscn" id="1_05io8"]
+[ext_resource type="PackedScene" uid="uid://di14b32uuj7nb" path="res://prefabs/player.tscn" id="2_mm71f"]
+[ext_resource type="PackedScene" uid="uid://b25xn223lcmq6" path="res://prefabs/FinishArea.tscn" id="3_w8frs"]
+[ext_resource type="PackedScene" uid="uid://c06hjb21per87" path="res://prefabs/DeathArea.tscn" id="4_mx8sn"]
 
 [node name="level" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("2_mm71f")]
-position = Vector2(667, 568)
+position = Vector2(477, 79)
 
 [node name="sheep" type="Node" parent="."]
 
 [node name="sheep" parent="sheep" instance=ExtResource("1_05io8")]
-position = Vector2(145, 80)
+position = Vector2(205, 118)
 
 [node name="sheep2" parent="sheep" instance=ExtResource("1_05io8")]
-position = Vector2(1011, 130)
+position = Vector2(359, 155)
 player_avoid_radius = 450
 
 [node name="sheep3" parent="sheep" instance=ExtResource("1_05io8")]
-position = Vector2(962, 196)
+position = Vector2(331, 106)
 player_avoid_radius = 450
 
 [node name="sheep4" parent="sheep" instance=ExtResource("1_05io8")]
-position = Vector2(1017, 263)
+position = Vector2(286, 146)
 player_avoid_radius = 450
 
 [node name="sheep5" parent="sheep" instance=ExtResource("1_05io8")]
-position = Vector2(1052, 203)
+position = Vector2(243, 172)
 player_avoid_radius = 450
 
 [node name="sheep6" parent="sheep" instance=ExtResource("1_05io8")]
-position = Vector2(187, 179)
+position = Vector2(160, 154)
 player_avoid_radius = 450
 
 [node name="sheep7" parent="sheep" instance=ExtResource("1_05io8")]
-position = Vector2(292, 116)
+position = Vector2(265, 91)
 player_avoid_radius = 450
+
+[node name="finish_area" parent="." instance=ExtResource("3_w8frs")]
+position = Vector2(558, 604)
+
+[node name="death_area" parent="finish_area" instance=ExtResource("4_mx8sn")]
+position = Vector2(-344, -38)

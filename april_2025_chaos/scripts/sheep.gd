@@ -2,13 +2,15 @@ extends CharacterBody2D
 
 
 @export var speed : int = 100
-@export var player_avoid_radius : int = 100
+@export var player_avoid_radius : int = 80
 @export var gather_radius : int = 60
 @export var separation_radius : int = 55
 @onready var player = GameManager.player
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var all_sheep : Array = []
 @export var gather_strength : float = 0.5
+var goal_reached : bool = false
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 func _ready() -> void:
 	all_sheep = get_parent().get_children()
@@ -22,6 +24,16 @@ func _process(delta: float) -> void:
 	var distance_to_player_length = distance_to_player.length()
 	if distance_to_player_length < player_avoid_radius:
 		move_vector += distance_to_player.normalized() * (1.0 - distance_to_player_length / player_avoid_radius ) * speed
+	
+		# Separate from other sheep
+	for other_sheep in all_sheep:
+		if other_sheep == self or not is_instance_valid(other_sheep):
+			continue
+		var offset = global_position - other_sheep.global_position
+		var distance_from_sheep = offset.length()
+		if distance_from_sheep < separation_radius:
+			move_vector += offset.normalized() * (1.0 - distance_from_sheep / separation_radius) * speed
+	
 	
 	# Gather together
 	#var center_position : Vector2 = Vector2.ZERO
@@ -42,8 +54,9 @@ func _process(delta: float) -> void:
 
 
 
-	move_and_slide()
-	velocity = move_vector
+	if goal_reached == false:
+		move_and_slide()
+		velocity = move_vector
 
 var direction : int 
 func animation_control():
@@ -71,3 +84,11 @@ func animation_control():
 			animated_sprite_2d.play("up_idle")
 		if direction == 4:
 			animated_sprite_2d.play("down_idle")
+func reached_goal():
+	all_sheep.erase(self)
+	goal_reached = true
+	collision_shape_2d.call_deferred("set_disabled", true)
+
+func die():
+	all_sheep.erase(self)
+	call_deferred("queue_free")

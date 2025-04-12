@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://c405qtutpyst8"]
+
+[ext_resource type="Script" uid="uid://cti2c3jij6yc0" path="res://Screen Fade/screen_fade.gd" id="1_5o1iq"]
+
+[sub_resource type="Animation" id="Animation_jmawc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8xm0p"]
+resource_name = "screen_fade"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.833333, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tvi1e"]
+_data = {
+"RESET": SubResource("Animation_jmawc"),
+"screen_fade": SubResource("Animation_8xm0p")
+}
+
+[node name="screen_fade" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_5o1iq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -328.0
+offset_top = -245.0
+offset_right = 1624.0
+offset_bottom = 856.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tvi1e")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

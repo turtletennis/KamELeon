@@ -286,3 +286,7 @@ position = Vector2(-2, -18)
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_hax0n")
 animation = &"idle_down"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_callback = 0
+position_smoothing_enabled = true

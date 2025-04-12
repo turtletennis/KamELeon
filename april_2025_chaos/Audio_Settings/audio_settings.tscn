@@ -1,0 +1,151 @@
+[gd_scene load_steps=10 format=3 uid="uid://8gcoiiugnffq"]
+
+[ext_resource type="Script" uid="uid://cqyiebdabtxr6" path="res://Audio_Settings/audio_settings.gd" id="1_j3r4d"]
+[ext_resource type="Texture2D" uid="uid://qkn60jcd0ia0" path="res://Audio_Settings/speaker-and-mute-volume-icon-in-trendy-style-vector-removebg-preview-sheet (2).png" id="2_y7k8g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0bsb"]
+atlas = ExtResource("2_y7k8g")
+region = Rect2(367, 0, 367, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olwhh"]
+atlas = ExtResource("2_y7k8g")
+region = Rect2(0, 0, 367, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l8his"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0bsb")
+}],
+"loop": true,
+"name": &"mute",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olwhh")
+}],
+"loop": true,
+"name": &"unmute",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1bo7k"]
+font_size = 25
+outline_color = Color(0.372549, 0.803922, 0.894118, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wtk5w"]
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_jj1o6"]
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_kgqxu"]
+font_size = 34
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="Audio_settings" type="Node"]
+script = ExtResource("1_j3r4d")
+
+[node name="settings" type="Control" parent="."]
+z_index = 8
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = 36.0
+offset_right = -16.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="master_volume_slider" type="HSlider" parent="settings"]
+layout_mode = 0
+offset_left = 229.0
+offset_top = 241.0
+offset_right = 518.0
+offset_bottom = 257.0
+min_value = -30.0
+max_value = 0.0
+
+[node name="music_volume_slider" type="HSlider" parent="settings"]
+layout_mode = 0
+offset_left = 229.0
+offset_top = 275.0
+offset_right = 518.0
+offset_bottom = 291.0
+min_value = -30.0
+max_value = 0.0
+
+[node name="sfx_volume_slider" type="HSlider" parent="settings"]
+layout_mode = 0
+offset_left = 229.0
+offset_top = 312.0
+offset_right = 518.0
+offset_bottom = 328.0
+min_value = -30.0
+max_value = 0.0
+
+[node name="master_anim" type="AnimatedSprite2D" parent="settings"]
+position = Vector2(534, 249)
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_l8his")
+animation = &"unmute"
+autoplay = "unmute"
+
+[node name="music_anim" type="AnimatedSprite2D" parent="settings"]
+position = Vector2(534, 283)
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_l8his")
+animation = &"unmute"
+autoplay = "unmute"
+
+[node name="sfx_anim" type="AnimatedSprite2D" parent="settings"]
+position = Vector2(534, 322)
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_l8his")
+animation = &"unmute"
+autoplay = "unmute"
+
+[node name="master_label" type="Label" parent="settings"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 126.0
+offset_top = 232.0
+offset_right = 223.0
+offset_bottom = 267.0
+text = "MASTER"
+label_settings = SubResource("LabelSettings_1bo7k")
+
+[node name="music_label" type="Label" parent="settings"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 264.0
+offset_right = 207.0
+offset_bottom = 299.0
+text = "MUSIC"
+label_settings = SubResource("LabelSettings_wtk5w")
+
+[node name="sfx_label" type="Label" parent="settings"]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 300.0
+offset_right = 172.0
+offset_bottom = 335.0
+text = "SFX"
+label_settings = SubResource("LabelSettings_jj1o6")
+
+[node name="audio_label" type="Label" parent="settings"]
+texture_filter = 5
+layout_mode = 0
+offset_left = 303.0
+offset_top = 176.0
+offset_right = 422.0
+offset_bottom = 223.0
+text = "AUDIO:"
+label_settings = SubResource("LabelSettings_kgqxu")
+
+[connection signal="value_changed" from="settings/master_volume_slider" to="." method="_on_master_volume_slider_value_changed"]
+[connection signal="value_changed" from="settings/music_volume_slider" to="." method="_on_music_volume_slider_value_changed"]
+[connection signal="value_changed" from="settings/sfx_volume_slider" to="." method="_on_sfx_volume_slider_value_changed"]

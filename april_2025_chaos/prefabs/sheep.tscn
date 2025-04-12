@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://4dfqjwovfwh"]
+[gd_scene load_steps=25 format=3 uid="uid://4dfqjwovfwh"]
 
 [ext_resource type="Script" uid="uid://gdd8k4nixpmp" path="res://scripts/sheep.gd" id="1_0ukbv"]
 [ext_resource type="Texture2D" uid="uid://cb430a8q5cb3q" path="res://assets/sheep_walk.png" id="2_ou2i8"]
@@ -186,11 +186,20 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="sheep" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wkwx1"]
+radius = 3.0
+
+[node name="sheep" type="CharacterBody2D" groups=["sheep"]]
 script = ExtResource("1_0ukbv")
 speed = 300
 player_avoid_radius = 300
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_lf2rx")
-animation = &"up_idle"
+animation = &"right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 15)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_wkwx1")
