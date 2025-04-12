@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd76yyqk6xweu"]
+
+[ext_resource type="PackedScene" uid="uid://4dfqjwovfwh" path="res://sheep.tscn" id="1_05io8"]
+[ext_resource type="PackedScene" uid="uid://di14b32uuj7nb" path="res://player.tscn" id="2_mm71f"]
+
+[node name="level" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("2_mm71f")]
+position = Vector2(667, 568)
+scale = Vector2(0.5, 0.5)
+
+[node name="sheep" type="Node" parent="."]
+
+[node name="sheep" parent="sheep" instance=ExtResource("1_05io8")]
+position = Vector2(145, 80)
+
+[node name="sheep2" parent="sheep" instance=ExtResource("1_05io8")]
+position = Vector2(1011, 130)
+player_avoid_radius = 450
+
+[node name="sheep3" parent="sheep" instance=ExtResource("1_05io8")]
+position = Vector2(962, 196)
+player_avoid_radius = 450
+
+[node name="sheep4" parent="sheep" instance=ExtResource("1_05io8")]
+position = Vector2(1017, 263)
+player_avoid_radius = 450
+
+[node name="sheep5" parent="sheep" instance=ExtResource("1_05io8")]
+position = Vector2(1052, 203)
+player_avoid_radius = 450
+
+[node name="sheep6" parent="sheep" instance=ExtResource("1_05io8")]
+position = Vector2(187, 179)
+player_avoid_radius = 450
+
+[node name="sheep7" parent="sheep" instance=ExtResource("1_05io8")]
+position = Vector2(292, 116)
+player_avoid_radius = 450
