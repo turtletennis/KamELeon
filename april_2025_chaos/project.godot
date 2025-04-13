@@ -11,12 +11,14 @@ config_version=5
 [application]
 
 config/name="sheep jam"
+run/main_scene="uid://cd76yyqk6xweu"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameManager="*res://scripts/game_manager.gd"
+AudioManager="*res://scenes/AudioManager.tscn"
 
 [display]
 
@@ -74,6 +76,7 @@ shift={
 2d_physics/layer_4="Death"
 2d_physics/layer_5="fence"
 2d_physics/layer_6="cattle grate"
+2d_physics/layer_7="finish zone"
 
 [rendering]
 

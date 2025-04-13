@@ -11,7 +11,10 @@ extends CharacterBody2D
 @onready var all_sheep : Array = []
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var scary_obstacles := get_node("/root/level/scary_obstacles").get_children()
+@onready var scary_obstacles = get_node("/root/level/scary_obstacles").get_children()
+@onready var sound_effect_timer: Timer = $sound_effect_timer
+@onready var sheep_baa_sound: AudioStreamPlayer2D = $sheep_baa_sound
+
 var conveyer_direction : String
 var on_conveyer : bool 
 var conveyer_speed : int
@@ -19,6 +22,7 @@ var goal_reached : bool = false
 
 func _ready() -> void:
 	all_sheep = get_parent().get_children()
+	randomize_sound_timer()
 
 func _process(delta: float) -> void:
 	var move_vector : Vector2 = Vector2.ZERO
@@ -126,3 +130,18 @@ func conveyer_movement():
 			velocity.x = -conveyer_speed
 		if conveyer_direction == "right":
 			velocity.x = conveyer_speed
+func randomize_sound_timer():
+	var random_time = randi_range(8, 20)
+	sound_effect_timer.wait_time = random_time
+	sound_effect_timer.start()
+
+func _on_sound_effect_timer_timeout() -> void:
+	var sound_effect_chance = randi_range(0,1)
+	if sound_effect_chance == 0:
+		var random_pitch = randf_range(0.9, 1.1)
+		sheep_baa_sound.pitch_scale = random_pitch
+		sheep_baa_sound.play()
+		randomize_sound_timer()
+	else:
+		randomize_sound_timer()
+		

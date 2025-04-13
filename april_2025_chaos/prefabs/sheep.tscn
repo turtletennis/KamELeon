@@ -1,7 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://4dfqjwovfwh"]
+[gd_scene load_steps=26 format=3 uid="uid://4dfqjwovfwh"]
 
 [ext_resource type="Script" uid="uid://gdd8k4nixpmp" path="res://scripts/sheep.gd" id="1_0ukbv"]
 [ext_resource type="Texture2D" uid="uid://cb430a8q5cb3q" path="res://assets/sheep_walk.png" id="2_ou2i8"]
+[ext_resource type="AudioStream" uid="uid://fg5fn8jvyxxv" path="res://assets/Sheep Sound Effect.mp3" id="3_22co1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4hl5a"]
 atlas = ExtResource("2_ou2i8")
@@ -191,7 +192,7 @@ radius = 3.0
 
 [node name="sheep" type="CharacterBody2D" groups=["sheep"]]
 collision_layer = 4
-collision_mask = 63
+collision_mask = 127
 script = ExtResource("1_0ukbv")
 speed = 300
 player_avoid_radius = 250
@@ -206,3 +207,14 @@ animation = &"right"
 position = Vector2(1, 15)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_wkwx1")
+
+[node name="sheep_baa_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_22co1")
+volume_db = -10.041
+bus = &"SFX"
+
+[node name="sound_effect_timer" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+
+[connection signal="timeout" from="sound_effect_timer" to="." method="_on_sound_effect_timer_timeout"]
