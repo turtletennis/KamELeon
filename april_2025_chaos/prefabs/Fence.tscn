@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://bi1fir1ta1kn7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sj52d"]
+size = Vector2(261, 20)
+
+[node name="fence" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(120.5, 0)
+shape = SubResource("RectangleShape2D_sj52d")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 251.0
+offset_bottom = 10.0
+color = Color(0.37762, 0.200006, 0.153114, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 94.0
+offset_top = -1.0
+offset_right = 157.0
+offset_bottom = 22.0
+text = "FENCE"

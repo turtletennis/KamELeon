@@ -190,6 +190,8 @@ animations = [{
 radius = 3.0
 
 [node name="sheep" type="CharacterBody2D" groups=["sheep"]]
+collision_layer = 4
+collision_mask = 63
 script = ExtResource("1_0ukbv")
 speed = 300
 player_avoid_radius = 300

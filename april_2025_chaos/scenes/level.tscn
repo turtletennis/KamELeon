@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cd76yyqk6xweu"]
+[gd_scene load_steps=7 format=3 uid="uid://cd76yyqk6xweu"]
 
 [ext_resource type="PackedScene" uid="uid://4dfqjwovfwh" path="res://prefabs/sheep.tscn" id="1_05io8"]
 [ext_resource type="PackedScene" uid="uid://di14b32uuj7nb" path="res://prefabs/player.tscn" id="2_mm71f"]
 [ext_resource type="PackedScene" uid="uid://b25xn223lcmq6" path="res://prefabs/FinishArea.tscn" id="3_w8frs"]
 [ext_resource type="PackedScene" uid="uid://c06hjb21per87" path="res://prefabs/DeathArea.tscn" id="4_mx8sn"]
+[ext_resource type="PackedScene" uid="uid://bi1fir1ta1kn7" path="res://prefabs/Fence.tscn" id="5_ppgk2"]
+[ext_resource type="PackedScene" uid="uid://4okt6ncw43sm" path="res://prefabs/CattleGrate.tscn" id="6_2r41h"]
 
 [node name="level" type="Node2D"]
 
@@ -44,3 +46,9 @@ position = Vector2(558, 604)
 
 [node name="death_area" parent="finish_area" instance=ExtResource("4_mx8sn")]
 position = Vector2(-344, -38)
+
+[node name="fence" parent="." instance=ExtResource("5_ppgk2")]
+position = Vector2(536, 406)
+
+[node name="cattle_grate" parent="fence" instance=ExtResource("6_2r41h")]
+position = Vector2(404, -92)
