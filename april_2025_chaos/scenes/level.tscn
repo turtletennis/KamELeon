@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cd76yyqk6xweu"]
+[gd_scene load_steps=8 format=3 uid="uid://cd76yyqk6xweu"]
 
 [ext_resource type="PackedScene" uid="uid://4dfqjwovfwh" path="res://prefabs/sheep.tscn" id="1_05io8"]
 [ext_resource type="PackedScene" uid="uid://di14b32uuj7nb" path="res://prefabs/player.tscn" id="2_mm71f"]
@@ -6,31 +6,54 @@
 [ext_resource type="PackedScene" uid="uid://c06hjb21per87" path="res://prefabs/DeathArea.tscn" id="4_mx8sn"]
 [ext_resource type="PackedScene" uid="uid://bi1fir1ta1kn7" path="res://prefabs/Fence.tscn" id="5_ppgk2"]
 [ext_resource type="PackedScene" uid="uid://4okt6ncw43sm" path="res://prefabs/CattleGrate.tscn" id="6_2r41h"]
+[ext_resource type="PackedScene" uid="uid://bh7poqjghjmok" path="res://prefabs/ConveyerBelt.tscn" id="7_klq6b"]
 
 [node name="level" type="Node2D"]
 
+[node name="finish_area" parent="." instance=ExtResource("3_w8frs")]
+position = Vector2(558, 604)
+
+[node name="death_area" parent="finish_area" instance=ExtResource("4_mx8sn")]
+position = Vector2(-344, -38)
+
+[node name="conveyer_belt" parent="." instance=ExtResource("7_klq6b")]
+position = Vector2(668, 89)
+direction = "right"
+conveyer_speed = 200
+
+[node name="cattle_grate" parent="." instance=ExtResource("6_2r41h")]
+position = Vector2(940, 314)
+
+[node name="fence" parent="." instance=ExtResource("5_ppgk2")]
+position = Vector2(660, 70)
+rotation = -2.58803
+
+[node name="fence_2" parent="." instance=ExtResource("5_ppgk2")]
+position = Vector2(654, 144)
+rotation = -3.58151
+
 [node name="player" parent="." instance=ExtResource("2_mm71f")]
-position = Vector2(477, 79)
+position = Vector2(845, 366)
 
 [node name="sheep" type="Node" parent="."]
 
 [node name="sheep" parent="sheep" instance=ExtResource("1_05io8")]
-position = Vector2(205, 118)
+position = Vector2(155, 9)
 
 [node name="sheep2" parent="sheep" instance=ExtResource("1_05io8")]
-position = Vector2(359, 155)
+position = Vector2(420, 187)
 player_avoid_radius = 450
 
 [node name="sheep3" parent="sheep" instance=ExtResource("1_05io8")]
-position = Vector2(331, 106)
+position = Vector2(390, 38)
 player_avoid_radius = 450
 
 [node name="sheep4" parent="sheep" instance=ExtResource("1_05io8")]
-position = Vector2(286, 146)
+position = Vector2(223, 255)
 player_avoid_radius = 450
 
 [node name="sheep5" parent="sheep" instance=ExtResource("1_05io8")]
-position = Vector2(243, 172)
+position = Vector2(272, -52)
 player_avoid_radius = 450
 
 [node name="sheep6" parent="sheep" instance=ExtResource("1_05io8")]
@@ -40,15 +63,3 @@ player_avoid_radius = 450
 [node name="sheep7" parent="sheep" instance=ExtResource("1_05io8")]
 position = Vector2(265, 91)
 player_avoid_radius = 450
-
-[node name="finish_area" parent="." instance=ExtResource("3_w8frs")]
-position = Vector2(558, 604)
-
-[node name="death_area" parent="finish_area" instance=ExtResource("4_mx8sn")]
-position = Vector2(-344, -38)
-
-[node name="fence" parent="." instance=ExtResource("5_ppgk2")]
-position = Vector2(536, 406)
-
-[node name="cattle_grate" parent="fence" instance=ExtResource("6_2r41h")]
-position = Vector2(404, -92)
