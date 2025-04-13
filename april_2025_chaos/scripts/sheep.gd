@@ -7,9 +7,11 @@ extends CharacterBody2D
 @export var gather_strength : float = 0.2
 @export var separation_radius : int = 55
 @onready var player = GameManager.player
+@export var obstacle_avoidance_radius : int = 300
 @onready var all_sheep : Array = []
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var scary_obstacles := get_node("/root/level/scary_obstacles").get_children()
 var conveyer_direction : String
 var on_conveyer : bool 
 var conveyer_speed : int
@@ -27,6 +29,14 @@ func _process(delta: float) -> void:
 	var distance_to_player_length = distance_to_player.length()
 	if distance_to_player_length < player_avoid_radius:
 		move_vector += distance_to_player.normalized() * (1.0 - distance_to_player_length / player_avoid_radius ) * speed
+	
+	#run from "scary obstacle"
+	for obstacle in scary_obstacles:
+		var offset = global_position - obstacle.global_position
+		var distance_from_obstacle = offset.length()
+		if distance_from_obstacle < obstacle_avoidance_radius:
+			move_vector += offset.normalized() * (1.0 - distance_from_obstacle / obstacle_avoidance_radius) * speed
+	
 	
 		# Separate from other sheep
 	for other_sheep in all_sheep:

@@ -63,3 +63,17 @@ player_avoid_radius = 450
 [node name="sheep7" parent="sheep" instance=ExtResource("1_05io8")]
 position = Vector2(265, 91)
 player_avoid_radius = 450
+
+[node name="scary_obstacles" type="Node" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="scary_obstacles"]
+offset_left = -288.0
+offset_top = 258.0
+offset_right = -248.0
+offset_bottom = 298.0
+
+[node name="ColorRect_2" type="ColorRect" parent="scary_obstacles"]
+offset_left = -507.0
+offset_top = 113.0
+offset_right = 515.0
+offset_bottom = 153.0
