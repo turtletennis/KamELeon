@@ -14,20 +14,31 @@ extends CharacterBody2D
 @onready var scary_obstacles = get_node("/root/level/scary_obstacles").get_children()
 @onready var sound_effect_timer: Timer = $sound_effect_timer
 @onready var sheep_baa_sound: AudioStreamPlayer2D = $sheep_baa_sound
+@onready var fence_raycast = $fence_raycast
 
 var conveyer_direction : String
 var on_conveyer : bool 
 var conveyer_speed : int
 var goal_reached : bool = false
 
+
 func _ready() -> void:
 	all_sheep = get_parent().get_children()
 	randomize_sound_timer()
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	var move_vector : Vector2 = Vector2.ZERO
 	animation_control()
 	conveyer_movement()
+	
+	# cast ray to avoid standing next to fence 
+	fence_raycast.target_position = velocity.normalized() * 100
+	fence_raycast.force_raycast_update()
+	
+	if fence_raycast.is_colliding():
+		var collision_normal = fence_raycast.get_collision_normal()
+		velocity += collision_normal * speed * 0.4
+			
 	# Run from player 
 	var distance_to_player = global_position - player.global_position
 	var distance_to_player_length = distance_to_player.length()
@@ -74,39 +85,38 @@ func _process(delta: float) -> void:
 
 
 	if goal_reached == false:
-		move_and_slide()
 		velocity = move_vector
-
+		move_and_slide()
+		
 var direction : int 
 
 func animation_control():
-	var min_movement_threshold := 10
 	
-	if velocity.length() > min_movement_threshold:
-		if abs(velocity.x) > abs(velocity.y):
-			if velocity.x < 0 and direction != 1:
-				animated_sprite_2d.play("left")
-				direction = 1
-			elif velocity.x > 0 and direction != 2:
-				animated_sprite_2d.play("right")
-				direction = 2
-		else:
-			if velocity.y < 0 and direction != 3:
-				animated_sprite_2d.play("up")
-				direction = 3
-			elif velocity.y > 0 and direction != 4:
-				animated_sprite_2d.play("down")
-				direction = 4
+	
+
+	if abs(velocity.x) > abs(velocity.y):
+		if velocity.x < 0:
+			animated_sprite_2d.play("left")
+			direction = 1
+		elif velocity.x > 0 :
+			animated_sprite_2d.play("right")
+			direction = 2
 	else:
-		match direction:
-			1:
-				animated_sprite_2d.play("left_idle")
-			2:
-				animated_sprite_2d.play("right_idle")
-			3:
-				animated_sprite_2d.play("up_idle")
-			4:
-				animated_sprite_2d.play("down_idle")
+		if velocity.y < 0 :
+			animated_sprite_2d.play("up")
+			direction = 3
+		elif velocity.y > 0 :
+			animated_sprite_2d.play("down")
+			direction = 4
+	match direction:
+		1:
+			animated_sprite_2d.play("left_idle")
+		2:
+			animated_sprite_2d.play("right_idle")
+		3:
+			animated_sprite_2d.play("up_idle")
+		4:
+			animated_sprite_2d.play("down_idle")
 func reached_goal():
 	all_sheep.erase(self)
 	goal_reached = true
