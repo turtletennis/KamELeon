@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 var master_bus = AudioServer.get_bus_index("Master")
 var music_bus = AudioServer.get_bus_index("Music")

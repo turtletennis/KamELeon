@@ -1,0 +1,88 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6u6g6ugmtb4e"]
+
+[ext_resource type="Script" uid="uid://7x0m8qq8b043" path="res://MainMenu.gd" id="1_eiy7p"]
+[ext_resource type="Theme" uid="uid://bwjl0xwp728bj" path="res://ui_theme.tres" id="2_h7a2f"]
+[ext_resource type="PackedScene" uid="uid://bxuemdlqhoc5c" path="res://Settings.tscn" id="3_iwfq2"]
+[ext_resource type="PackedScene" uid="uid://clayaepry8txf" path="res://Credits.tscn" id="4_7r1g0"]
+[ext_resource type="PackedScene" uid="uid://dyrtdgprldfdy" path="res://LevelSelect.tscn" id="5_cqjrg"]
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eiy7p")
+
+[node name="Temp Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 487.0
+offset_top = 52.0
+offset_right = 767.0
+offset_bottom = 75.0
+theme = ExtResource("2_h7a2f")
+text = "UNTITLED GAME  for theme purpose"
+
+[node name="start_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 200.0
+offset_right = 334.0
+offset_bottom = 250.0
+theme = ExtResource("2_h7a2f")
+text = "Start"
+
+[node name="level_select_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 259.0
+offset_right = 334.0
+offset_bottom = 309.0
+theme = ExtResource("2_h7a2f")
+text = "Level select"
+
+[node name="settings_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 319.0
+offset_right = 334.0
+offset_bottom = 369.0
+theme = ExtResource("2_h7a2f")
+text = "Settings"
+
+[node name="credits_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 378.0
+offset_right = 334.0
+offset_bottom = 428.0
+theme = ExtResource("2_h7a2f")
+text = "Credits"
+
+[node name="quit_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 438.0
+offset_right = 334.0
+offset_bottom = 488.0
+theme = ExtResource("2_h7a2f")
+text = "Quit"
+
+[node name="settings" parent="." instance=ExtResource("3_iwfq2")]
+visible = false
+position = Vector2(520, 162)
+
+[node name="credits" parent="." instance=ExtResource("4_7r1g0")]
+visible = false
+position = Vector2(513, 166)
+
+[node name="level_select" parent="." instance=ExtResource("5_cqjrg")]
+visible = false
+position = Vector2(547, 174)
+
+[connection signal="pressed" from="start_button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="level_select_button" to="." method="_on_level_select_button_pressed"]
+[connection signal="pressed" from="settings_button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="credits_button" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="quit_button" to="." method="_on_quit_button_pressed"]

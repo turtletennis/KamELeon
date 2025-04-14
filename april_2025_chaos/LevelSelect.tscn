@@ -1,0 +1,66 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyrtdgprldfdy"]
+
+[ext_resource type="Script" uid="uid://dy6dtfnrj6yej" path="res://LevelSelect.gd" id="1_sf6f5"]
+
+[node name="level_select" type="Node2D"]
+script = ExtResource("1_sf6f5")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 602.0
+offset_bottom = 480.0
+color = Color(0.572256, 0.346453, 0.252834, 1)
+
+[node name="level_1_button" type="Button" parent="."]
+offset_left = 65.0
+offset_top = 31.0
+offset_right = 152.0
+offset_bottom = 112.0
+text = "Level 
+1"
+
+[node name="level_2_button" type="Button" parent="."]
+offset_left = 178.0
+offset_top = 31.0
+offset_right = 265.0
+offset_bottom = 112.0
+text = "Level 
+2"
+
+[node name="level_3_button" type="Button" parent="."]
+offset_left = 289.0
+offset_top = 31.0
+offset_right = 376.0
+offset_bottom = 112.0
+text = "Level 
+3"
+
+[node name="level_4_button" type="Button" parent="."]
+offset_left = 65.0
+offset_top = 134.0
+offset_right = 152.0
+offset_bottom = 215.0
+text = "Level 
+4"
+
+[node name="level_5_button" type="Button" parent="."]
+offset_left = 181.0
+offset_top = 134.0
+offset_right = 268.0
+offset_bottom = 215.0
+text = "Level 
+5"
+
+[node name="level_6_button" type="Button" parent="."]
+offset_left = 292.0
+offset_top = 134.0
+offset_right = 379.0
+offset_bottom = 215.0
+text = "Level 
+6"
+
+[connection signal="pressed" from="level_1_button" to="." method="_on_level_1_button_pressed"]
+[connection signal="pressed" from="level_2_button" to="." method="_on_level_2_button_pressed"]
+[connection signal="pressed" from="level_3_button" to="." method="_on_level_3_button_pressed"]
+[connection signal="pressed" from="level_4_button" to="." method="_on_level_4_button_pressed"]
+[connection signal="pressed" from="level_5_button" to="." method="_on_level_5_button_pressed"]
+[connection signal="pressed" from="level_6_button" to="." method="_on_level_6_button_pressed"]

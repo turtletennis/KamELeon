@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://clayaepry8txf"]
+
+[node name="credits" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 602.0
+offset_bottom = 480.0
+color = Color(0.572256, 0.346453, 0.252834, 1)
+
+[node name="credits_label" type="Label" parent="."]
+offset_left = 220.0
+offset_top = 207.0
+offset_right = 366.0
+offset_bottom = 230.0
+text = "insert credits here "
