@@ -217,10 +217,4 @@ bus = &"SFX"
 wait_time = 6.0
 one_shot = true
 
-[node name="fence_raycast" type="RayCast2D" parent="."]
-target_position = Vector2(0, -50)
-collision_mask = 16
-hit_from_inside = true
-collide_with_areas = true
-
 [connection signal="timeout" from="sound_effect_timer" to="." method="_on_sound_effect_timer_timeout"]

@@ -31,38 +31,291 @@ conveyer_speed = 200
 position = Vector2(892, -17)
 
 [node name="player" parent="." instance=ExtResource("2_mm71f")]
-position = Vector2(845, 366)
+position = Vector2(97, 571)
 
 [node name="sheep" type="Node" parent="."]
 
-[node name="sheep" parent="sheep" instance=ExtResource("1_05io8")]
-position = Vector2(-227, 299)
-
-[node name="sheep2" parent="sheep" instance=ExtResource("1_05io8")]
-position = Vector2(38, 477)
-player_avoid_radius = 450
-
-[node name="sheep3" parent="sheep" instance=ExtResource("1_05io8")]
-position = Vector2(8, 328)
-player_avoid_radius = 450
-
-[node name="sheep4" parent="sheep" instance=ExtResource("1_05io8")]
-position = Vector2(-159, 545)
-player_avoid_radius = 450
-
-[node name="sheep5" parent="sheep" instance=ExtResource("1_05io8")]
-position = Vector2(1724, 93)
-player_avoid_radius = 450
-
-[node name="sheep6" parent="sheep" instance=ExtResource("1_05io8")]
-position = Vector2(1612, 299)
-player_avoid_radius = 450
-
 [node name="sheep7" parent="sheep" instance=ExtResource("1_05io8")]
-position = Vector2(1717, 236)
+position = Vector2(-255, 756)
 player_avoid_radius = 450
 
 [node name="scary_obstacles" type="Node" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(-549, -174)
+
+[node name="Marker2D_2" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(-549, -84)
+
+[node name="Marker2D_3" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(-549, -4)
+
+[node name="Marker2D_4" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(-549, 64)
+
+[node name="Marker2D_5" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(-549, 137)
+
+[node name="Marker2D_6" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(-549, 208)
+
+[node name="Marker2D_7" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(-549, 281)
+
+[node name="Marker2D_8" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(-549, 356)
+
+[node name="Marker2D_9" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(-549, 443)
+
+[node name="Marker2D_10" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(-549, 535)
+
+[node name="Marker2D_11" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(-549, 627)
+
+[node name="Marker2D_12" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(-549, 702)
+
+[node name="Marker2D_13" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(-549, 780)
+
+[node name="Marker2D_14" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(-549, 846)
+
+[node name="Marker2D_15" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(-549, 907)
+
+[node name="Marker2D_16" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(2127, -174)
+
+[node name="Marker2D_17" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(2127, -84)
+
+[node name="Marker2D_18" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(2127, -4)
+
+[node name="Marker2D_19" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(2127, 64)
+
+[node name="Marker2D_20" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(2127, 137)
+
+[node name="Marker2D_21" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(2127, 208)
+
+[node name="Marker2D_22" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(2127, 281)
+
+[node name="Marker2D_23" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(2127, 356)
+
+[node name="Marker2D_24" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(2127, 443)
+
+[node name="Marker2D_25" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(2127, 535)
+
+[node name="Marker2D_26" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(2127, 627)
+
+[node name="Marker2D_27" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(2127, 702)
+
+[node name="Marker2D_28" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(2127, 780)
+
+[node name="Marker2D_29" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(2127, 846)
+
+[node name="Marker2D_30" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(2127, 907)
+
+[node name="Marker2D_31" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(2058, -265)
+
+[node name="Marker2D_32" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(1975, -265)
+
+[node name="Marker2D_33" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(1901, -265)
+
+[node name="Marker2D_34" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(1820, -265)
+
+[node name="Marker2D_35" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(1717, -265)
+
+[node name="Marker2D_36" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(1623, -265)
+
+[node name="Marker2D_37" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(1510, -265)
+
+[node name="Marker2D_38" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(1423, -265)
+
+[node name="Marker2D_39" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(1327, -265)
+
+[node name="Marker2D_40" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(1219, -265)
+
+[node name="Marker2D_41" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(1141, -265)
+
+[node name="Marker2D_42" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(1052, -265)
+
+[node name="Marker2D_43" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(956, -265)
+
+[node name="Marker2D_44" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(871, -265)
+
+[node name="Marker2D_45" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(784, -265)
+
+[node name="Marker2D_46" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(711, -265)
+
+[node name="Marker2D_47" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(635, -265)
+
+[node name="Marker2D_48" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(557, -265)
+
+[node name="Marker2D_49" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(465, -265)
+
+[node name="Marker2D_50" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(387, -265)
+
+[node name="Marker2D_51" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(307, -265)
+
+[node name="Marker2D_52" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(220, -265)
+
+[node name="Marker2D_53" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(133, -265)
+
+[node name="Marker2D_54" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(46, -265)
+
+[node name="Marker2D_55" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(-43, -265)
+
+[node name="Marker2D_56" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(-148, -265)
+
+[node name="Marker2D_57" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(-231, -265)
+
+[node name="Marker2D_58" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(-305, -265)
+
+[node name="Marker2D_59" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(-378, -265)
+
+[node name="Marker2D_60" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(-461, -265)
+
+[node name="Marker2D_61" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(-528, -265)
+
+[node name="Marker2D_62" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(2058, 975)
+
+[node name="Marker2D_63" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(1975, 975)
+
+[node name="Marker2D_64" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(1901, 975)
+
+[node name="Marker2D_65" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(1820, 975)
+
+[node name="Marker2D_66" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(1717, 975)
+
+[node name="Marker2D_67" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(1623, 975)
+
+[node name="Marker2D_68" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(1510, 975)
+
+[node name="Marker2D_69" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(1423, 975)
+
+[node name="Marker2D_70" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(1327, 975)
+
+[node name="Marker2D_71" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(1219, 975)
+
+[node name="Marker2D_72" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(1141, 975)
+
+[node name="Marker2D_73" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(1052, 975)
+
+[node name="Marker2D_74" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(956, 975)
+
+[node name="Marker2D_75" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(871, 975)
+
+[node name="Marker2D_76" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(784, 975)
+
+[node name="Marker2D_77" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(711, 975)
+
+[node name="Marker2D_78" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(635, 975)
+
+[node name="Marker2D_79" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(557, 975)
+
+[node name="Marker2D_80" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(465, 975)
+
+[node name="Marker2D_81" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(387, 975)
+
+[node name="Marker2D_82" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(307, 975)
+
+[node name="Marker2D_83" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(220, 975)
+
+[node name="Marker2D_84" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(133, 975)
+
+[node name="Marker2D_85" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(46, 975)
+
+[node name="Marker2D_86" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(-43, 975)
+
+[node name="Marker2D_87" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(-148, 975)
+
+[node name="Marker2D_88" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(-231, 975)
+
+[node name="Marker2D_89" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(-305, 975)
+
+[node name="Marker2D_90" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(-378, 975)
+
+[node name="Marker2D_91" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(-461, 975)
+
+[node name="Marker2D_92" type="Marker2D" parent="scary_obstacles"]
+position = Vector2(-528, 975)
 
 [node name="fences" type="Node" parent="."]
 

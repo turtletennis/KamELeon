@@ -7,14 +7,14 @@ extends CharacterBody2D
 @export var gather_strength : float = 0.2
 @export var separation_radius : int = 55
 @onready var player = GameManager.player
-@export var obstacle_avoidance_radius : int = 300
+@export var obstacle_avoidance_radius : int = 120
 @onready var all_sheep : Array = []
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var scary_obstacles = get_node("/root/level/scary_obstacles").get_children()
 @onready var sound_effect_timer: Timer = $sound_effect_timer
 @onready var sheep_baa_sound: AudioStreamPlayer2D = $sheep_baa_sound
-@onready var fence_raycast = $fence_raycast
+
 
 var conveyer_direction : String
 var on_conveyer : bool 
@@ -31,13 +31,7 @@ func _physics_process(delta: float) -> void:
 	animation_control()
 	conveyer_movement()
 	
-	# cast ray to avoid standing next to fence 
-	fence_raycast.target_position = velocity.normalized() * 100
-	fence_raycast.force_raycast_update()
-	
-	if fence_raycast.is_colliding():
-		var collision_normal = fence_raycast.get_collision_normal()
-		velocity += collision_normal * speed * 0.4
+
 			
 	# Run from player 
 	var distance_to_player = global_position - player.global_position
@@ -85,8 +79,9 @@ func _physics_process(delta: float) -> void:
 
 
 	if goal_reached == false:
-		velocity = move_vector
 		move_and_slide()
+		velocity = move_vector
+		
 		
 var direction : int 
 
