@@ -3,18 +3,12 @@ extends CharacterBody2D
 
 @export var speed : int = 60
 @export var separation_radius : int = 55
-@onready var player = GameManager.player
 @onready var all_goblins : Array = []
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 
-
-
 var in_detection : bool 
-var conveyer_direction : String
-var on_conveyer : bool 
-var conveyer_speed : int
 var goal_reached : bool = false
 var navigation_distance_buffer : int = 50
 var navigating : bool = false
@@ -40,7 +34,7 @@ func _physics_process(delta: float) -> void:
 			var direction = (next_path_point - global_position).normalized()
 			position += direction * speed * delta
 
-	# avoid other goblins
+	# avoid other goblins once nav has stopped
 	if navigation_agent_2d.is_navigation_finished():
 		for other_goblins in all_goblins:
 			if other_goblins == self or not is_instance_valid(other_goblins):
@@ -62,7 +56,7 @@ var direction = 4  # Default facing down
 
 func animation_control():
 	var movement = global_position - last_position
-	var moving = movement.length() > 0.1  # Tiny threshold to avoid flicker
+	var moving = movement.length() > 0.1  
 
 	if moving:
 		if abs(movement.x) > abs(movement.y):
@@ -94,22 +88,6 @@ func reached_goal():
 func die():
 	all_goblins.erase(self)
 	call_deferred("queue_free")
-func entered_conveyer(direction, speed):
-	on_conveyer = true
-	conveyer_speed = speed
-	conveyer_direction = direction
-func exited_conveyer():
-	on_conveyer = false
-func conveyer_movement():
-	if on_conveyer:
-		if conveyer_direction == "up":
-			velocity.y += -conveyer_speed
-		if conveyer_direction == "down":
-			velocity.y += conveyer_speed
-		if conveyer_direction == "left":
-			velocity.x += -conveyer_speed
-		if conveyer_direction == "right":
-			velocity.x += conveyer_speed
 func enter_detection():
 	in_detection = true
 func exit_detection():

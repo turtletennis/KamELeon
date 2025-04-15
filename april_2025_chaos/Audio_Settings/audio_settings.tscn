@@ -146,6 +146,27 @@ offset_bottom = 223.0
 text = "AUDIO:"
 label_settings = SubResource("LabelSettings_kgqxu")
 
+[node name="master_mute_button" type="Button" parent="settings"]
+offset_left = 521.0
+offset_top = 234.0
+offset_right = 546.0
+offset_bottom = 260.0
+
+[node name="music_mute_button" type="Button" parent="settings"]
+offset_left = 521.0
+offset_top = 269.0
+offset_right = 546.0
+offset_bottom = 294.0
+
+[node name="sfx_mute_button" type="Button" parent="settings"]
+offset_left = 520.0
+offset_top = 308.0
+offset_right = 546.0
+offset_bottom = 332.0
+
 [connection signal="value_changed" from="settings/master_volume_slider" to="." method="_on_master_volume_slider_value_changed"]
 [connection signal="value_changed" from="settings/music_volume_slider" to="." method="_on_music_volume_slider_value_changed"]
 [connection signal="value_changed" from="settings/sfx_volume_slider" to="." method="_on_sfx_volume_slider_value_changed"]
+[connection signal="pressed" from="settings/master_mute_button" to="." method="_on_master_mute_button_pressed"]
+[connection signal="pressed" from="settings/music_mute_button" to="." method="_on_music_mute_button_pressed"]
+[connection signal="pressed" from="settings/sfx_mute_button" to="." method="_on_sfx_mute_button_pressed"]

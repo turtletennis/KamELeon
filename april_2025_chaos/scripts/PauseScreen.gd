@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+@onready var audio_settings: Node2D = $Control/Audio_settings
 
 var paused : bool 
 
@@ -15,7 +16,7 @@ func _on_resume_button_pressed() -> void:
 
 
 func _on_settings_button_pressed() -> void:
-	pass # Replace with function body.
+	audio_settings.visible = !audio_settings.visible
 
 
 func _on_menu_button_pressed() -> void:
@@ -32,3 +33,7 @@ func unpause():
 	paused = false
 	self.visible = false
 	get_tree().paused = false
+
+
+func _on_save_button_pressed() -> void:
+	Save_Load.save()

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://fi52fphurejf"]
+[gd_scene load_steps=3 format=3 uid="uid://fi52fphurejf"]
 
 [ext_resource type="Script" uid="uid://dp7njee8vlgej" path="res://scripts/PauseScreen.gd" id="1_k5a5s"]
+[ext_resource type="PackedScene" uid="uid://8gcoiiugnffq" path="res://Audio_Settings/audio_settings.tscn" id="2_d83i7"]
 
 [node name="pause_screen" type="CanvasLayer"]
 process_mode = 3
@@ -53,24 +54,37 @@ offset_bottom = -76.0
 text = "Resume
 "
 
+[node name="save_button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = -307.0
+offset_top = -69.0
+offset_right = -224.0
+offset_bottom = -38.0
+text = "Save"
+
 [node name="settings_button" type="Button" parent="Control"]
 layout_mode = 0
 offset_left = -307.0
-offset_top = -64.0
+offset_top = -30.0
 offset_right = -224.0
-offset_bottom = -33.0
+offset_bottom = 1.0
 text = "Settings
 "
 
 [node name="menu_button" type="Button" parent="Control"]
 layout_mode = 0
 offset_left = -307.0
-offset_top = -24.0
+offset_top = 10.0
 offset_right = -224.0
-offset_bottom = 7.0
+offset_bottom = 41.0
 text = "Menu
 "
 
+[node name="Audio_settings" parent="Control" instance=ExtResource("2_d83i7")]
+visible = false
+position = Vector2(-231, -371)
+
 [connection signal="pressed" from="Control/resume_button" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Control/save_button" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="Control/settings_button" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="Control/menu_button" to="." method="_on_menu_button_pressed"]
