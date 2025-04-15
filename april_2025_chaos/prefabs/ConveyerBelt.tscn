@@ -16,6 +16,7 @@ position = Vector2(184, 20)
 shape = SubResource("RectangleShape2D_42eeg")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_right = 368.0
 offset_bottom = 40.0
 color = Color(0.169245, 0.169245, 0.169245, 1)

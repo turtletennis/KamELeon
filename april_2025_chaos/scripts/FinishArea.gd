@@ -7,7 +7,7 @@ func _ready() -> void:
 	sheep_collected_label.text = str(sheep_collected)
 
 func _on_detection_body_entered(body: Node2D) -> void:
-	if body.is_in_group("sheep"):
+	if body.is_in_group("goblin"):
 		body.reached_goal()
 		sheep_collected += 1
 		sheep_collected_label.text = str(sheep_collected)

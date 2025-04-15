@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bn2173x4nj44x"]
+
+[ext_resource type="Script" uid="uid://bt87dnnugqg84" path="res://scripts/MagicCasting.gd" id="1_1ys3j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uxort"]
+radius = 335.013
+
+[node name="magic_casting" type="Area2D"]
+collision_mask = 4
+script = ExtResource("1_1ys3j")
+
+[node name="detection_area" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_uxort")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
