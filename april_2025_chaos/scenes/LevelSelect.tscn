@@ -1,9 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://dyrtdgprldfdy"]
+[gd_scene load_steps=8 format=3 uid="uid://dyrtdgprldfdy"]
 
 [ext_resource type="Script" uid="uid://dy6dtfnrj6yej" path="res://scripts/LevelSelect.gd" id="1_sf6f5"]
+[ext_resource type="PackedScene" uid="uid://crvch42uomalc" path="res://scenes/levels/level_1.tscn" id="2_3p8qn"]
+[ext_resource type="PackedScene" uid="uid://tytr01sv0r3o" path="res://scenes/levels/level_2.tscn" id="3_t7n47"]
+[ext_resource type="PackedScene" uid="uid://5850mpp0ibc4" path="res://scenes/levels/level_3.tscn" id="4_0t37j"]
+[ext_resource type="PackedScene" uid="uid://c8mhhkjwr7cb1" path="res://scenes/levels/level_4.tscn" id="5_33358"]
+[ext_resource type="PackedScene" uid="uid://dilv3clvp2v34" path="res://scenes/levels/level_5.tscn" id="6_chx4x"]
+[ext_resource type="PackedScene" uid="uid://b1ql5tqngn7cv" path="res://scenes/levels/level_6.tscn" id="7_ptr58"]
 
 [node name="level_select" type="Node2D"]
 script = ExtResource("1_sf6f5")
+level_1 = ExtResource("2_3p8qn")
+level_2 = ExtResource("3_t7n47")
+level_3 = ExtResource("4_0t37j")
+level_4 = ExtResource("5_33358")
+level_5 = ExtResource("6_chx4x")
+level_6 = ExtResource("7_ptr58")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 602.0

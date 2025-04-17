@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://crvch42uomalc"]
+
+[ext_resource type="Script" uid="uid://b0vl88p0ccig2" path="res://scripts/Level.gd" id="1_ksju7"]
+[ext_resource type="PackedScene" uid="uid://tytr01sv0r3o" path="res://scenes/levels/level_2.tscn" id="2_6iamk"]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_ksju7")
+level_number = 1
+next_level = ExtResource("2_6iamk")
+
+[node name="test" type="Label" parent="."]
+offset_left = 699.0
+offset_top = 302.0
+offset_right = 771.0
+offset_bottom = 325.0
+text = "LEVEL 1"

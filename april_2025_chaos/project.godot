@@ -24,6 +24,7 @@ buses/default_bus_layout="res://Resources/default_bus_layout.tres"
 GameManager="*res://scripts/game_manager.gd"
 AudioManager="*res://scenes/AudioManager.tscn"
 Save_Load="*res://scripts/save_and_load.gd"
+SceneLoader="*res://Screen Fade/scene_loader.tscn"
 
 [display]
 

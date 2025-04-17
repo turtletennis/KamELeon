@@ -10,7 +10,6 @@ var master_muted : bool
 var music_muted : bool
 var sfx_muted : bool
 
-
 func _ready() -> void:
 	master_volume_slider.value = AudioManager.master_volume
 	music_volume_slider.value = AudioManager.music_volume
