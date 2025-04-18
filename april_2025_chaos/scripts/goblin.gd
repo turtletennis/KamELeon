@@ -1,46 +1,41 @@
-extends CharacterBody2D
+class_name Goblin extends CharacterBody2D
 
 
-@export var speed : int = 60
-@export var separation_radius : int = 55
+@export var speed : float = 60.0
+@export var separation_radius : float = 55.0
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 
-var in_detection : bool 
-var goal_reached : bool = false
-var navigation_distance_buffer : int = 50
+var stateMachine: GoblinStateMachine
+
 var navigating : bool = false
 
+
 func _ready() -> void:
-	pass
+	stateMachine = GoblinStateMachine.new(self)
+	navigation_agent_2d.max_speed = speed
+	navigation_agent_2d.radius = separation_radius
 	
 func _physics_process(delta: float) -> void:
-	var move_vector: Vector2 = Vector2.ZERO
-	animation_control()
+	var next_path_point = navigation_agent_2d.get_next_path_position()
+	if navigating:
+		velocity = (next_path_point-global_position).normalized() * speed
+		move_and_slide()
+		animation_control()
+		navigation_agent_2d.velocity = velocity
 
-	# stop navigating when reached destination
-	if navigation_agent_2d.is_navigation_finished():
-		navigating = false
-	else:
-		var next_path_point = navigation_agent_2d.get_next_path_position()
-		var distance_to_point = global_position.distance_to(next_path_point)
+func on_avoid_calc(safe_Velocity : Vector2) -> void:
+	if !safe_Velocity.length_squared() < 0.1:
+		velocity = safe_Velocity
+		# avoid other goblins once nav has stopped	
+		move_and_slide()
+		animation_control()
+		navigation_agent_2d.velocity = velocity
 
-		if distance_to_point > navigation_distance_buffer:
-			navigating = true
 
-		if navigating:
-			var direction = (next_path_point - global_position).normalized()
-			position += direction * speed * delta
 
-	# avoid other goblins once nav has stopped
-
-	
-	move_and_slide()
-	velocity = move_vector
-		
-		
 var last_position: Vector2
 var direction = 4  # Default facing down
 
@@ -71,17 +66,20 @@ func animation_control():
 			4: animated_sprite_2d.play("down_idle")
 
 	last_position = global_position
-func reached_goal():
-	goal_reached = true
 
 func die():
-	queue_free.call_deferred()
+	queue_free()
+
+func add_point(targetPosition:Vector2):
+	var scatterTarget = Vector2(randf_range(-separation_radius, separation_radius), randf_range(-separation_radius, separation_radius))
 	
-func enter_detection():
-	in_detection = true
-func exit_detection():
-	in_detection = false
-	
-func add_point(position):
-	navigation_agent_2d.target_position = get_global_mouse_position()
-	
+	navigation_agent_2d.target_position = targetPosition + scatterTarget
+	navigating = true
+	animated_sprite_2d.self_modulate = Color.RED
+	navigation_agent_2d.avoidance_priority = randf_range(0.7, 1.0)
+
+
+func _on_navigation_agent_2d_navigation_finished() -> void:
+	navigating = false
+	animated_sprite_2d.self_modulate = Color.BLUE
+	navigation_agent_2d.avoidance_priority = randf_range(0.1, 0.3)

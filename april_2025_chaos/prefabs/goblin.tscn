@@ -197,7 +197,7 @@ radius = 200.0
 collision_layer = 4
 collision_mask = 125
 script = ExtResource("1_0ukbv")
-speed = 100
+separation_radius = 30.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["goblin"]]
 y_sort_enabled = true
@@ -215,8 +215,14 @@ volume_db = -10.041
 bus = &"SFX"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 30.0
+target_desired_distance = 60.0
+path_max_distance = 250.0
+simplify_path = true
+simplify_epsilon = 1.0
 avoidance_enabled = true
-radius = 50.0
+radius = 55.0
+avoidance_priority = 0.5
 debug_enabled = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -224,3 +230,6 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_yfuqp")
+
+[connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="on_avoid_calc"]
