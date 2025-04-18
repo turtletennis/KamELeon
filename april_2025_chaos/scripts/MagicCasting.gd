@@ -7,7 +7,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("rmb"):
+	if Input.is_action_just_pressed("Action"):
 		cast_summon()
 
 func cast_summon():

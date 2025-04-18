@@ -8,9 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://fi52fphurejf" path="res://scenes/PauseScreen.tscn" id="8_b121j"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_klq6b"]
-vertices = PackedVector2Array(2073.93, 900.023, -495.023, 906.969, -497.969, -178.047, 2067.06, -190.938)
+vertices = PackedVector2Array(2053.81, 880.078, -475.078, 886.906, -477.906, -158.148, 2047.18, -170.844)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-508, -188, 2077, -201, 2084, 910, -505, 917)])
+parsed_collision_mask = 4294967161
+agent_radius = 30.0
 
 [node name="level" type="Node2D"]
 

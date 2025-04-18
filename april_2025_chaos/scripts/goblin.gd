@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 @export var speed : int = 60
 @export var separation_radius : int = 55
-@onready var all_goblins : Array = []
+
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
@@ -14,8 +14,8 @@ var navigation_distance_buffer : int = 50
 var navigating : bool = false
 
 func _ready() -> void:
-	all_goblins = get_parent().get_children()
-
+	pass
+	
 func _physics_process(delta: float) -> void:
 	var move_vector: Vector2 = Vector2.ZERO
 	animation_control()
@@ -35,20 +35,10 @@ func _physics_process(delta: float) -> void:
 			position += direction * speed * delta
 
 	# avoid other goblins once nav has stopped
-	if navigation_agent_2d.is_navigation_finished():
-		for other_goblins in all_goblins:
-			if other_goblins == self or not is_instance_valid(other_goblins):
-				continue
-			var offset = global_position - other_goblins.global_position
-			var distance_from_goblins = offset.length()
-			if distance_from_goblins < separation_radius:
-				move_vector += offset.normalized() * (1.0 - distance_from_goblins / separation_radius) * speed
-		position += move_vector * delta
 
 	
-	if goal_reached == false:
-		move_and_slide()
-		velocity = move_vector
+	move_and_slide()
+	velocity = move_vector
 		
 		
 var last_position: Vector2
@@ -82,16 +72,16 @@ func animation_control():
 
 	last_position = global_position
 func reached_goal():
-	all_goblins.erase(self)
 	goal_reached = true
-	collision_shape_2d.call_deferred("set_disabled", true)
+
 func die():
-	all_goblins.erase(self)
-	call_deferred("queue_free")
+	queue_free.call_deferred()
+	
 func enter_detection():
 	in_detection = true
 func exit_detection():
 	in_detection = false
+	
 func add_point(position):
 	navigation_agent_2d.target_position = get_global_mouse_position()
 	

@@ -291,5 +291,6 @@ sprite_frames = SubResource("SpriteFrames_hax0n")
 animation = &"idle_down"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0

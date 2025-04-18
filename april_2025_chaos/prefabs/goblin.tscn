@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://4dfqjwovfwh"]
+[gd_scene load_steps=27 format=3 uid="uid://4dfqjwovfwh"]
 
 [ext_resource type="Script" uid="uid://gdd8k4nixpmp" path="res://scripts/goblin.gd" id="1_0ukbv"]
 [ext_resource type="Texture2D" uid="uid://cb430a8q5cb3q" path="res://assets/sheep_walk.png" id="2_ou2i8"]
@@ -190,9 +190,12 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wkwx1"]
 radius = 14.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_yfuqp"]
+radius = 200.0
+
 [node name="goblin" type="CharacterBody2D" groups=["goblin"]]
 collision_layer = 4
-collision_mask = 121
+collision_mask = 125
 script = ExtResource("1_0ukbv")
 speed = 100
 
@@ -212,5 +215,12 @@ volume_db = -10.041
 bus = &"SFX"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 80.0
-target_desired_distance = 80.0
+avoidance_enabled = true
+radius = 50.0
+debug_enabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_yfuqp")
