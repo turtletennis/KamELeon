@@ -2,7 +2,7 @@ class_name StateMachine extends RefCounted
 
 var stateList: Dictionary[int, BaseState]
 
-var currentState = null
+var currentState : BaseState = null
 var currentStateIndex := 0
 
 var CurrentStateIndex: int:

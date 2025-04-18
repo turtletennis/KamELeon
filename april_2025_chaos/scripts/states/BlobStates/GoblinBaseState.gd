@@ -6,3 +6,6 @@ var state : int
 func _init(gob: Goblin, stateNum:Constants.GoblinState) -> void:
 	ourBody = gob
 	state = stateNum
+
+func CanTakeNewPosition() -> bool:
+	return false
