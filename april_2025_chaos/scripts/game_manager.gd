@@ -1,8 +1,9 @@
 extends Node
 
 
-var player 
-var goblins
+var player
+var goblins : Array[Goblin]
+
 
 var current_highest_level : int = 6
 
