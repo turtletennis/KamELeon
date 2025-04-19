@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://hx6aqcosr4aj"]
 
 [ext_resource type="AudioStream" uid="uid://5n0kedwsvydg" path="res://assets/Countryside Day Loop A.wav" id="1_hux41"]
-[ext_resource type="Script" uid="uid://goy2jrkernmh" path="res://scripts/AudioManager.gd" id="1_v6v0x"]
+[ext_resource type="Script" uid="uid://goy2jrkernmh" path="res://scripts/Globals/AudioManager.gd" id="1_v6v0x"]
 
 [node name="audio_manager" type="Node"]
 script = ExtResource("1_v6v0x")

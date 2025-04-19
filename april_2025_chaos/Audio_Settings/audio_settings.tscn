@@ -1,21 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://8gcoiiugnffq"]
+[gd_scene load_steps=6 format=3 uid="uid://8gcoiiugnffq"]
 
 [ext_resource type="Script" uid="uid://cqyiebdabtxr6" path="res://Audio_Settings/audio_settings.gd" id="1_j3r4d"]
-[ext_resource type="Texture2D" uid="uid://qkn60jcd0ia0" path="res://Audio_Settings/speaker-and-mute-volume-icon-in-trendy-style-vector-removebg-preview-sheet (2).png" id="2_y7k8g"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a0bsb"]
-atlas = ExtResource("2_y7k8g")
-region = Rect2(367, 0, 367, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_olwhh"]
-atlas = ExtResource("2_y7k8g")
-region = Rect2(0, 0, 367, 200)
+[ext_resource type="Texture2D" uid="uid://bfu6gedajlpo" path="res://assets/UI/post-baroque-uigui-kit/Post-Baroque UI Kit/UI Icons/Gray/Icons Gray/UI_IconsGray_06.png" id="3_mh037"]
+[ext_resource type="Theme" uid="uid://bwjl0xwp728bj" path="res://Resources/ui_theme.tres" id="3_nun0c"]
+[ext_resource type="Texture2D" uid="uid://bhcst38dbhjyx" path="res://assets/UI/post-baroque-uigui-kit/Post-Baroque UI Kit/UI Icons/Gray/Icons Gray/UI_IconsGray_07.png" id="4_ymw86"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l8his"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a0bsb")
+"texture": ExtResource("3_mh037")
 }],
 "loop": true,
 "name": &"mute",
@@ -23,26 +17,12 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_olwhh")
+"texture": ExtResource("4_ymw86")
 }],
 "loop": true,
 "name": &"unmute",
 "speed": 5.0
 }]
-
-[sub_resource type="LabelSettings" id="LabelSettings_1bo7k"]
-font_size = 25
-outline_color = Color(0.372549, 0.803922, 0.894118, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_wtk5w"]
-font_size = 25
-
-[sub_resource type="LabelSettings" id="LabelSettings_jj1o6"]
-font_size = 25
-
-[sub_resource type="LabelSettings" id="LabelSettings_kgqxu"]
-font_size = 34
-shadow_color = Color(0, 0, 0, 1)
 
 [node name="Audio_settings" type="Node2D"]
 script = ExtResource("1_j3r4d")
@@ -62,48 +42,52 @@ grow_vertical = 2
 
 [node name="master_volume_slider" type="HSlider" parent="settings"]
 layout_mode = 0
-offset_left = 229.0
-offset_top = 241.0
-offset_right = 518.0
-offset_bottom = 257.0
+offset_left = 357.0
+offset_top = 233.0
+offset_right = 646.0
+offset_bottom = 251.0
+theme = ExtResource("3_nun0c")
 min_value = -30.0
 max_value = 0.0
+value = -10.0
 
 [node name="music_volume_slider" type="HSlider" parent="settings"]
 layout_mode = 0
-offset_left = 229.0
-offset_top = 275.0
-offset_right = 518.0
-offset_bottom = 291.0
+offset_left = 357.0
+offset_top = 267.0
+offset_right = 646.0
+offset_bottom = 285.0
+theme = ExtResource("3_nun0c")
 min_value = -30.0
 max_value = 0.0
 
 [node name="sfx_volume_slider" type="HSlider" parent="settings"]
 layout_mode = 0
-offset_left = 229.0
-offset_top = 312.0
-offset_right = 518.0
-offset_bottom = 328.0
+offset_left = 357.0
+offset_top = 304.0
+offset_right = 646.0
+offset_bottom = 322.0
+theme = ExtResource("3_nun0c")
 min_value = -30.0
 max_value = 0.0
 
 [node name="master_anim" type="AnimatedSprite2D" parent="settings"]
-position = Vector2(534, 249)
-scale = Vector2(0.15, 0.15)
+position = Vector2(668.525, 242.05)
+scale = Vector2(1.45, 1.45)
 sprite_frames = SubResource("SpriteFrames_l8his")
-animation = &"mute"
+animation = &"unmute"
 autoplay = "unmute"
 
 [node name="music_anim" type="AnimatedSprite2D" parent="settings"]
-position = Vector2(534, 283)
-scale = Vector2(0.15, 0.15)
+position = Vector2(668.525, 276.05)
+scale = Vector2(1.45, 1.45)
 sprite_frames = SubResource("SpriteFrames_l8his")
 animation = &"unmute"
 autoplay = "unmute"
 
 [node name="sfx_anim" type="AnimatedSprite2D" parent="settings"]
-position = Vector2(534, 322)
-scale = Vector2(0.15, 0.15)
+position = Vector2(668.525, 313.05)
+scale = Vector2(1.45, 1.45)
 sprite_frames = SubResource("SpriteFrames_l8his")
 animation = &"unmute"
 autoplay = "unmute"
@@ -115,57 +99,53 @@ offset_left = 126.0
 offset_top = 232.0
 offset_right = 223.0
 offset_bottom = 267.0
+scale = Vector2(1.57, 1.57)
+theme = ExtResource("3_nun0c")
 text = "MASTER"
-label_settings = SubResource("LabelSettings_1bo7k")
 
 [node name="music_label" type="Label" parent="settings"]
 layout_mode = 0
-offset_left = 128.0
+offset_left = 126.0
 offset_top = 264.0
-offset_right = 207.0
+offset_right = 205.0
 offset_bottom = 299.0
+scale = Vector2(1.57, 1.57)
+theme = ExtResource("3_nun0c")
 text = "MUSIC"
-label_settings = SubResource("LabelSettings_wtk5w")
 
 [node name="sfx_label" type="Label" parent="settings"]
 layout_mode = 0
-offset_left = 129.0
+offset_left = 127.0
 offset_top = 300.0
 offset_right = 172.0
 offset_bottom = 335.0
+scale = Vector2(1.57, 1.57)
+theme = ExtResource("3_nun0c")
 text = "SFX"
-label_settings = SubResource("LabelSettings_jj1o6")
-
-[node name="audio_label" type="Label" parent="settings"]
-texture_filter = 5
-layout_mode = 0
-offset_left = 303.0
-offset_top = 176.0
-offset_right = 422.0
-offset_bottom = 223.0
-text = "AUDIO:"
-label_settings = SubResource("LabelSettings_kgqxu")
 
 [node name="master_mute_button" type="Button" parent="settings"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 521.0
-offset_top = 234.0
-offset_right = 546.0
-offset_bottom = 260.0
+offset_left = 655.525
+offset_top = 228.0
+offset_right = 680.525
+offset_bottom = 254.0
 
 [node name="music_mute_button" type="Button" parent="settings"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 521.0
-offset_top = 269.0
-offset_right = 546.0
-offset_bottom = 294.0
+offset_left = 655.525
+offset_top = 263.0
+offset_right = 680.525
+offset_bottom = 288.0
 
 [node name="sfx_mute_button" type="Button" parent="settings"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 520.0
-offset_top = 308.0
-offset_right = 546.0
-offset_bottom = 332.0
+offset_left = 654.525
+offset_top = 300.0
+offset_right = 680.525
+offset_bottom = 324.0
 
 [connection signal="value_changed" from="settings/master_volume_slider" to="." method="_on_master_volume_slider_value_changed"]
 [connection signal="value_changed" from="settings/music_volume_slider" to="." method="_on_music_volume_slider_value_changed"]
