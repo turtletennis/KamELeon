@@ -1,8 +1,11 @@
-[gd_scene load_steps=38 format=3 uid="uid://di14b32uuj7nb"]
+[gd_scene load_steps=42 format=3 uid="uid://di14b32uuj7nb"]
 
 [ext_resource type="Script" uid="uid://beay6dcnnt4cg" path="res://scripts/player.gd" id="1_a4jbx"]
 [ext_resource type="Texture2D" uid="uid://c0cj3x4ndfxkw" path="res://assets/dog_idle.png" id="2_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://0kabqn6qwf2l" path="res://assets/dog_walk.png" id="3_dqkch"]
+[ext_resource type="PackedScene" uid="uid://bn2173x4nj44x" path="res://scenes/MagicCasting.tscn" id="4_1txc5"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_g2jcq"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_u51tk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r66lb"]
 radius = 15.5
@@ -275,6 +278,12 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Resource" id="Resource_kbsxf"]
+script = ExtResource("6_u51tk")
+duration = 1.0
+transition = 0
+ease = 2
+
 [node name="player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 collision_mask = 29
@@ -290,7 +299,18 @@ scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_hax0n")
 animation = &"idle_down"
 
-[node name="Camera2D" type="Camera2D" parent="."]
-limit_smoothed = true
-position_smoothing_enabled = true
-position_smoothing_speed = 8.0
+[node name="magic_casting" parent="." instance=ExtResource("4_1txc5")]
+collision_layer = 0
+monitorable = false
+maxDistanceFromPlayer = null
+
+[node name="Camera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_targets")]
+top_level = true
+script = ExtResource("5_g2jcq")
+follow_mode = 3
+follow_targets = [NodePath(".."), NodePath("../magic_casting")]
+snap_to_pixel = true
+tween_resource = SubResource("Resource_kbsxf")
+follow_damping = true
+follow_damping_value = Vector2(0.6, 0.6)
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"

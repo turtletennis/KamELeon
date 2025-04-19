@@ -1,10 +1,15 @@
 extends Area2D
 
 @onready var collisionShape : CollisionShape2D = $detection_area
+@onready var player := get_parent()
 
+@export var maxDistanceFromPlayer : float = 300
+
+@export var waypointSpell : PackedScene
 
 func _physics_process(delta: float) -> void:
-	global_position = get_global_mouse_position()
+	var aimPoint = player.get_local_mouse_position()
+	position = aimPoint.limit_length(maxDistanceFromPlayer)
 	queue_redraw()
 
 
@@ -13,18 +18,13 @@ func _input(event: InputEvent) -> void:
 		cast_summon()
 
 func cast_summon():
-	for goblin in GameManager.goblins:
-		goblin.add_point(get_global_mouse_position())
+	var newWaypoint := waypointSpell.instantiate() as Node2D
+	newWaypoint.global_position = global_position
+	player.get_parent().add_child(newWaypoint)
 
-func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("goblin"):
-		print("entered")
-		
-
-
-func _on_body_exited(body: Node2D) -> void:
-	if body.is_in_group("goblin"):
-		pass
+	var goblinsInArea := get_overlapping_bodies()
+	for gobbo: Goblin in goblinsInArea:
+		gobbo.add_point(newWaypoint)
 
 func _draw() -> void:
 	draw_circle(Vector2.ZERO, collisionShape.shape.radius, Color.RED, false)

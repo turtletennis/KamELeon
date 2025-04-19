@@ -44,11 +44,11 @@ func animation_control():
 func die():
 	stateMachine.QueueSwapState(Constants.GoblinState.Dead)
 
-func add_point(targetPosition:Vector2):
+func add_point(waypoint:WaypointMarker):
 	var scatterTarget = Vector2(randf_range(-separation_radius, separation_radius), randf_range(-separation_radius, separation_radius))
 	
 	if stateMachine.CanTakeNewPosition():
-		navigation_agent_2d.target_position = targetPosition + scatterTarget
+		navigation_agent_2d.target_position = waypoint.global_position + scatterTarget
 		stateMachine.QueueSwapState(Constants.GoblinState.Moving)
 
 
