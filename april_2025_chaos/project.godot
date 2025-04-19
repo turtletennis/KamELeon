@@ -21,12 +21,11 @@ buses/default_bus_layout="res://Resources/default_bus_layout.tres"
 
 [autoload]
 
-GameManager="*res://scripts/game_manager.gd"
-AudioManager="*res://scenes/AudioManager.tscn"
-Save_Load="*res://scripts/save_and_load.gd"
-SceneLoader="*res://Screen Fade/scene_loader.tscn"
 Constants="*res://scripts/Globals/Constants.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+GameManager="*res://scripts/Globals/game_manager.gd"
+AudioManager="*res://scripts/Globals/AudioManager.gd"
+Save_Load="*res://scripts/Globals/save_and_load.gd"
 
 [display]
 

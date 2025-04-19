@@ -16,12 +16,10 @@ func _process(delta: float) -> void:
 		if activeTimeout < 0:
 			set_inactive()
 		
-			findGoblinTimer -= delta
-	if findGoblinTimer < 0:
-		findGoblinTimer = 0.1
-		var closetGobbo = GameManager.goblins.findGoblinCanMoveClosestToPosition(global_position)
-		closetGobbo.setWaypoint(self)
-
+		findGoblinTimer -= delta
+		if findGoblinTimer < 0:
+			findGoblinTimer = 0.1
+			findAndSummonGobbo.call_deferred()
 	else:
 		inactiveTimeout -= delta
 		if inactiveTimeout < 0:
@@ -32,3 +30,8 @@ func set_inactive() -> void:
 	activeSprite.visible = false
 	inactiveSprite.visible = true
 	active = false
+
+func findAndSummonGobbo() -> void:
+	var closetGobbo = GameManager.goblins.findGoblinCanMoveClosestToPosition(self)
+	if closetGobbo != null:
+		closetGobbo.setWaypoint(self)

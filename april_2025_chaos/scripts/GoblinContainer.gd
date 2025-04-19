@@ -11,11 +11,12 @@ func _ready() -> void:
 	GameManager.set_goblins(self)
 	 
 
-func findGoblinCanMoveClosestToPosition(positionToFind: Vector2) -> Goblin:
+func findGoblinCanMoveClosestToPosition(waypoint: WaypointMarker) -> Goblin:
 	var closest : Goblin = null
-	var toFind = goblins.duplicate(false)
+	var toFind = goblins.filter(func(gobbo: Goblin)-> bool: 
+		return gobbo.stateMachine.CanTakeNewPosition() and gobbo.IsWaypointCloserThanCurrent(waypoint))
 	
-	
+	var positionToFind := waypoint.global_position
 	
 	var sortFunc := func(gob1:Goblin, gob2: Goblin) -> bool:
 		var gob1Distance = gob1.global_position.distance_squared_to(positionToFind)
@@ -23,5 +24,5 @@ func findGoblinCanMoveClosestToPosition(positionToFind: Vector2) -> Goblin:
 		return gob1Distance < gob2Distance
 	toFind.sort_custom(sortFunc)
 		
-	return toFind.front()
+	return toFind.front() if !toFind.is_empty() else null
 		

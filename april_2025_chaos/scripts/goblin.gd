@@ -56,3 +56,14 @@ func setWaypoint(waypoint:WaypointMarker):
 
 func _on_navigation_agent_2d_navigation_finished() -> void:
 	stateMachine.QueueSwapState(Constants.GoblinState.Idle)
+
+func IsWaypointCloserThanCurrent(waypoint: WaypointMarker) -> bool:
+	if currentWaypoint == null or !currentWaypoint.active:
+		return true
+	if waypoint == currentWaypoint:
+		return false
+	
+	var distanceCurrent = global_position.distance_squared_to(currentWaypoint.global_position)
+	var distanceNew = global_position.distance_squared_to(waypoint.global_position)
+	
+	return distanceNew < distanceCurrent
