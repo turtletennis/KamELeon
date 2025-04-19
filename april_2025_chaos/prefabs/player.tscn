@@ -302,7 +302,6 @@ animation = &"idle_down"
 [node name="magic_casting" parent="." instance=ExtResource("4_1txc5")]
 collision_layer = 0
 monitorable = false
-maxDistanceFromPlayer = null
 
 [node name="Camera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_targets")]
 top_level = true

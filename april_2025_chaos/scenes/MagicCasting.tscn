@@ -10,7 +10,6 @@ radius = 335.013
 [node name="magic_casting" type="Area2D"]
 collision_mask = 4
 script = ExtResource("1_1ys3j")
-maxDistanceFromPlayer = null
 waypointSpell = ExtResource("2_aokde")
 
 [node name="detection_area" type="CollisionShape2D" parent="."]

@@ -24,7 +24,7 @@ func cast_summon():
 
 	var goblinsInArea := get_overlapping_bodies()
 	for gobbo: Goblin in goblinsInArea:
-		gobbo.add_point(newWaypoint)
+		gobbo.setWaypoint(newWaypoint)
 
 func _draw() -> void:
 	draw_circle(Vector2.ZERO, collisionShape.shape.radius, Color.RED, false)

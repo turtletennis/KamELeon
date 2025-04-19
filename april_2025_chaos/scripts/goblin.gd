@@ -9,6 +9,7 @@ class_name Goblin extends CharacterBody2D
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 
 var stateMachine: GoblinStateMachine
+var currentWaypoint: WaypointMarker
 
 func _ready() -> void:
 	stateMachine = GoblinStateMachine.new(self)
@@ -44,7 +45,8 @@ func animation_control():
 func die():
 	stateMachine.QueueSwapState(Constants.GoblinState.Dead)
 
-func add_point(waypoint:WaypointMarker):
+func setWaypoint(waypoint:WaypointMarker):
+	currentWaypoint = waypoint
 	var scatterTarget = Vector2(randf_range(-separation_radius, separation_radius), randf_range(-separation_radius, separation_radius))
 	
 	if stateMachine.CanTakeNewPosition():
