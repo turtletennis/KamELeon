@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c405qtutpyst8"]
 
-[ext_resource type="Script" uid="uid://cti2c3jij6yc0" path="res://Screen Fade/scene_loader.gd" id="1_5o1iq"]
+[ext_resource type="Script" uid="uid://cti2c3jij6yc0" path="res://scripts/Globals/scene_loader.gd" id="1_5o1iq"]
 
 [sub_resource type="Animation" id="Animation_jmawc"]
 length = 0.001

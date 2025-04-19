@@ -93,7 +93,7 @@ position = Vector2(520, 162)
 
 [node name="credits" parent="." instance=ExtResource("4_mipys")]
 visible = false
-position = Vector2(513, 166)
+position = Vector2(520, 162)
 
 [node name="level_select" parent="." instance=ExtResource("5_8a8k8")]
 visible = false
