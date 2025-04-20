@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b6u6g6ugmtb4e"]
+[gd_scene load_steps=9 format=3 uid="uid://b6u6g6ugmtb4e"]
 
 [ext_resource type="Script" uid="uid://7x0m8qq8b043" path="res://scripts/MainMenu.gd" id="1_l72w3"]
 [ext_resource type="Theme" uid="uid://bwjl0xwp728bj" path="res://Resources/ui_theme.tres" id="2_826wr"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bxuemdlqhoc5c" path="res://scenes/Settings.tscn" id="3_ucygd"]
 [ext_resource type="PackedScene" uid="uid://clayaepry8txf" path="res://scenes/Credits.tscn" id="4_mipys"]
 [ext_resource type="PackedScene" uid="uid://dyrtdgprldfdy" path="res://scenes/LevelSelect.tscn" id="5_8a8k8"]
+[ext_resource type="Texture2D" uid="uid://cdrjqeu51m5ak" path="res://assets/Title.png" id="8_mipys"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -26,10 +27,10 @@ texture = ExtResource("2_ucygd")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 2
-offset_left = 133.0
-offset_top = 168.0
-offset_right = 303.0
-offset_bottom = 612.0
+offset_left = 108.0
+offset_top = 258.0
+offset_right = 278.0
+offset_bottom = 702.0
 texture = ExtResource("3_mipys")
 patch_margin_left = 13
 patch_margin_top = 13
@@ -38,10 +39,10 @@ patch_margin_bottom = 13
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
-offset_left = 155.0
-offset_top = 193.0
-offset_right = 281.0
-offset_bottom = 589.0
+offset_left = 130.0
+offset_top = 283.0
+offset_right = 256.0
+offset_bottom = 679.0
 theme_override_constants/v_separation = 12
 
 [node name="resume button" type="Button" parent="GridContainer"]
@@ -83,16 +84,6 @@ layout_mode = 2
 theme = ExtResource("2_826wr")
 text = "Quit"
 
-[node name="Temp Title" type="Label" parent="."]
-layout_mode = 0
-offset_left = 226.0
-offset_top = 50.0
-offset_right = 339.0
-offset_bottom = 73.0
-scale = Vector2(8, 8)
-theme = ExtResource("2_826wr")
-text = "BOOK GOBLINS"
-
 [node name="settings" parent="." instance=ExtResource("3_ucygd")]
 visible = false
 position = Vector2(520, 162)
@@ -104,6 +95,10 @@ position = Vector2(520, 162)
 [node name="level_select" parent="." instance=ExtResource("5_8a8k8")]
 visible = false
 position = Vector2(520, 162)
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(210, 140)
+texture = ExtResource("8_mipys")
 
 [connection signal="pressed" from="GridContainer/resume button" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="GridContainer/start_button" to="." method="_on_start_button_pressed"]
