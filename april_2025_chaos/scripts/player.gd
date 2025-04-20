@@ -21,30 +21,18 @@ func _process(delta: float) -> void:
 
 
 func animation_control():
-	if abs(velocity.x) > abs(velocity.y):
-		if velocity.x < 0:
-			animated_sprite_2d.play("walk_left")
-			direction = 1
-		elif velocity.x > 0:
-			animated_sprite_2d.play("walk_right")
-			direction = 2
-	elif abs(velocity.y) > 0:
-		if velocity.y < 0:
-			animated_sprite_2d.play("walk_up")
-			direction = 3
-		elif velocity.y > 0:
-			animated_sprite_2d.play("walk_down")
-			direction = 4
-	
+
+	if velocity.x < 0:
+		animated_sprite_2d.flip_h = true
+	elif velocity.x > 0:
+		animated_sprite_2d.flip_h = false
+	if velocity.y < 0:
+		animated_sprite_2d.play("back_idle")
+	elif velocity.y > 0:
+		animated_sprite_2d.play("front_idle")
 	else:
-		if direction == 1:
-			animated_sprite_2d.play("idle_left")
-		if direction == 2:
-			animated_sprite_2d.play("idle_right")
-		if direction == 3:
-			animated_sprite_2d.play("idle_up")
-		if direction == 4:
-			animated_sprite_2d.play("idle_down")
+		animated_sprite_2d.play("front_idle")
+
 func movement_management(delta):
 	var direction := Vector2.ZERO
 	direction = direction.normalized() 
