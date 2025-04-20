@@ -1,6 +1,8 @@
 extends CanvasLayer
 
-@onready var audio_settings: Node2D = $Control/Audio_settings
+@onready var audio_settings: Node2D = $Control/settings
+
+
 
 var paused : bool 
 
@@ -21,6 +23,8 @@ func _on_settings_button_pressed() -> void:
 
 func _on_menu_button_pressed() -> void:
 	unpause()
+	SceneLoader.play()
+	await get_tree().create_timer(0.7).timeout
 	get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
 
 

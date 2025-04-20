@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://tytr01sv0r3o"]
+[gd_scene load_steps=4 format=3 uid="uid://tytr01sv0r3o"]
 
 [ext_resource type="Script" uid="uid://b0vl88p0ccig2" path="res://scripts/Level.gd" id="1_j2425"]
 [ext_resource type="PackedScene" uid="uid://5850mpp0ibc4" path="res://scenes/levels/level_3.tscn" id="2_g2h2n"]
+[ext_resource type="PackedScene" uid="uid://fi52fphurejf" path="res://scenes/PauseScreen.tscn" id="3_ra442"]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_j2425")
@@ -14,3 +15,5 @@ offset_top = 302.0
 offset_right = 771.0
 offset_bottom = 325.0
 text = "LEVEL 2"
+
+[node name="pause_screen" parent="." instance=ExtResource("3_ra442")]

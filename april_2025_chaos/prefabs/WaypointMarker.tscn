@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cu0blthxbuuv5"]
 
 [ext_resource type="Script" uid="uid://bp1xogbyn0xf7" path="res://scripts/WaypointMarker.gd" id="1_5ebgb"]
-[ext_resource type="Texture2D" uid="uid://rpi6bi23q1uk" path="res://icon.svg" id="2_irex5"]
+[ext_resource type="Texture2D" uid="uid://bp4ste28ytoc1" path="res://assets/Magicmark.png" id="2_5ebgb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uxort"]
 radius = 335.013
@@ -14,12 +14,12 @@ script = ExtResource("1_5ebgb")
 shape = SubResource("CircleShape2D_uxort")
 
 [node name="ActiveSprite" type="Sprite2D" parent="."]
-self_modulate = Color(1, 0, 1, 1)
 scale = Vector2(0.234375, 0.234375)
-texture = ExtResource("2_irex5")
+texture = ExtResource("2_5ebgb")
 
 [node name="InactiveSprite" type="Sprite2D" parent="."]
 visible = false
 self_modulate = Color(0.419608, 0.447059, 0.4, 0.756863)
+y_sort_enabled = true
 scale = Vector2(0.234375, 0.234375)
-texture = ExtResource("2_irex5")
+texture = ExtResource("2_5ebgb")

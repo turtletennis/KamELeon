@@ -8,8 +8,8 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_u51tk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r66lb"]
-radius = 15.5
-height = 56.0
+radius = 7.0
+height = 34.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kbsxf"]
 atlas = ExtResource("2_g2jcq")
@@ -925,17 +925,17 @@ collision_mask = 29
 script = ExtResource("1_a4jbx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -1)
+position = Vector2(-1, 16)
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_r66lb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2, -18)
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_hax0n")
 animation = &"front_idle"
 
 [node name="magic_casting" parent="." instance=ExtResource("4_1txc5")]
-visible = false
 collision_layer = 0
 monitorable = false
 
