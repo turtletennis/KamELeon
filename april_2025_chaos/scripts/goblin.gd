@@ -4,6 +4,8 @@ class_name Goblin extends CharacterBody2D
 @export var speed : float = 60.0
 @export var separation_radius : float = 55.0
 
+@export var initialState: Constants.GoblinState = Constants.GoblinState.Idle
+
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
@@ -11,8 +13,11 @@ class_name Goblin extends CharacterBody2D
 var stateMachine: GoblinStateMachine
 var currentWaypoint: WaypointMarker
 
+var heldItem: CollectItem.CollectType = 0
+
+
 func _ready() -> void:
-	stateMachine = GoblinStateMachine.new(self)
+	stateMachine = GoblinStateMachine.new(self, initialState)
 	navigation_agent_2d.max_speed = speed
 	navigation_agent_2d.radius = separation_radius
 	
@@ -67,3 +72,9 @@ func IsWaypointCloserThanCurrent(waypoint: WaypointMarker) -> bool:
 	var distanceNew = global_position.distance_squared_to(waypoint.global_position)
 	
 	return distanceNew < distanceCurrent
+
+func CanAwaken() -> bool:
+	return stateMachine.CanAwaken()
+
+func _on_detection_area_body_entered(body: Node2D) -> void:
+	stateMachine.OnDetection(body)

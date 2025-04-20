@@ -12,7 +12,7 @@ var CurrentStateIndex: int:
 		QueueSwapState(value)
 
 func QueueSwapState(newStateKey:int):
-	if(newStateKey == currentStateIndex || newStateKey == 0):
+	if newStateKey == currentStateIndex:
 		return
 	var newState = stateList.get(newStateKey)
 	if newState == currentState:
@@ -25,7 +25,14 @@ func QueueSwapState(newStateKey:int):
 	call_deferred("SwapStateImmediate", newState)
 	currentStateIndex = newStateKey
 
-func SwapStateImmediate(newState) -> void:
+func SwapStateImmediateKey(newKey: int) -> void:
+	currentStateIndex = newKey
+	var newState = stateList.get(currentStateIndex)
+	SwapStateImmediate(newState)
+
+
+
+func SwapStateImmediate(newState: BaseState) -> void:
 	if currentState != null: currentState.ExitState()
 	newState.EnterState()
 	currentState = newState
