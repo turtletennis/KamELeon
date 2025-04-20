@@ -34,12 +34,13 @@ func moveOnPath() -> void:
 	navigation_agent_2d.velocity = velocity
 
 func on_avoid_calc(safe_Velocity : Vector2) -> void:
-	if !safe_Velocity.length_squared() < 0.1 and stateMachine.CanTakeNewPosition():
-		velocity = safe_Velocity
+	#if !safe_Velocity.length_squared() < 0.1 and stateMachine.CanTakeNewPosition():
 		# avoid other goblins once nav has stopped	
-		move_and_slide()
-		animation_control()
-		navigation_agent_2d.velocity = velocity
+	animation_control()
+
+	velocity = safe_Velocity
+	move_and_slide()
+	navigation_agent_2d.velocity = velocity
 
 
 
@@ -53,6 +54,8 @@ func die():
 	stateMachine.QueueSwapState(Constants.GoblinState.Dead)
 
 func setWaypoint(waypoint:WaypointMarker):
+	if currentWaypoint == waypoint:
+		return
 	currentWaypoint = waypoint
 	var scatterTarget = Vector2(randf_range(-separation_radius, separation_radius), randf_range(-separation_radius, separation_radius))
 	
@@ -62,7 +65,10 @@ func setWaypoint(waypoint:WaypointMarker):
 
 
 func _on_navigation_agent_2d_navigation_finished() -> void:
-	stateMachine.QueueSwapState(Constants.GoblinState.Idle)
+	if workTarget == null:
+		stateMachine.QueueSwapState(Constants.GoblinState.Idle)
+	else:
+		startWork(workTarget)
 
 func IsWaypointCloserThanCurrent(waypoint: WaypointMarker) -> bool:
 	if currentWaypoint == null or !currentWaypoint.active:
@@ -83,7 +89,15 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 	
 func setWorkTarget(body: CollectItem) -> void:
 	workTarget = body
+	body.worker = self
 	navigation_agent_2d.target_position = body.global_position
+	navigation_agent_2d.target_desired_distance = 5.0
 	
 func startWork(body: CollectItem) -> void:
-	workTarget = body
+	stateMachine.QueueSwapState(Constants.GoblinState.Working)
+
+func workCompleted() -> void:
+	workTarget.WorkCompleted()
+	workTarget = null
+	heldItem = true
+	

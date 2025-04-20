@@ -3,9 +3,11 @@ class_name GoblinMovingState extends GoblinBaseState
 var lastPosition:=Vector2.ZERO
 
 func EnterState():
-	ourBody.animated_sprite_2d.self_modulate = Color.RED
+	#ourBody.animated_sprite_2d.self_modulate = Color.RED
 	ourBody.navigation_agent_2d.avoidance_priority = randf_range(0.5, 0.7)
 	ourBody.navigation_agent_2d.avoidance_enabled = false
+	ourBody.navigation_agent_2d.target_desired_distance = randf_range(10.0, 70.0)
+
 
 func Update(delta: float):
 	ourBody.moveOnPath()
@@ -15,6 +17,7 @@ func CanTakeNewPosition() -> bool:
 
 func DoAnimationControl() -> void:
 	var bookOnHead = ourBody.heldItem
+
 	var movement = ourBody.global_position - lastPosition
 	
 	if movement.x < 0:
@@ -52,8 +55,8 @@ func DoAnimationControl() -> void:
 
 func OnDetection(body: Node2D) -> Constants.GoblinState:
 	var book := body as CollectItem
-	if book != null:
-		ourBody.setWorkTarget(body as CollectItem)
+	if book != null and book.worker == null:
+		ourBody.setWorkTarget(book)
 		return Constants.GoblinState.MovingToTask
 	
 	return state

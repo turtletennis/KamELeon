@@ -728,7 +728,7 @@ separation_radius = 30.0
 y_sort_enabled = true
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_lf2rx")
-animation = &"run_no_book"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["goblin"]]
 position = Vector2(1, 1)
@@ -760,4 +760,5 @@ shape = SubResource("CircleShape2D_yfuqp")
 
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="on_avoid_calc"]
+[connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
