@@ -14,8 +14,9 @@ func CanTakeNewPosition() -> bool:
 	return true
 
 func DoAnimationControl() -> void:
-	match ourBody.direction:
-		1: ourBody.animated_sprite_2d.play("left_idle")
-		2: ourBody.animated_sprite_2d.play("right_idle")
-		3: ourBody.animated_sprite_2d.play("up_idle")
-		4: ourBody.animated_sprite_2d.play("down_idle")
+	print(ourBody.velocity)
+	if ourBody.velocity == Vector2.ZERO:
+		if ourBody.heldItem:
+			ourBody.animated_sprite_2d.play("idle_no_book")
+		else: 
+			ourBody.animated_sprite_2d.play("idle_no_book")
