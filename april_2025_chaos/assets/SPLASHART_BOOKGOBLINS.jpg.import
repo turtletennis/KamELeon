@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbopbwp5eq3xe"
-path="res://.godot/imported/Wall_tileset.png-6b13a175b15336642c09d873d2e6d4c2.ctex"
+uid="uid://djs1uv3bmowqy"
+path="res://.godot/imported/SPLASHART_BOOKGOBLINS.jpg-767ed12e255f40b39e4df8806e32207b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Wall_tileset.png"
-dest_files=["res://.godot/imported/Wall_tileset.png-6b13a175b15336642c09d873d2e6d4c2.ctex"]
+source_file="res://assets/SPLASHART_BOOKGOBLINS.jpg"
+dest_files=["res://.godot/imported/SPLASHART_BOOKGOBLINS.jpg-767ed12e255f40b39e4df8806e32207b.ctex"]
 
 [params]
 

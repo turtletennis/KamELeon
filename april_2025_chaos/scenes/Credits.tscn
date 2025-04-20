@@ -16,11 +16,26 @@ patch_margin_right = 13
 patch_margin_bottom = 13
 
 [node name="credits_label" type="Label" parent="."]
-offset_left = 220.0
-offset_top = 207.0
-offset_right = 366.0
-offset_bottom = 230.0
-text = "insert credits here "
+offset_left = 31.0
+offset_top = 79.0
+offset_right = 530.0
+offset_bottom = 466.0
+scale = Vector2(0.9, 0.9)
+text = "Programming & Design
+Lucy \"Fictional\" Dandiels – https://www.twitch.tv/fictionalcodes
+Triss \"Small Sprout Studios\" – https://small-sprout-studios.itch.io
+
+Art
+Diego Perera - https://www.twitch.tv/notperera
+Suricato Guerrilheiro - https://ravensherald.carrd.co/
+
+Music
+Valorie – https://www.tumblr.com/valeriegmusic
+
+UI 
+Created by BARELY APES
+Licensed via GameDev Market
+https://www.gamedevmarket.net/member/barely-apes"
 
 [node name="NinePatchRect_2" type="NinePatchRect" parent="."]
 offset_left = 166.0
