@@ -15,22 +15,38 @@ func CanTakeNewPosition() -> bool:
 
 func DoAnimationControl() -> void:
 	var bookOnHead = ourBody.heldItem
-	
 	var movement = ourBody.global_position - lastPosition
-	if abs(movement.x) > abs(movement.y):
-		if movement.x < 0:
-			ourBody.animated_sprite_2d.play("left")
-			ourBody.direction = 1
+	
+	if movement.x < 0:
+		ourBody.animated_sprite_2d.flip_h = true
+		ourBody.direction = 1
+		if bookOnHead:
+			ourBody.animated_sprite_2d.play("run_with_book")
 		else:
-			ourBody.animated_sprite_2d.play("right")
-			ourBody.direction = 2
+			ourBody.animated_sprite_2d.play("run_no_book")
+		
 	else:
-		if movement.y < 0:
-			ourBody.animated_sprite_2d.play("up")
-			ourBody.direction = 3
+		ourBody.animated_sprite_2d.flip_h = false
+		ourBody.direction = 2
+		if bookOnHead:
+			ourBody.animated_sprite_2d.play("run_with_book")
 		else:
-			ourBody.animated_sprite_2d.play("down")
-			ourBody.direction = 4
+			ourBody.animated_sprite_2d.play("run_no_book")
+		
+
+	if movement.y < 0:
+		if bookOnHead:
+			ourBody.animated_sprite_2d.play("run_with_book")
+		else:
+			ourBody.animated_sprite_2d.play("run_no_book")
+		ourBody.direction = 3
+	else:
+		if bookOnHead:
+			ourBody.animated_sprite_2d.play("run_with_book")
+		else:
+			ourBody.animated_sprite_2d.play("run_no_book")
+		ourBody.direction = 4
+	
 	
 	lastPosition = ourBody.global_position
 
