@@ -5,7 +5,7 @@ var player
 var goblins : Array[Goblin]
 
 
-var current_highest_level : int = 6
+var current_highest_level : int = 1
 
 func set_player(target):
 	player = target

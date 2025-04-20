@@ -6,12 +6,13 @@ extends Node2D
 @export var level_4 : PackedScene
 @export var level_5 : PackedScene
 @export var level_6 : PackedScene
-@onready var level_1_button: Button = $level_1_button
-@onready var level_2_button: Button = $level_2_button
-@onready var level_3_button: Button = $level_3_button
-@onready var level_4_button: Button = $level_4_button
-@onready var level_5_button: Button = $level_5_button
-@onready var level_6_button: Button = $level_6_button
+@onready var level_1_button: Button = $NinePatchRect/GridContainer/level_1_button
+@onready var level_2_button: Button = $NinePatchRect/GridContainer/level_2_button
+@onready var level_3_button: Button = $NinePatchRect/GridContainer/level_3_button
+@onready var level_4_button: Button = $NinePatchRect/GridContainer/level_4_button
+@onready var level_5_button: Button = $NinePatchRect/GridContainer/level_5_button
+@onready var level_6_button: Button = $NinePatchRect/GridContainer/level_6_button
+
 @onready var buttons : Array = [level_1_button, level_2_button, level_3_button, level_4_button, level_5_button, level_6_button]
 
 func _process(delta: float) -> void:

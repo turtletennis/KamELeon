@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 var screen_fade_in_progress : bool
 
 

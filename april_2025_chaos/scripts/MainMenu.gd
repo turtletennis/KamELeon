@@ -53,7 +53,8 @@ func show_hide_level_select():
 
 	
 
-@onready var no_save_label: Label = $"resume button/no_save_label"
+@onready var no_save_label: Label = $"GridContainer/resume button/no_save_label"
+
 
 func _on_resume_button_pressed() -> void:
 	if Save_Load.file_saved == false:

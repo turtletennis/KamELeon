@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://clayaepry8txf"]
+[gd_scene load_steps=4 format=3 uid="uid://clayaepry8txf"]
 
 [ext_resource type="Texture2D" uid="uid://vu5jtqjt1hx3" path="res://assets/UI/post-baroque-uigui-kit/Post-Baroque UI Kit/Panels/Panels A/Panels A/UI_PanelsA_01.png" id="1_hi4w3"]
+[ext_resource type="Texture2D" uid="uid://cussudu1ksbfh" path="res://assets/UI/post-baroque-uigui-kit/Post-Baroque UI Kit/Titles/UI_TitleA2.png" id="2_gw1d4"]
+[ext_resource type="Theme" uid="uid://bwjl0xwp728bj" path="res://Resources/ui_theme.tres" id="3_y8nor"]
 
 [node name="credits" type="Node2D"]
 
@@ -19,3 +21,31 @@ offset_top = 207.0
 offset_right = 366.0
 offset_bottom = 230.0
 text = "insert credits here "
+
+[node name="NinePatchRect_2" type="NinePatchRect" parent="."]
+offset_left = 166.0
+offset_top = 26.0
+offset_right = 419.0
+offset_bottom = 59.0
+texture = ExtResource("2_gw1d4")
+patch_margin_left = 15
+patch_margin_top = 9
+patch_margin_right = 15
+patch_margin_bottom = 9
+
+[node name="settings_title" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 64.0
+offset_top = 26.0
+offset_right = 250.0
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.5, 2.5)
+theme = ExtResource("3_y8nor")
+text = "CREDITS"
+horizontal_alignment = 1
