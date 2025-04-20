@@ -15,7 +15,7 @@ var currentWaypoint: WaypointMarker = null
 
 var workTarget :CollectItem = null
 
-var heldItem: CollectItem.CollectType = 0
+var heldItem:= false
 
 
 func _ready() -> void:

@@ -14,6 +14,8 @@ func CanTakeNewPosition() -> bool:
 	return true
 
 func DoAnimationControl() -> void:
+	var bookOnHead = ourBody.heldItem
+	
 	var movement = ourBody.global_position - lastPosition
 	if abs(movement.x) > abs(movement.y):
 		if movement.x < 0:
