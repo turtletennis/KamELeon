@@ -7,14 +7,18 @@ enum CollectType
 }
 @export var type : CollectType
 
+var worker : Goblin = null
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
 func _on_body_entered(body: Node2D) -> void:
 	var goblin := body as Goblin
-	if goblin != null:
-		goblin.setWorkTarget(self)
+	if goblin != null and worker == null:
+		goblin.startWork(self)
 
 func GetMoveToTarget() -> Vector2:
 	return global_position
+
+func WorkCompleted() -> void:
+	queue_free()
