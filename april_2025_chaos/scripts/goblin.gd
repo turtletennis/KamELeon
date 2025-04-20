@@ -4,14 +4,20 @@ class_name Goblin extends CharacterBody2D
 @export var speed : float = 60.0
 @export var separation_radius : float = 55.0
 
+@export var initialState: Constants.GoblinState = Constants.GoblinState.Idle
+
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 
 var stateMachine: GoblinStateMachine
+var currentWaypoint: WaypointMarker
+
+var heldItem: CollectItem.CollectType = 0
+
 
 func _ready() -> void:
-	stateMachine = GoblinStateMachine.new(self)
+	stateMachine = GoblinStateMachine.new(self, initialState)
 	navigation_agent_2d.max_speed = speed
 	navigation_agent_2d.radius = separation_radius
 	
@@ -44,7 +50,8 @@ func animation_control():
 func die():
 	stateMachine.QueueSwapState(Constants.GoblinState.Dead)
 
-func add_point(waypoint:WaypointMarker):
+func setWaypoint(waypoint:WaypointMarker):
+	currentWaypoint = waypoint
 	var scatterTarget = Vector2(randf_range(-separation_radius, separation_radius), randf_range(-separation_radius, separation_radius))
 	
 	if stateMachine.CanTakeNewPosition():
@@ -54,3 +61,20 @@ func add_point(waypoint:WaypointMarker):
 
 func _on_navigation_agent_2d_navigation_finished() -> void:
 	stateMachine.QueueSwapState(Constants.GoblinState.Idle)
+
+func IsWaypointCloserThanCurrent(waypoint: WaypointMarker) -> bool:
+	if currentWaypoint == null or !currentWaypoint.active:
+		return true
+	if waypoint == currentWaypoint:
+		return false
+	
+	var distanceCurrent = global_position.distance_squared_to(currentWaypoint.global_position)
+	var distanceNew = global_position.distance_squared_to(waypoint.global_position)
+	
+	return distanceNew < distanceCurrent
+
+func CanAwaken() -> bool:
+	return stateMachine.CanAwaken()
+
+func _on_detection_area_body_entered(body: Node2D) -> void:
+	stateMachine.OnDetection(body)

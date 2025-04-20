@@ -196,6 +196,7 @@ radius = 200.0
 [node name="goblin" type="CharacterBody2D" groups=["goblin"]]
 collision_layer = 4
 collision_mask = 125
+motion_mode = 1
 script = ExtResource("1_0ukbv")
 separation_radius = 30.0
 
@@ -225,11 +226,13 @@ radius = 55.0
 avoidance_priority = 0.5
 debug_enabled = true
 
-[node name="Area2D" type="Area2D" parent="."]
-monitorable = false
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 386
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_yfuqp")
 
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="on_avoid_calc"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]

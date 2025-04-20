@@ -9,3 +9,10 @@ func _init(gob: Goblin, stateNum:Constants.GoblinState) -> void:
 
 func CanTakeNewPosition() -> bool:
 	return false
+
+func OnDetection(body: Node2D) -> Constants.GoblinState:
+	return state
+
+func CanAwaken() -> bool:
+	return true
+	

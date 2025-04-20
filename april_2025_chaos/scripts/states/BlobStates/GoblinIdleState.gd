@@ -3,6 +3,8 @@ class_name GoblinIdleState extends GoblinBaseState
 func EnterState():
 	ourBody.animated_sprite_2d.self_modulate = Color.BLUE
 	ourBody.navigation_agent_2d.avoidance_priority = randf_range(0.1, 0.3)
+	ourBody.navigation_agent_2d.avoidance_enabled = false
+
 
 
 func Update(delta: float):

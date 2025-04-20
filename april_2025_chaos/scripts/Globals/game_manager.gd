@@ -2,7 +2,7 @@ extends Node
 
 
 var player
-var goblins : Array[Goblin]
+var goblins : GoblinContainer
 
 
 var current_highest_level : int = 1
