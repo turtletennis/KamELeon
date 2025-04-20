@@ -31,3 +31,11 @@ func DoAnimationControl() -> void:
 			ourBody.direction = 4
 	
 	lastPosition = ourBody.global_position
+
+func OnDetection(body: Node2D) -> Constants.GoblinState:
+	var book := body as CollectItem
+	if book != null:
+		ourBody.setWorkTarget(body as CollectItem)
+		return Constants.GoblinState.MovingToTask
+	
+	return state

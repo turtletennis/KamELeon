@@ -11,7 +11,9 @@ class_name Goblin extends CharacterBody2D
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 
 var stateMachine: GoblinStateMachine
-var currentWaypoint: WaypointMarker
+var currentWaypoint: WaypointMarker = null
+
+var workTarget :CollectItem = null
 
 var heldItem: CollectItem.CollectType = 0
 
@@ -78,3 +80,10 @@ func CanAwaken() -> bool:
 
 func _on_detection_area_body_entered(body: Node2D) -> void:
 	stateMachine.OnDetection(body)
+	
+func setWorkTarget(body: CollectItem) -> void:
+	workTarget = body
+	navigation_agent_2d.target_position = body.global_position
+	
+func startWork(body: CollectItem) -> void:
+	workTarget = body
