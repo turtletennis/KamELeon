@@ -18,6 +18,8 @@ func save():
 	config.set_value("audio_settings", "master_volume", AudioManager.master_volume)
 	config.set_value("audio_settings", "music_volume", AudioManager.music_volume)
 	config.set_value("audio_settings", "sfx_volume", AudioManager.sfx_volume)
+	# progression
+	config.set_value("progression", "current_highest_level", GameManager.current_highest_level)
 	
 	
 	config.save("user://savegame.cfg")
@@ -27,7 +29,7 @@ func save():
 func load_data():
 	var recovered_data = config.load("user://savegame.cfg")
 	if recovered_data == OK:
-		file_saved = false
+		file_saved = true
 		if config.has_section("audio_settings"):
 			print("has audio settings")
 			AudioManager.master_muted = config.get_value("audio_settings", "master_muted")
@@ -36,4 +38,6 @@ func load_data():
 			AudioManager.master_volume = config.get_value("audio_settings", "master_volume")
 			AudioManager.music_volume = config.get_value("audio_settings", "music_volume")
 			AudioManager.sfx_volume = config.get_value("audio_settings", "sfx_volume")
+		if config.has_section("progression"):
+			GameManager.current_highest_level = config.get_value("progression", "current_highest_level")
 		
