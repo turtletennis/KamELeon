@@ -203,7 +203,7 @@ separation_radius = 30.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["goblin"]]
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_lf2rx")
-animation = &"right"
+animation = &"down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["goblin"]]
 position = Vector2(1, 1)
