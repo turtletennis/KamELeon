@@ -39,7 +39,7 @@ func movement_management(delta):
 	
 	direction.x = Input.get_axis("left", "right")
 	direction.y = Input.get_axis("up", "down")
-	
+	await get_tree().physics_frame
 	if direction != Vector2.ZERO:
 		velocity = velocity.move_toward(direction * max_speed, eccel_speed * delta)
 	elif direction == Vector2(0,0):
