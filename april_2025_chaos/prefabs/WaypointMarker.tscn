@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://cu0blthxbuuv5"]
+
+[ext_resource type="Script" uid="uid://bp1xogbyn0xf7" path="res://scripts/WaypointMarker.gd" id="1_5ebgb"]
+[ext_resource type="Texture2D" uid="uid://bp4ste28ytoc1" path="res://assets/Magicmark.png" id="2_5ebgb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uxort"]
+radius = 335.013
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ebgb"]
+radius = 62.1289
+
+[node name="magic_casting" type="Area2D"]
+collision_mask = 4
+input_pickable = false
+script = ExtResource("1_5ebgb")
+
+[node name="detection_area" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_uxort")
+
+[node name="ActiveSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.234375, 0.234375)
+texture = ExtResource("2_5ebgb")
+
+[node name="InactiveSprite" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(0.419608, 0.447059, 0.4, 0.756863)
+y_sort_enabled = true
+scale = Vector2(0.234375, 0.234375)
+texture = ExtResource("2_5ebgb")
+
+[node name="CancelArea" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 0
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CancelArea"]
+shape = SubResource("CircleShape2D_5ebgb")
+
+[connection signal="input_event" from="CancelArea" to="." method="_on_cancel_area_input_event"]

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bl87whi00cpl8"]
+
+[ext_resource type="Texture2D" uid="uid://cty880erhefwb" path="res://assets/Wall_tileset.png" id="1_o2hy5"]
+
+[node name="extra_wall" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_o2hy5")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 6
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-374, 210, 4, 418, 135, 343, 127, -210, 4, -141, -364, -346)

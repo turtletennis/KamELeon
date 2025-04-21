@@ -1,0 +1,163 @@
+[gd_scene load_steps=15 format=4 uid="uid://crvch42uomalc"]
+
+[ext_resource type="Script" uid="uid://b0vl88p0ccig2" path="res://scripts/Level.gd" id="1_ksju7"]
+[ext_resource type="PackedScene" uid="uid://tytr01sv0r3o" path="res://scenes/levels/level_2.tscn" id="2_6iamk"]
+[ext_resource type="TileSet" uid="uid://dbrrhtdqkxo75" path="res://Resources/tile_map.tres" id="3_dga24"]
+[ext_resource type="PackedScene" uid="uid://sfleolkix6yv" path="res://scenes/GoblinContainer.tscn" id="3_sk5k4"]
+[ext_resource type="PackedScene" uid="uid://di14b32uuj7nb" path="res://prefabs/player.tscn" id="4_oc4kc"]
+[ext_resource type="PackedScene" uid="uid://fi52fphurejf" path="res://scenes/PauseScreen.tscn" id="5_s8va5"]
+[ext_resource type="PackedScene" uid="uid://4dfqjwovfwh" path="res://prefabs/goblin.tscn" id="6_s8va5"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="9_dga24"]
+[ext_resource type="PackedScene" uid="uid://fuqsqk363htm" path="res://prefabs/CollectItem.tscn" id="10_excbq"]
+[ext_resource type="PackedScene" uid="uid://j64iwnkk0v3j" path="res://prefabs/Enemy.tscn" id="10_qxy0u"]
+[ext_resource type="PackedScene" uid="uid://bpq00n66syr0a" path="res://prefabs/Mimic.tscn" id="11_iav0o"]
+
+[sub_resource type="Curve2D" id="Curve2D_qxy0u"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -867, 639, 0, 0, 0, 0, -422, 380, 0, 0, 0, 0, 112, 698, 0, 0, 0, 0, -353, 972, 0, 0, 0, 0, -871, 639)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_dga24"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -339, 352, 0, 0, 0, 0, 178, 650, 0, 0, 0, 0, 513, 450, 0, 0, 0, 0, 44, 181, 0, 0, 0, 0, -339, 345)
+}
+point_count = 5
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_dga24"]
+vertices = PackedVector2Array(-182.156, 213.828, -199.313, 204.969, -151.383, 178.313, -126.398, 194.688, 391.938, 180.031, -34.0078, 131.109, -50.2266, 122.078, 147, 12.4297, 413.531, 160.32, -368.992, 1015.55, -1012.43, 657, -668.594, 465.852, -638.188, 484.641, -463.32, 384.227, -491.281, 367.281, -296.047, 258.742, -269.391, 276.813, 515.453, 216.859, 566.648, 245.203, 541.898, 261.711, 489.398, 233.633, 791.406, 370, -181.852, 225.648, 710.539, 356.781, -33.9922, 142.852, 735.953, 339.227)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7, 8), PackedInt32Array(9, 10, 11, 12), PackedInt32Array(13, 14, 15, 16), PackedInt32Array(17, 18, 19, 20), PackedInt32Array(21, 9, 12, 13, 16), PackedInt32Array(22, 0, 3, 4, 20), PackedInt32Array(21, 16, 22, 23), PackedInt32Array(24, 5, 4), PackedInt32Array(23, 25, 21), PackedInt32Array(19, 23, 22, 20), PackedInt32Array(24, 4, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1033, 657, -369, 1027, 812, 370, 147, 1)])
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_ksju7")
+level_number = 1
+next_level = ExtResource("2_6iamk")
+
+[node name="pause_screen" parent="." instance=ExtResource("5_s8va5")]
+
+[node name="level" type="TileMapLayer" parent="."]
+scale = Vector2(0.2, 0.2)
+tile_map_data = PackedByteArray("AAAAAP//AAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAP//AAAAAAAAAAACAP//AAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAACAP7/AgAAAAAAAAABAP7/AgAAAAAAAAAAAP7/AgAAAAAAAAD/////AgAAAAAAABD//wAAAgAAAAAAABD//wEAAgAAAAAAABAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAABAAMAAAAAAAAAAAABAAQAAAAAAAAAAAABAAUAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAYAAAAAAAAAAAABAAYAAAAAAAAAAAABAAcAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAgAAAAAAAAAAAABAAgAAAAAAAAAAAACAAgAAAAAAAAAAAACAAcAAAAAAAAAAAADAAcAAAAAAAAAAAADAAYAAAAAAAAAAAADAAUAAAAAAAAAAAADAAQAAAAAAAAAAAADAAMAAAAAAAAAAAACAAMAAAAAAAAAAAACAAIAAAAAAAAAAAABAAIAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAEAAAAAAAAAAAADAAEAAAAAAAAAAAADAAAAAAAAAAAAAAADAP//AAAAAAAAAAAEAP//AAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAGAP//AAAAAAAAAAAFAP//AAAAAAAAAAAGAAEAAAAAAAAAAAAGAAIAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAMAAAAAAAAAAAAHAAQAAAAAAAAAAAAHAAUAAAAAAAAAAAAHAAYAAAAAAAAAAAAHAAcAAAAAAAAAAAAHAAgAAAAAAAAAAAAGAAgAAAAAAAAAAAAFAAgAAAAAAAAAAAAFAAkAAAAAAAAAAAAEAAkAAAAAAAAAAAADAAkAAAAAAAAAAAADAAgAAAAAAAAAAAACAAkAAAAAAAAAAAABAAkAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAAwAAAAAAAAAAAABAAwAAAAAAAAAAAABAA0AAAAAAAAAAAACAA0AAAAAAAAAAAACAA4AAAAAAAAAAAAAAA0AAAAAAAAAAAABAA4AAAAAAAAAAAAAAA4AAAAAAAAAAAADAA4AAAAAAAAAAAAEAA4AAAAAAAAAAAAFAA4AAAAAAAAAAAAGAA4AAAAAAAAAAAAHAA4AAAAAAAAAAAAIAA4AAAAAAAAAAAABAAsAAAAAAAAAAAABAAoAAAAAAAAAAAACAAwAAAAAAAAAAAACAAsAAAAAAAAAAAADAAwAAAAAAAAAAAADAA0AAAAAAAAAAAADAAsAAAAAAAAAAAADAAoAAAAAAAAAAAACAAoAAAAAAAAAAAAEAA0AAAAAAAAAAAAEAAwAAAAAAAAAAAAEAAsAAAAAAAAAAAAEAAoAAAAAAAAAAAAFAA0AAAAAAAAAAAAFAAwAAAAAAAAAAAAFAAoAAAAAAAAAAAAFAAsAAAAAAAAAAAAGAAwAAAAAAAAAAAAGAAsAAAAAAAAAAAAGAAoAAAAAAAAAAAAGAAkAAAAAAAAAAAAGAA0AAAAAAAAAAAAHAA0AAAAAAAAAAAAIAA0AAAAAAAAAAAAIAAwAAAAAAAAAAAAIAAsAAAAAAAAAAAAIAAoAAAAAAAAAAAAIAAkAAAAAAAAAAAAIAAgAAAAAAAAAAAAIAAcAAAAAAAAAAAAIAAYAAAAAAAAAAAAIAAUAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAEAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAP//AAAAAAAAAAAHAP//AAAAAAAAAAAHAAAAAAAAAAAAAAAHAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAIAAAAAAAAAAAACAAQAAAAAAAAAAAACAAUAAAAAAAAAAAACAAYAAAAAAAAAAAAEAAUAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAYAAAAAAAAAAAAEAAcAAAAAAAAAAAAEAAgAAAAAAAAAAAAFAAcAAAAAAAAAAAAFAAYAAAAAAAAAAAAFAAUAAAAAAAAAAAAGAAUAAAAAAAAAAAAGAAQAAAAAAAAAAAAGAAMAAAAAAAAAAAAGAAYAAAAAAAAAAAAGAAcAAAAAAAAAAAAFAAQAAAAAAAAAAAAHAAkAAAAAAAAAAAAHAAsAAAAAAAAAAAAHAAoAAAAAAAAAAAAHAAwAAAAAAAAAAAADAP7/AgAAAAAAAAAEAP7/AgAAAAAAAAAFAP7/AgAAAAAAAAAGAP7/AgAAAAAAAAAHAP7/AgAAAAAAAAAIAP7/AgAAAAAAAAD//wIAAgAAAAAAABD//wMAAgAAAAAAABD//wUAAgAAAAAAABD//wQAAgAAAAAAABD//wYAAgAAAAAAABD//wcAAgAAAAAAABD//wgAAgAAAAAAABD//wkAAgAAAAAAABD//woAAgAAAAAAABD//wsAAgAAAAAAABD//wwAAgAAAAAAABD//w0AAgAAAAAAABD//w4AAgAAAAAAABA=")
+tile_set = ExtResource("3_dga24")
+
+[node name="death_portals" type="TileMapLayer" parent="."]
+scale = Vector2(0.2, 0.2)
+tile_map_data = PackedByteArray("AAAEAAQAAQAAAAAAAQA=")
+tile_set = ExtResource("3_dga24")
+
+[node name="y_sort" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="bookshelves" type="TileMapLayer" parent="y_sort"]
+y_sort_enabled = true
+scale = Vector2(0.2, 0.2)
+tile_map_data = PackedByteArray("AAAAAAQABgAAAAAAABAHAP//BgAAAAAAAAAGAP//AwAAAAAAAAAEAP//AwAAAAAAAAAAAAIAAwAAAAAAABAAAAgABgAAAAAAABAAAAkABQAAAAAAABA=")
+tile_set = ExtResource("3_dga24")
+
+[node name="Path2D_2" type="Path2D" parent="y_sort"]
+y_sort_enabled = true
+curve = SubResource("Curve2D_qxy0u")
+
+[node name="enemy" parent="y_sort/Path2D_2" instance=ExtResource("10_qxy0u")]
+position = Vector2(-867, 639)
+
+[node name="Path2D" type="Path2D" parent="y_sort"]
+y_sort_enabled = true
+curve = SubResource("Curve2D_dga24")
+
+[node name="enemy" parent="y_sort/Path2D" instance=ExtResource("10_qxy0u")]
+position = Vector2(-339, 352)
+
+[node name="goblin_container" parent="y_sort" node_paths=PackedStringArray("collector") instance=ExtResource("3_sk5k4")]
+collector = NodePath("../mimic")
+
+[node name="goblin" parent="y_sort/goblin_container" instance=ExtResource("6_s8va5")]
+position = Vector2(393, 236)
+
+[node name="goblin_2" parent="y_sort/goblin_container" instance=ExtResource("6_s8va5")]
+position = Vector2(702, 366)
+
+[node name="goblin_3" parent="y_sort/goblin_container" instance=ExtResource("6_s8va5")]
+position = Vector2(160, 596)
+
+[node name="goblin_4" parent="y_sort/goblin_container" instance=ExtResource("6_s8va5")]
+position = Vector2(200, 440)
+
+[node name="goblin_5" parent="y_sort/goblin_container" instance=ExtResource("6_s8va5")]
+position = Vector2(-152, 363)
+
+[node name="goblin_6" parent="y_sort/goblin_container" instance=ExtResource("6_s8va5")]
+position = Vector2(-489, 544)
+
+[node name="goblin_7" parent="y_sort/goblin_container" instance=ExtResource("6_s8va5")]
+position = Vector2(-63, 740)
+
+[node name="goblin_8" parent="y_sort/goblin_container" instance=ExtResource("6_s8va5")]
+position = Vector2(-150, 651)
+
+[node name="goblin_9" parent="y_sort/goblin_container" instance=ExtResource("6_s8va5")]
+position = Vector2(-230, 600)
+
+[node name="player" parent="y_sort" instance=ExtResource("4_oc4kc")]
+y_sort_enabled = true
+position = Vector2(5, 108)
+
+[node name="Camera2D" type="Camera2D" parent="y_sort"]
+physics_interpolation_mode = 1
+position = Vector2(5, 108)
+process_callback = 0
+
+[node name="PhantomCameraHost" type="Node" parent="y_sort/Camera2D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("9_dga24")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="Book" parent="y_sort" instance=ExtResource("10_excbq")]
+position = Vector2(549, 336)
+
+[node name="Book_2" parent="y_sort" instance=ExtResource("10_excbq")]
+position = Vector2(316, 205)
+
+[node name="Book_3" parent="y_sort" instance=ExtResource("10_excbq")]
+position = Vector2(-50, 185)
+
+[node name="Book_4" parent="y_sort" instance=ExtResource("10_excbq")]
+position = Vector2(-495, 460)
+
+[node name="Book_5" parent="y_sort" instance=ExtResource("10_excbq")]
+position = Vector2(-573, 508)
+
+[node name="Book_6" parent="y_sort" instance=ExtResource("10_excbq")]
+position = Vector2(-159, 306)
+
+[node name="Book_8" parent="y_sort" instance=ExtResource("10_excbq")]
+position = Vector2(-317, 650)
+
+[node name="Book_7" parent="y_sort" instance=ExtResource("10_excbq")]
+position = Vector2(125, 493)
+
+[node name="mimic" parent="y_sort" instance=ExtResource("11_iav0o")]
+position = Vector2(73, 65)
+total_level_books = 8
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_dga24")
+
+[node name="avoid" type="StaticBody2D" parent="NavigationRegion2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NavigationRegion2D/avoid"]
+polygon = PackedVector2Array(-672, 452, -638, 473, -483, 384, -516, 364)
+
+[node name="CollisionPolygon2D_2" type="CollisionPolygon2D" parent="NavigationRegion2D/avoid"]
+polygon = PackedVector2Array(-300, 244, -269, 265, -192, 220, -223, 204)
+
+[node name="CollisionPolygon2D_3" type="CollisionPolygon2D" parent="NavigationRegion2D/avoid"]
+polygon = PackedVector2Array(-155, 164, -126, 183, -44, 137, -71, 122)
+
+[node name="CollisionPolygon2D_4" type="CollisionPolygon2D" parent="NavigationRegion2D/avoid"]
+polygon = PackedVector2Array(432, 157, 409, 178, 489, 222, 517, 204)
+
+[node name="CollisionPolygon2D_5" type="CollisionPolygon2D" parent="NavigationRegion2D/avoid"]
+polygon = PackedVector2Array(585, 245, 561, 261, 710, 345, 739, 325)

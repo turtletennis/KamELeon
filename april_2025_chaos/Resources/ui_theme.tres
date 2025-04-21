@@ -1,0 +1,93 @@
+[gd_resource type="Theme" load_steps=19 format=3 uid="uid://bwjl0xwp728bj"]
+
+[ext_resource type="Texture2D" uid="uid://4y3eshmf4n1s" path="res://assets/UI/post-baroque-uigui-kit/Post-Baroque UI Kit/Sliders & bars/Handles/UI_Handle3.png" id="1_fs762"]
+[ext_resource type="Texture2D" uid="uid://dokgxc5l1seim" path="res://assets/UI/post-baroque-uigui-kit/Post-Baroque UI Kit/Sliders & bars/UI_ChargeFrameA_1.png" id="1_pkys1"]
+[ext_resource type="FontFile" uid="uid://dcrbjkoetlxc" path="res://assets/UI/Fantasypixelfont.ttf" id="1_xguql"]
+[ext_resource type="Texture2D" uid="uid://cd2geb8bdhjdl" path="res://assets/UI/post-baroque-uigui-kit/Post-Baroque UI Kit/Buttons/images/UI_Buttons_05.png" id="2_6xwyn"]
+[ext_resource type="Texture2D" uid="uid://bqam577urxqp2" path="res://assets/UI/post-baroque-uigui-kit/Post-Baroque UI Kit/Sliders & bars/Handles/UI_Handle4.png" id="2_v48r3"]
+[ext_resource type="Texture2D" uid="uid://dhwwvwgjlox3q" path="res://assets/UI/post-baroque-uigui-kit/Post-Baroque UI Kit/Buttons/images/UI_Buttons_06.png" id="3_dyajo"]
+[ext_resource type="Texture2D" uid="uid://d2861360mb36v" path="res://assets/UI/post-baroque-uigui-kit/Post-Baroque UI Kit/Sliders & bars/Bars/UI_Bar3.png" id="3_v48r3"]
+[ext_resource type="Texture2D" uid="uid://vu5jtqjt1hx3" path="res://assets/UI/post-baroque-uigui-kit/Post-Baroque UI Kit/Panels/Panels A/Panels A/UI_PanelsA_01.png" id="8_dyajo"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dyajo"]
+texture = ExtResource("3_dyajo")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6xwyn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xn6y4"]
+texture = ExtResource("2_6xwyn")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x6jq4"]
+texture = ExtResource("3_dyajo")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o37lf"]
+texture = ExtResource("3_dyajo")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_siff3"]
+texture = ExtResource("3_v48r3")
+axis_stretch_horizontal = 2
+region_rect = Rect2(0, 0, 80, 4)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6xwyn"]
+texture = ExtResource("3_v48r3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_khvw3"]
+texture = ExtResource("1_pkys1")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_siff3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lxexh"]
+texture = ExtResource("8_dyajo")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+
+[resource]
+Button/fonts/font = ExtResource("1_xguql")
+Button/styles/disabled = SubResource("StyleBoxTexture_dyajo")
+Button/styles/focus = SubResource("StyleBoxEmpty_6xwyn")
+Button/styles/hover = SubResource("StyleBoxTexture_xn6y4")
+Button/styles/normal = SubResource("StyleBoxTexture_x6jq4")
+Button/styles/pressed = SubResource("StyleBoxTexture_o37lf")
+HSlider/icons/grabber = ExtResource("1_fs762")
+HSlider/icons/grabber_highlight = ExtResource("2_v48r3")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_siff3")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_6xwyn")
+HSlider/styles/slider = SubResource("StyleBoxTexture_khvw3")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = 3
+Label/constants/outline_size = 2
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("1_xguql")
+Label/styles/normal = SubResource("StyleBoxEmpty_siff3")
+Panel/styles/panel = SubResource("StyleBoxTexture_lxexh")

@@ -1,0 +1,119 @@
+[gd_scene load_steps=11 format=3 uid="uid://dyrtdgprldfdy"]
+
+[ext_resource type="Script" uid="uid://dy6dtfnrj6yej" path="res://scripts/LevelSelect.gd" id="1_sf6f5"]
+[ext_resource type="PackedScene" uid="uid://crvch42uomalc" path="res://scenes/levels/level_1.tscn" id="2_3p8qn"]
+[ext_resource type="PackedScene" uid="uid://tytr01sv0r3o" path="res://scenes/levels/level_2.tscn" id="3_t7n47"]
+[ext_resource type="PackedScene" uid="uid://5850mpp0ibc4" path="res://scenes/levels/level_3.tscn" id="4_0t37j"]
+[ext_resource type="PackedScene" uid="uid://c8mhhkjwr7cb1" path="res://scenes/levels/level_4.tscn" id="5_33358"]
+[ext_resource type="PackedScene" uid="uid://dilv3clvp2v34" path="res://scenes/levels/level_5.tscn" id="6_chx4x"]
+[ext_resource type="PackedScene" uid="uid://b1ql5tqngn7cv" path="res://scenes/levels/level_6.tscn" id="7_ptr58"]
+[ext_resource type="Texture2D" uid="uid://vu5jtqjt1hx3" path="res://assets/UI/post-baroque-uigui-kit/Post-Baroque UI Kit/Panels/Panels A/Panels A/UI_PanelsA_01.png" id="8_0t37j"]
+[ext_resource type="Theme" uid="uid://bwjl0xwp728bj" path="res://Resources/ui_theme.tres" id="9_33358"]
+[ext_resource type="Texture2D" uid="uid://cussudu1ksbfh" path="res://assets/UI/post-baroque-uigui-kit/Post-Baroque UI Kit/Titles/UI_TitleA2.png" id="9_chx4x"]
+
+[node name="level_select" type="Node2D"]
+script = ExtResource("1_sf6f5")
+level_1 = ExtResource("2_3p8qn")
+level_2 = ExtResource("3_t7n47")
+level_3 = ExtResource("4_0t37j")
+level_4 = ExtResource("5_33358")
+level_5 = ExtResource("6_chx4x")
+level_6 = ExtResource("7_ptr58")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_right = 621.0
+offset_bottom = 459.0
+texture = ExtResource("8_0t37j")
+patch_margin_left = 13
+patch_margin_top = 13
+patch_margin_right = 13
+patch_margin_bottom = 13
+
+[node name="NinePatchRect" type="NinePatchRect" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 139.0
+offset_top = 22.0
+offset_right = 470.0
+offset_bottom = 58.0
+texture = ExtResource("9_chx4x")
+patch_margin_left = 15
+patch_margin_top = 9
+patch_margin_right = 15
+patch_margin_bottom = 9
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -146.5
+offset_top = -206.5
+offset_right = -33.5
+offset_bottom = -183.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.525, 2.525)
+theme = ExtResource("9_33358")
+text = "LEVEL SELECT"
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.0
+offset_top = -82.0
+offset_right = 155.0
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 3
+
+[node name="level_1_button" type="Button" parent="NinePatchRect/GridContainer"]
+layout_mode = 2
+theme = ExtResource("9_33358")
+text = "LEVEL
+1"
+
+[node name="level_2_button" type="Button" parent="NinePatchRect/GridContainer"]
+layout_mode = 2
+theme = ExtResource("9_33358")
+text = "LEVEL
+2"
+
+[node name="level_3_button" type="Button" parent="NinePatchRect/GridContainer"]
+layout_mode = 2
+theme = ExtResource("9_33358")
+text = "LEVEL
+3"
+
+[node name="level_4_button" type="Button" parent="NinePatchRect/GridContainer"]
+layout_mode = 2
+theme = ExtResource("9_33358")
+text = "LEVEL
+4"
+
+[node name="level_5_button" type="Button" parent="NinePatchRect/GridContainer"]
+layout_mode = 2
+theme = ExtResource("9_33358")
+text = "LEVEL
+5"
+
+[node name="level_6_button" type="Button" parent="NinePatchRect/GridContainer"]
+layout_mode = 2
+theme = ExtResource("9_33358")
+text = "LEVEL
+6"
+
+[connection signal="pressed" from="NinePatchRect/GridContainer/level_1_button" to="." method="_on_level_1_button_pressed"]
+[connection signal="pressed" from="NinePatchRect/GridContainer/level_2_button" to="." method="_on_level_2_button_pressed"]
+[connection signal="pressed" from="NinePatchRect/GridContainer/level_3_button" to="." method="_on_level_3_button_pressed"]
+[connection signal="pressed" from="NinePatchRect/GridContainer/level_4_button" to="." method="_on_level_4_button_pressed"]
+[connection signal="pressed" from="NinePatchRect/GridContainer/level_5_button" to="." method="_on_level_5_button_pressed"]
+[connection signal="pressed" from="NinePatchRect/GridContainer/level_6_button" to="." method="_on_level_6_button_pressed"]

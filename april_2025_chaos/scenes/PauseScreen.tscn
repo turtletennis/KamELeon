@@ -1,0 +1,84 @@
+[gd_scene load_steps=4 format=3 uid="uid://fi52fphurejf"]
+
+[ext_resource type="Script" uid="uid://dp7njee8vlgej" path="res://scripts/PauseScreen.gd" id="1_k5a5s"]
+[ext_resource type="Theme" uid="uid://bwjl0xwp728bj" path="res://Resources/ui_theme.tres" id="2_oe56i"]
+[ext_resource type="PackedScene" uid="uid://bxuemdlqhoc5c" path="res://scenes/Settings.tscn" id="3_oe56i"]
+
+[node name="pause_screen" type="CanvasLayer"]
+process_mode = 3
+visible = false
+script = ExtResource("1_k5a5s")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_oe56i")
+
+[node name="Panel" type="Panel" parent="Control"]
+modulate = Color(1, 1, 1, 0.513726)
+layout_mode = 0
+offset_left = -346.0
+offset_top = -189.0
+offset_right = 385.0
+offset_bottom = 216.0
+theme = ExtResource("2_oe56i")
+
+[node name="settings" parent="Control" instance=ExtResource("3_oe56i")]
+visible = false
+position = Vector2(-87.9999, -138)
+scale = Vector2(0.66, 0.66)
+
+[node name="paused label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -299.0
+offset_top = -150.0
+offset_right = -225.0
+offset_bottom = -127.0
+theme = ExtResource("2_oe56i")
+text = "Paused "
+
+[node name="GridContainer" type="GridContainer" parent="Control"]
+layout_mode = 0
+offset_left = -310.0
+offset_top = -94.0
+offset_right = -214.0
+offset_bottom = 142.0
+theme = ExtResource("2_oe56i")
+
+[node name="resume_button" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_oe56i")
+text = "Resume
+"
+
+[node name="save_button" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_oe56i")
+text = "Save"
+
+[node name="settings_button" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_oe56i")
+text = "Settings
+"
+
+[node name="menu_button" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_oe56i")
+text = "Menu
+"
+
+[connection signal="pressed" from="Control/GridContainer/resume_button" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Control/GridContainer/save_button" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="Control/GridContainer/settings_button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Control/GridContainer/menu_button" to="." method="_on_menu_button_pressed"]

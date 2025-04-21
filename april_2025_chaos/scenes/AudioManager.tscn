@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://hx6aqcosr4aj"]
+
+[ext_resource type="Script" uid="uid://goy2jrkernmh" path="res://scripts/Globals/AudioManager.gd" id="1_v6v0x"]
+[ext_resource type="AudioStream" uid="uid://e11toj4e7lwf" path="res://assets/gobbo2.mp3" id="2_v6v0x"]
+[ext_resource type="AudioStream" uid="uid://bfdiunpjxfwfm" path="res://assets/audio-editor-output.mp3" id="3_4tesi"]
+[ext_resource type="AudioStream" uid="uid://cpul8t1q05u8q" path="res://assets/magic_cast.mp3" id="4_3dgps"]
+
+[node name="audio_manager" type="Node"]
+script = ExtResource("1_v6v0x")
+
+[node name="background_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_v6v0x")
+volume_db = -19.838
+autoplay = true
+bus = &"Music"
+
+[node name="page_turn_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_4tesi")
+volume_db = -20.439
+bus = &"SFX"
+
+[node name="magic_cast_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_3dgps")
+volume_db = -21.642
+bus = &"SFX"
