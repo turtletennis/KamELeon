@@ -13,7 +13,9 @@ config_version=5
 config/name="sheep jam"
 run/main_scene="uid://b6u6g6ugmtb4e"
 config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/image="uid://bopvcdnobfbg0"
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=1000
 
 [audio]
 
