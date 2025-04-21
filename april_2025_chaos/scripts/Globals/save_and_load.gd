@@ -3,7 +3,6 @@ extends Node
 
 var file_saved : bool 
 
-
 # Creating a new config file to be written to 
 var config = ConfigFile.new()
 

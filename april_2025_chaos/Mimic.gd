@@ -7,13 +7,20 @@ var books_recieved : int
 func _process(delta: float) -> void:
 	animation_control()
 	
-func add_book():
+func book_revieved():
 	books_recieved += 1
 	if books_recieved == total_level_books:
 		level_complete()
 
+
+
+func book_destroyed():
+	total_level_books -= 1
+	if total_level_books == 0:
+		get_parent().get_parent().failed_level()
+
 func level_complete():
-	pass
+	get_parent().get_parent().finished_level()
 
 func animation_control():
 	if books_recieved == 0:

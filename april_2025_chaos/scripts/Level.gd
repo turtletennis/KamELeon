@@ -3,6 +3,9 @@ extends Node2D
 @export var level_number : int
 @export var next_level : PackedScene
 
+
+
+
 func _ready() -> void:
 	GameManager.set_highest_level(level_number)
 
@@ -12,3 +15,7 @@ func finished_level():
 	else:
 		print("no next level assigned")
 	
+func failed_level():
+	SceneLoader.play()
+	await get_tree().create_timer(0.7).timeout
+	get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")

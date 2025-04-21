@@ -9,22 +9,27 @@ extends Control
 
 func _on_start_button_pressed() -> void:
 	level_select._on_level_1_button_pressed()
+	AudioManager.play_page_turn()
 
 
 func _on_level_select_button_pressed() -> void:
 	show_hide_level_select()
+	AudioManager.play_page_turn()
 
 
 func _on_settings_button_pressed() -> void:
 	show_hide_settings()
+	AudioManager.play_page_turn()
 
 
 func _on_credits_button_pressed() -> void:
 	show_hide_credits()
+	AudioManager.play_page_turn()
 
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
+	AudioManager.play_page_turn()
 
 func show_hide_settings():
 	credits.visible = false

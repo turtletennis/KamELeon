@@ -52,7 +52,9 @@ func animation_control():
 	
 func die():
 	stateMachine.QueueSwapState(Constants.GoblinState.Dead)
+	get_parent().goblin_died()
 	GameManager.goblins.goblins.erase(self)
+	
 
 func setWaypoint(waypoint:WaypointMarker):
 	if currentWaypoint == waypoint:

@@ -21,6 +21,7 @@ func cast_summon():
 	var newWaypoint := waypointSpell.instantiate() as Node2D
 	newWaypoint.global_position = global_position
 	player.get_parent().add_child(newWaypoint)
+	AudioManager.play_magic_cast()
 
 	var goblinsInArea := get_overlapping_bodies()
 	for gobbo: Goblin in goblinsInArea:

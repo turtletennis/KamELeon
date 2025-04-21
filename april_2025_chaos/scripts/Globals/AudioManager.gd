@@ -1,4 +1,6 @@
 extends Node
+@onready var page_turn_sound: AudioStreamPlayer = $page_turn_sound
+@onready var magic_cast_sound: AudioStreamPlayer = $magic_cast_sound
 
 var master_bus = AudioServer.get_bus_index("Master")
 var music_bus = AudioServer.get_bus_index("Music")
@@ -26,3 +28,7 @@ func set_bus_volume(value, index):
 func toggle_mute(index, status):
 	AudioServer.set_bus_mute(index, status)
 	
+func play_page_turn():
+	page_turn_sound.play()
+func play_magic_cast():
+	magic_cast_sound.play()

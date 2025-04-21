@@ -152,114 +152,112 @@ process_physics_priority = 300
 script = ExtResource("8_b6i88")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="books" type="Node2D" parent="y_sort"]
-
-[node name="Book" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(265, 51)
 
-[node name="Book_2" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_2" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(100, 48)
 
-[node name="Book_3" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_3" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(-44, 213)
 
-[node name="Book_4" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_4" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(220, 349)
 
-[node name="Book_5" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_5" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(441, 237)
 
-[node name="Book_6" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_6" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(453, -89)
 
-[node name="Book_7" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_7" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(640, 820)
 
-[node name="Book_8" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_8" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(783, 926)
 
-[node name="Book_9" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_9" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(1378, 956)
 
-[node name="Book_10" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_10" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(1481, 900)
 
-[node name="Book_11" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_11" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(1577, 1327)
 
-[node name="Book_12" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_12" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(1620, 1534)
 
-[node name="Book_13" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_13" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(1749, 1478)
 
-[node name="Book_14" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_14" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(1774, 1210)
 
-[node name="Book_15" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_15" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(1994, 1205)
 
-[node name="Book_16" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_16" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(2049, 746)
 
-[node name="Book_17" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_17" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(2128, 912)
 
-[node name="Book_18" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_18" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(2289, 886)
 
-[node name="Book_19" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_19" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(642, 1426)
 
-[node name="Book_20" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_20" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(1045, 1400)
 
-[node name="Book_21" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_21" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(782, 1683)
 
-[node name="Book_22" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_22" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(487, 1702)
 
-[node name="Book_23" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_23" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(355, 1641)
 
-[node name="Book_24" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_24" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(218, 1551)
 
-[node name="Book_25" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_25" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(290, 1862)
 
-[node name="Book_26" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_26" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(-435, 2147)
 
-[node name="Book_27" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_27" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(-504, 2403)
 
-[node name="Book_28" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_28" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(-794, 1863)
 
-[node name="Book_29" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_29" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(-1259, 2037)
 
-[node name="Book_30" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_30" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(-1174, 1745)
 
-[node name="Book_31" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_31" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(-1541, 1458)
 
-[node name="Book_32" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_32" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(-1765, 973)
 
-[node name="Book_33" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_33" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(-2150, 1118)
 
-[node name="Book_34" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_34" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(-1548, 814)
 
-[node name="Book_35" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_35" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(-1400, 916)
 
-[node name="Book_36" parent="y_sort/books" instance=ExtResource("9_m5qie")]
+[node name="Book_36" parent="y_sort" instance=ExtResource("9_m5qie")]
 position = Vector2(-1128, 550)
 
 [node name="mimic" parent="y_sort" instance=ExtResource("10_kydov")]

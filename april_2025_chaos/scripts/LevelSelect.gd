@@ -20,26 +20,32 @@ func _process(delta: float) -> void:
 
 func _on_level_1_button_pressed() -> void:
 	SceneLoader.change_to_scene(level_1)
+	AudioManager.play_page_turn()
 
 
 func _on_level_2_button_pressed() -> void:
 	SceneLoader.change_to_scene(level_2)
+	AudioManager.play_page_turn()
 
 
 func _on_level_3_button_pressed() -> void:
 	SceneLoader.change_to_scene(level_3)
+	AudioManager.play_page_turn()
 
 
 func _on_level_4_button_pressed() -> void:
 	SceneLoader.change_to_scene(level_4)
+	AudioManager.play_page_turn()
 
 
 func _on_level_5_button_pressed() -> void:
 	SceneLoader.change_to_scene(level_5)
+	AudioManager.play_page_turn()
 
 
 func _on_level_6_button_pressed() -> void:
 	SceneLoader.change_to_scene(level_6)
+	AudioManager.play_page_turn()
 
 func check_if_level_available(current_highest_level : int):
 	for i in buttons.size():
