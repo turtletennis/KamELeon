@@ -35,3 +35,8 @@ func findAndSummonGobbo() -> void:
 	var closetGobbo = GameManager.goblins.findGoblinCanMoveClosestToPosition(self)
 	if closetGobbo != null:
 		closetGobbo.setWaypoint(self)
+
+
+func _on_cancel_area_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event.is_action_pressed("Cancel"):
+		queue_free()
