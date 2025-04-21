@@ -45,7 +45,7 @@ tile_set = ExtResource("3_dga24")
 
 [node name="death_portals" type="TileMapLayer" parent="."]
 scale = Vector2(0.2, 0.2)
-tile_map_data = PackedByteArray("AAAEAAoACAAAAAAAAAAEAAIACAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAEAAoAAQAAAAAAAQAEAAQAAQAAAAAAAQA=")
 tile_set = ExtResource("3_dga24")
 
 [node name="goblin_container" parent="." instance=ExtResource("3_sk5k4")]

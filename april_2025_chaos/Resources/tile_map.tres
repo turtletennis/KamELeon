@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=16 format=3 uid="uid://dbrrhtdqkxo75"]
+[gd_resource type="TileSet" load_steps=17 format=3 uid="uid://dbrrhtdqkxo75"]
 
 [ext_resource type="Texture2D" uid="uid://yplkbqpj87px" path="res://assets/Wood_tileset.png" id="1_0im32"]
 [ext_resource type="Texture2D" uid="uid://cty880erhefwb" path="res://assets/Wall_tileset.png" id="2_gg2ul"]
@@ -39,6 +39,15 @@ margins = Vector2i(11, 11)
 texture_region_size = Vector2i(738, 410)
 0:0/size_in_atlas = Vector2i(1, 2)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-116.037, 72.634, 225.874, 267.506, 356.97, 187.785, 7.97205, 3.54315)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2j8fy"]
+resource_name = "floor_no_nav"
+texture = ExtResource("1_0im32")
+margins = Vector2i(11, 11)
+texture_region_size = Vector2i(738, 410)
+0:0/size_in_atlas = Vector2i(1, 2)
+0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8ldgo"]
 texture = ExtResource("4_a7x33")
@@ -46,6 +55,7 @@ margins = Vector2i(11, 11)
 texture_region_size = Vector2i(738, 410)
 0:0/size_in_atlas = Vector2i(1, 2)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-114.553, 59.6302, 230.674, 266.766, 346.796, 182.029, 26.6766, -12.5537)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_28772"]
 texture = ExtResource("5_v1ejt")
@@ -53,6 +63,7 @@ margins = Vector2i(11, 11)
 texture_region_size = Vector2i(738, 410)
 0:0/size_in_atlas = Vector2i(1, 2)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(356.212, 182.029, 227.536, 257.351, -111.414, 69.0455, 14.1229, 6.27686)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v1ejt"]
 texture = ExtResource("6_a7x33")
@@ -73,3 +84,4 @@ sources/5 = SubResource("TileSetAtlasSource_8ldgo")
 sources/6 = SubResource("TileSetAtlasSource_28772")
 sources/8 = SubResource("TileSetAtlasSource_v1ejt")
 sources/1 = SubResource("TileSetScenesCollectionSource_5uswc")
+sources/4 = SubResource("TileSetAtlasSource_2j8fy")

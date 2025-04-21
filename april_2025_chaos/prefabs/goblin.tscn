@@ -718,6 +718,7 @@ radius = 14.0
 radius = 200.0
 
 [node name="goblin" type="CharacterBody2D" groups=["goblin"]]
+y_sort_enabled = true
 collision_layer = 4
 collision_mask = 125
 motion_mode = 1
@@ -728,8 +729,9 @@ separation_radius = 30.0
 y_sort_enabled = true
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_lf2rx")
-animation = &"idle"
-frame_progress = 0.194916
+animation = &"pick_up_book"
+frame = 21
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["goblin"]]
 position = Vector2(1, 1)
@@ -745,6 +747,7 @@ bus = &"SFX"
 path_desired_distance = 30.0
 target_desired_distance = 60.0
 path_max_distance = 250.0
+path_postprocessing = 1
 simplify_path = true
 simplify_epsilon = 1.0
 avoidance_enabled = true
