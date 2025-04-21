@@ -52,6 +52,7 @@ func animation_control():
 	
 func die():
 	stateMachine.QueueSwapState(Constants.GoblinState.Dead)
+	GameManager.goblins.goblins.erase(self)
 
 func setWaypoint(waypoint:WaypointMarker):
 	if currentWaypoint == waypoint:
@@ -101,3 +102,7 @@ func workCompleted() -> void:
 	workTarget = null
 	heldItem = true
 	
+
+
+func _on_hit_box_body_entered(body: Node2D) -> void:
+	die()

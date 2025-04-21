@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=3 uid="uid://4dfqjwovfwh"]
+[gd_scene load_steps=105 format=3 uid="uid://4dfqjwovfwh"]
 
 [ext_resource type="Script" uid="uid://gdd8k4nixpmp" path="res://scripts/goblin.gd" id="1_0ukbv"]
 [ext_resource type="Texture2D" uid="uid://cdu1eg0pxumkv" path="res://assets/spritesheet.png" id="2_yfuqp"]
@@ -717,6 +717,10 @@ radius = 14.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_yfuqp"]
 radius = 200.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yfuqp"]
+radius = 18.0
+height = 60.0
+
 [node name="goblin" type="CharacterBody2D" groups=["goblin"]]
 y_sort_enabled = true
 collision_layer = 4
@@ -729,9 +733,7 @@ separation_radius = 30.0
 y_sort_enabled = true
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_lf2rx")
-animation = &"pick_up_book"
-frame = 21
-frame_progress = 1.0
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["goblin"]]
 position = Vector2(1, 1)
@@ -747,8 +749,7 @@ bus = &"SFX"
 path_desired_distance = 30.0
 target_desired_distance = 60.0
 path_max_distance = 250.0
-simplify_path = true
-simplify_epsilon = 1.0
+simplify_epsilon = 16.0
 avoidance_enabled = true
 radius = 55.0
 avoidance_priority = 0.5
@@ -761,7 +762,17 @@ collision_mask = 386
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_yfuqp")
 
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(3, 16)
+shape = SubResource("CapsuleShape2D_yfuqp")
+
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="on_avoid_calc"]
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

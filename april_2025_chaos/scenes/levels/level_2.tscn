@@ -67,7 +67,7 @@ tile_set = ExtResource("6_qsp8v")
 
 [node name="Camera2D" type="Camera2D" parent="Y-sort"]
 physics_interpolation_mode = 1
-position = Vector2(417, 68)
+position = Vector2(62, 10)
 process_callback = 0
 
 [node name="PhantomCameraHost" type="Node" parent="Y-sort/Camera2D"]

@@ -13,6 +13,8 @@ func _ready() -> void:
 
 func findGoblinCanMoveClosestToPosition(waypoint: WaypointMarker) -> Goblin:
 	var closest : Goblin = null
+	if goblins.is_empty():
+		return
 	var toFind = goblins.filter(func(gobbo: Goblin)-> bool: 
 		return gobbo.stateMachine.CanTakeNewPosition() and gobbo.IsWaypointCloserThanCurrent(waypoint))
 	

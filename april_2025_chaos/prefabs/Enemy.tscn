@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://betco4sx3tlsk" path="res://prefabs/Enemy.gd" id="1_pqsom"]
 [ext_resource type="Texture2D" uid="uid://b6wn1ss12i2jc" path="res://assets/sprite_sheet_enemy.png" id="2_pqsom"]
-[ext_resource type="PackedScene" uid="uid://c06hjb21per87" path="res://prefabs/DeathArea.tscn" id="3_duu5m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_duu5m"]
 atlas = ExtResource("2_pqsom")
@@ -180,6 +179,10 @@ animations = [{
 "speed": 25.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_abkru"]
+radius = 45.52
+height = 480.0
+
 [node name="enemy" type="PathFollow2D"]
 y_sort_enabled = true
 rotates = false
@@ -192,7 +195,12 @@ sprite_frames = SubResource("SpriteFrames_3tvwi")
 autoplay = "default"
 frame_progress = 0.187997
 
-[node name="death_area" parent="." instance=ExtResource("3_duu5m")]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(-19, 1)
-scale = Vector2(0.3, 0.075)
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="AnimatedSprite2D"]
+collision_layer = 8
+collision_mask = 4
+sync_to_physics = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AnimatableBody2D"]
+position = Vector2(30, 160)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_abkru")
