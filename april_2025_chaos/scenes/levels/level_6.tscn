@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://b1ql5tqngn7cv"]
+[gd_scene load_steps=14 format=4 uid="uid://b1ql5tqngn7cv"]
 
 [ext_resource type="Script" uid="uid://b0vl88p0ccig2" path="res://scripts/Level.gd" id="1_gfuhv"]
 [ext_resource type="TileSet" uid="uid://dbrrhtdqkxo75" path="res://Resources/tile_map.tres" id="2_7x7cx"]
@@ -33,6 +33,11 @@ _data = {
 }
 point_count = 5
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_b6i88"]
+vertices = PackedVector2Array(695.031, 1673.99, 1572.92, 1251.82, 2011.45, 1496.97, -369.992, 2819.55, 637.602, 1713.75, 664.727, -107.156, 1157.38, 165.031, 501.992, 530.133, 507.539, 94.5781, 631.641, -83.1016, -1926.04, 1952.54, -2856.45, 1435.97, -2294.54, 1121.76, -2262.41, 1143.86, -1700.93, 1825.48, 2290.41, 794.688, 2780.47, 1068.97, 2087.03, 1454.53, 2258.39, 815.711, -1862.54, 1988.93, -1648.04, 1867.86, -592.977, 1898.42, -1364.92, 1020.48, -1726.87, 811.078, -1260.34, 546.68, -1226.35, 568.68, 30.7813, 359.57, -2084.33, 1038.58, -2111.81, 1019.93, -1804.11, 852.438, 1532.98, 835.477, 1508.87, 816.391, 1915.13, 587.398, 385.359, -224.602, -898.32, 383.5, -925.227, 361.57, 291.93, -313.531, 411.313, -245.563, 1642.17, 1203.61, 2014.57, 677.758, 188.008, 1466.41, 502.008, 541.898, 778.07, 694.609, 757.25, 717.422, -518.047, 1012.58, 2036.36, 652, 444.406, 54.4063, -1647.96, 1856.27, -841.227, 1797.37, -1340.97, 1482.96, -1137.68, 1593.49, -1149.62, 1622.34, 1281.98, 974.438, 1573.08, 1239.92, -1432.65, 1064.72, -1341.03, 1471.14, -29.8516, 310.961, -30.1406, 322.539, 928.453, 816.828, 960.539, 794.758, -808.148, 1780.32)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 9), PackedInt32Array(10, 11, 12, 13, 14), PackedInt32Array(15, 16, 17, 18), PackedInt32Array(3, 19, 20, 21), PackedInt32Array(22, 23, 24, 25), PackedInt32Array(26, 8, 7), PackedInt32Array(27, 28, 29), PackedInt32Array(30, 31, 32), PackedInt32Array(33, 34, 35, 36, 37), PackedInt32Array(18, 17, 38, 39), PackedInt32Array(40, 4, 3, 21), PackedInt32Array(41, 42, 43, 44, 26), PackedInt32Array(32, 45, 39), PackedInt32Array(14, 13, 27), PackedInt32Array(33, 9, 8, 46), PackedInt32Array(21, 20, 47, 48), PackedInt32Array(49, 50, 51, 47), PackedInt32Array(32, 39, 38, 30), PackedInt32Array(52, 30, 38, 53, 0), PackedInt32Array(47, 14, 27, 29, 54, 55, 49), PackedInt32Array(34, 33, 46, 56), PackedInt32Array(25, 34, 56, 57, 44, 55, 22), PackedInt32Array(26, 7, 41), PackedInt32Array(58, 59, 52, 0), PackedInt32Array(53, 1, 0), PackedInt32Array(58, 0, 44, 43), PackedInt32Array(57, 26, 44), PackedInt32Array(54, 22, 55), PackedInt32Array(48, 60, 21), PackedInt32Array(47, 51, 48)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-2877, 1436, -1926, 1964, -1701, 1837, -1658, 1862, -1883, 1989, -370, 2831, 2032, 1497, 1583, 1246, 1642, 1215, 2087, 1466, 2801, 1069, 2290, 783, 2258, 804, 2030, 675, 2052, 649, 1915, 576, 1491, 815, 1515, 834, 1282, 963, 960, 783, 928, 805, 773, 715, 794, 692, 512, 536, 1178, 165, 664, -119, 631, -95, 403, -226, 429, -247, 292, -325, -943, 360, -916, 382, -1226, 557, -1260, 535, -1747, 811, -1384, 1021, -1433, 1053, -1804, 841, -2131, 1019, -2103, 1038, -2262, 1132, -2294, 1110)])
+
 [node name="Level6" type="Node2D"]
 script = ExtResource("1_gfuhv")
 level_number = 6
@@ -57,7 +62,6 @@ tile_map_data = PackedByteArray("AAAeAAQAAwAAAAAAAAAdAAQABQAAAAAAAAAcAAQABQAAAAA
 tile_set = ExtResource("2_7x7cx")
 
 [node name="goblin_container" parent="y_sort" instance=ExtResource("3_b6i88")]
-y_sort_enabled = true
 
 [node name="goblin" parent="y_sort/goblin_container" instance=ExtResource("4_e18e5")]
 position = Vector2(-488, 376)
@@ -145,3 +149,15 @@ process_priority = 300
 process_physics_priority = 300
 script = ExtResource("8_b6i88")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_b6i88")
+
+[node name="avoid" type="StaticBody2D" parent="NavigationRegion2D"]
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NavigationRegion2D/avoid"]
+polygon = PackedVector2Array(-1331, 1477, -1125, 1589, -1137, 1618, -841, 1786, -808, 1769, -593, 1887, 188, 1455, 637, 1702, 676, 1675, -518, 1024)
+
+[node name="CollisionPolygon2D_2" type="CollisionPolygon2D" parent="NavigationRegion2D/avoid"]
+polygon = PackedVector2Array(-20, 317, 31, 348, 488, 94, 444, 66)

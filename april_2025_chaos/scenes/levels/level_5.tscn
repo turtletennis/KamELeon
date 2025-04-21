@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://dilv3clvp2v34"]
+[gd_scene load_steps=16 format=4 uid="uid://dilv3clvp2v34"]
 
 [ext_resource type="Script" uid="uid://b0vl88p0ccig2" path="res://scripts/Level.gd" id="1_r1vs7"]
 [ext_resource type="PackedScene" uid="uid://b1ql5tqngn7cv" path="res://scenes/levels/level_6.tscn" id="2_845dy"]
@@ -35,6 +35,11 @@ _data = {
 }
 point_count = 5
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_tqnj0"]
+vertices = PackedVector2Array(517.008, 1178.56, -527.992, 1758.11, -698.047, 1468.44, -359, 703.883, -23.9375, 304.813, 1149.67, 651.93, 1209.76, 688.57, 1646.03, 354.297, -24.0625, 292.977, 1151.59, 111.242, -1930.09, 2525.5, -3521.4, 1641, -2213.98, 915.422, -2027.43, 1430.87, -71.6328, 2023.65, 199.461, 2174.98, -1178.99, 2942.54, -99.6406, 2041.66, 2292.6, 712.227, 2561.47, 862.953, 1254.01, 1588.56, 2258.6, 728.242, -1865.5, 2559.97, -1429.95, 2315.83, -343.789, 1905.19, -1841.82, 1121.49, -1666.23, 1217.34, -1870.86, 1138.51, -2022.93, 1020.54, -2047.91, 1040.52, -1430.05, 2304.01, -528.008, 1769.87, -326.789, 1882.19, 2086.71, 631.891, -1086.4, 288, 220.008, -437.563, 778.211, -129.82, 757.297, -109.898, -75.1094, 265.594, 1729.97, 400.438, 2104.7, 609.898, -764.75, 1509.59, -1160.81, 1288.51, -1490.16, 2271.55, -1967.23, 1467.58, -1475.98, 1324.43, -1593.97, 1259.43, 1183.6, 96.2188, -461.969, 483.133, -462.031, 494.773, -359, 692.117, -412.047, 523.508, -1108.09, 1246.03)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6), PackedInt32Array(7, 5, 4, 8, 9), PackedInt32Array(10, 11, 12, 13), PackedInt32Array(14, 15, 16, 17), PackedInt32Array(18, 19, 20, 21), PackedInt32Array(16, 22, 23, 24, 17), PackedInt32Array(25, 26, 13, 27), PackedInt32Array(12, 28, 29), PackedInt32Array(24, 23, 30, 31, 32), PackedInt32Array(33, 21, 20), PackedInt32Array(34, 35, 36, 37, 38), PackedInt32Array(6, 39, 40, 33, 20, 0), PackedInt32Array(30, 41, 2, 1, 31), PackedInt32Array(29, 27, 13), PackedInt32Array(42, 41, 30, 43, 44, 45), PackedInt32Array(44, 46, 45), PackedInt32Array(9, 47, 7), PackedInt32Array(37, 9, 8, 38), PackedInt32Array(34, 38, 48), PackedInt32Array(34, 48, 49), PackedInt32Array(50, 34, 49, 51), PackedInt32Array(50, 51, 4), PackedInt32Array(12, 29, 13), PackedInt32Array(10, 13, 44, 43), PackedInt32Array(3, 50, 4), PackedInt32Array(3, 2, 52), PackedInt32Array(45, 3, 52), PackedInt32Array(45, 52, 42)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-3542, 1641, -2214, 904, -2005, 1019, -2030, 1039, -1871, 1127, -1842, 1110, -1646, 1217, -2008, 1431, -1967, 1456, -1594, 1248, -1476, 1313, -369, 698, -1107, 288, 220, -449, 795, -132, 774, -112, 1152, 100, 1184, 85, 1666, 354, 1169, 652, 1210, 677, 1730, 389, 2120, 607, 2102, 629, 2259, 717, 2293, 701, 2582, 863, 1254, 1600, 517, 1190, -518, 1764, -312, 1879, -329, 1902, -100, 2030, -72, 2012, 220, 2175, -1179, 2954, -1886, 2560, -1440, 2310, -1490, 2283, -1930, 2537)])
+
 [node name="Level5" type="Node2D"]
 script = ExtResource("1_r1vs7")
 level_number = 5
@@ -66,7 +71,6 @@ tile_map_data = PackedByteArray("AAAPAPn/BQAAAAAAABAPAPr/AwAAAAAAABAPAPv/BQAAAAA
 tile_set = ExtResource("4_tqnj0")
 
 [node name="goblin_container" parent="y_sort" instance=ExtResource("6_6xwso")]
-y_sort_enabled = true
 
 [node name="goblin" parent="y_sort/goblin_container" instance=ExtResource("7_5ke18")]
 position = Vector2(403, -106)
@@ -153,3 +157,14 @@ process_priority = 300
 process_physics_priority = 300
 script = ExtResource("10_tqnj0")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_tqnj0")
+
+[node name="avoid" type="StaticBody2D" parent="NavigationRegion2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NavigationRegion2D/avoid"]
+polygon = PackedVector2Array(-1143, 1287, -765, 1498, -718, 1469, -1107, 1258)
+
+[node name="CollisionPolygon2D_2" type="CollisionPolygon2D" parent="NavigationRegion2D/avoid"]
+polygon = PackedVector2Array(-452, 489, -412, 512, -34, 299, -75, 277)

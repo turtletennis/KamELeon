@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://tytr01sv0r3o"]
+[gd_scene load_steps=15 format=4 uid="uid://tytr01sv0r3o"]
 
 [ext_resource type="Script" uid="uid://b0vl88p0ccig2" path="res://scripts/Level.gd" id="1_j2425"]
 [ext_resource type="PackedScene" uid="uid://5850mpp0ibc4" path="res://scenes/levels/level_3.tscn" id="2_g2h2n"]
@@ -28,6 +28,11 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 2273, -626, 0, 0, 0, 0, 1947, -442, 0, 0, 0, 0, 2135, -313, 0, 0, 0, 0, 2452, -517, 0, 0, 0, 0, 2270, -630)
 }
 point_count = 5
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_qsp8v"]
+vertices = PackedVector2Array(1217.98, 241.141, 1870.72, 72.6328, 3373.41, -81, 1697, 850.547, 1107, 522.563, 1154.29, 281.672, 2972.03, -270.367, 2022.96, -296.977, 1803.91, -415.578, 2287, -684.547, 2987.44, -295.422, 516.008, 850.563, -421.422, 329, -2.75, 96.1875, 28.75, 115.594, 976.773, 180.547, 352.953, -65.1094, 323.602, -85.2734, 663.992, -274.547, 977.609, -66.4688, 1032.45, 144.438, 1004.25, -84.8281, 1075.02, -7.28906, 2112.01, -63.1563, 2111.99, -74.8672, 3215.73, -133.688, 2023.04, -285.156, 2068.05, -99.4297, 1816.26, 38.3984, 1118.8, -34.1172, 1736.86, -378.242, 1963, -251.539, 3248.79, -150.211)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(6, 7, 8, 9, 10), PackedInt32Array(11, 12, 13, 14), PackedInt32Array(15, 16, 17, 18, 19, 20), PackedInt32Array(18, 21, 19), PackedInt32Array(5, 4, 11, 14, 16, 15), PackedInt32Array(20, 19, 22, 0), PackedInt32Array(2, 23, 24, 25), PackedInt32Array(26, 7, 6, 25, 24, 27), PackedInt32Array(28, 0, 22, 29, 30, 31, 27), PackedInt32Array(25, 32, 2), PackedInt32Array(31, 26, 27), PackedInt32Array(0, 28, 1), PackedInt32Array(2, 1, 23)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-442, 329, 516, 862, 1107, 534, 1697, 862, 3394, -81, 2287, -696, 1107, -39, 664, -286)])
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_j2425")
@@ -62,7 +67,7 @@ tile_set = ExtResource("6_qsp8v")
 
 [node name="Camera2D" type="Camera2D" parent="Y-sort"]
 physics_interpolation_mode = 1
-position = Vector2(408, 66)
+position = Vector2(417, 68)
 process_callback = 0
 
 [node name="PhantomCameraHost" type="Node" parent="Y-sort/Camera2D"]
@@ -72,7 +77,6 @@ script = ExtResource("4_8qukl")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="goblin_container" parent="Y-sort" instance=ExtResource("8_nt80m")]
-y_sort_enabled = true
 
 [node name="goblin" parent="Y-sort/goblin_container" instance=ExtResource("7_qsp8v")]
 position = Vector2(678, -172)
@@ -128,3 +132,26 @@ curve = SubResource("Curve2D_8qukl")
 
 [node name="enemy" parent="Y-sort/Path2D_3" instance=ExtResource("8_brxtv")]
 position = Vector2(2273, -626)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_qsp8v")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="NavigationRegion2D"]
+
+[node name="CollisionPolygon2D_2" type="CollisionPolygon2D" parent="NavigationRegion2D/StaticBody2D"]
+polygon = PackedVector2Array(1836, 39, 1871, 61, 2102, -69, 2068, -88)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NavigationRegion2D/StaticBody2D"]
+polygon = PackedVector2Array(996, 180, 1154, 270, 1198, 242, 1033, 156)
+
+[node name="CollisionPolygon2D_3" type="CollisionPolygon2D" parent="NavigationRegion2D/StaticBody2D"]
+polygon = PackedVector2Array(1731, -393, 1963, -263, 2013, -291, 1760, -428, 1720, -404)
+
+[node name="CollisionPolygon2D_4" type="CollisionPolygon2D" parent="NavigationRegion2D/StaticBody2D"]
+polygon = PackedVector2Array(3002, -300, 2986, -274, 3216, -145, 3258, -166)
+
+[node name="CollisionPolygon2D_5" type="CollisionPolygon2D" parent="NavigationRegion2D/StaticBody2D"]
+polygon = PackedVector2Array(1106, -38, 1075, -19, 996, -67, 1025, -87)
+
+[node name="CollisionPolygon2D_6" type="CollisionPolygon2D" parent="NavigationRegion2D/StaticBody2D"]
+polygon = PackedVector2Array(-10, 80, 29, 104, 334, -66, 302, -88)
