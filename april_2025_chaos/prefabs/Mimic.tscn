@@ -64,4 +64,4 @@ shape = SubResource("CircleShape2D_mvhcq")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_h3eoq")
-animation = &"mimic_closed_0"
+animation = &"mimic_open"

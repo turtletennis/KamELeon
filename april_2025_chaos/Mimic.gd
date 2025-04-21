@@ -4,6 +4,9 @@ extends Node2D
 @export var total_level_books : int
 var books_recieved : int
 
+func _process(delta: float) -> void:
+	animation_control()
+	
 func add_book():
 	books_recieved += 1
 	if books_recieved == total_level_books:
