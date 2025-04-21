@@ -27,10 +27,10 @@ texture = ExtResource("2_ucygd")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 2
-offset_left = 108.0
-offset_top = 258.0
-offset_right = 278.0
-offset_bottom = 702.0
+offset_left = 91.0
+offset_top = 172.0
+offset_right = 261.0
+offset_bottom = 678.0
 texture = ExtResource("3_mipys")
 patch_margin_left = 13
 patch_margin_top = 13
@@ -39,10 +39,10 @@ patch_margin_bottom = 13
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
-offset_left = 130.0
-offset_top = 283.0
-offset_right = 256.0
-offset_bottom = 679.0
+offset_left = 114.0
+offset_top = 195.0
+offset_right = 258.0
+offset_bottom = 659.0
 theme_override_constants/v_separation = 12
 
 [node name="resume button" type="Button" parent="GridContainer"]
@@ -68,6 +68,11 @@ text = "Start"
 layout_mode = 2
 theme = ExtResource("2_826wr")
 text = "Level select"
+
+[node name="how_to_play_button" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_826wr")
+text = "How to play"
 
 [node name="settings_button" type="Button" parent="GridContainer"]
 layout_mode = 2
@@ -97,12 +102,13 @@ visible = false
 position = Vector2(520, 162)
 
 [node name="Title" type="Sprite2D" parent="."]
-position = Vector2(210, 140)
+position = Vector2(471, 578)
 texture = ExtResource("8_mipys")
 
 [connection signal="pressed" from="GridContainer/resume button" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="GridContainer/start_button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="GridContainer/level_select_button" to="." method="_on_level_select_button_pressed"]
+[connection signal="pressed" from="GridContainer/how_to_play_button" to="." method="_on_how_to_play_button_pressed"]
 [connection signal="pressed" from="GridContainer/settings_button" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="GridContainer/credits_button" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="GridContainer/quit_button" to="." method="_on_quit_button_pressed"]

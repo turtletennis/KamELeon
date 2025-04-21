@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://dicivv3ug6etg"]
+
+[ext_resource type="Texture2D" uid="uid://vu5jtqjt1hx3" path="res://assets/UI/post-baroque-uigui-kit/Post-Baroque UI Kit/Panels/Panels A/Panels A/UI_PanelsA_01.png" id="1_t2toj"]
+[ext_resource type="Texture2D" uid="uid://cussudu1ksbfh" path="res://assets/UI/post-baroque-uigui-kit/Post-Baroque UI Kit/Titles/UI_TitleA2.png" id="2_2xw34"]
+[ext_resource type="Theme" uid="uid://bwjl0xwp728bj" path="res://Resources/ui_theme.tres" id="3_ee5bx"]
+
+[node name="how_to_play" type="Node2D"]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_right = 621.0
+offset_bottom = 459.0
+texture = ExtResource("1_t2toj")
+patch_margin_left = 13
+patch_margin_top = 13
+patch_margin_right = 13
+patch_margin_bottom = 13
+
+[node name="NinePatchRect" type="NinePatchRect" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 21.0
+offset_right = 419.0
+offset_bottom = 59.0
+texture = ExtResource("2_2xw34")
+patch_margin_left = 15
+patch_margin_top = 9
+patch_margin_right = 15
+patch_margin_bottom = 9
+
+[node name="how_to_play_title" type="Label" parent="NinePatchRect/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -229.5
+offset_top = -18.5
+offset_right = -43.5
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.5, 2.5)
+theme = ExtResource("3_ee5bx")
+text = "How to play"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 126.0
+offset_right = 136.0
+offset_bottom = 149.0
+theme = ExtResource("3_ee5bx")
+text = "- Movement"
