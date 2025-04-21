@@ -1,7 +1,8 @@
-[gd_resource type="TileSet" load_steps=14 format=3 uid="uid://dbrrhtdqkxo75"]
+[gd_resource type="TileSet" load_steps=16 format=3 uid="uid://dbrrhtdqkxo75"]
 
 [ext_resource type="Texture2D" uid="uid://yplkbqpj87px" path="res://assets/Wood_tileset.png" id="1_0im32"]
 [ext_resource type="Texture2D" uid="uid://cty880erhefwb" path="res://assets/Wall_tileset.png" id="2_gg2ul"]
+[ext_resource type="PackedScene" uid="uid://ca6gkseaq14nv" path="res://prefabs/Portal.tscn" id="2_v1ejt"]
 [ext_resource type="Texture2D" uid="uid://b6e3el7sirrul" path="res://assets/Bookshelf_01.png" id="3_ne6kg"]
 [ext_resource type="Texture2D" uid="uid://2os7cf6y1kar" path="res://assets/Bookshelf_02.png" id="4_a7x33"]
 [ext_resource type="Texture2D" uid="uid://doaoade80ofk0" path="res://assets/Bookshelf_03.png" id="5_v1ejt"]
@@ -20,6 +21,9 @@ texture_region_size = Vector2i(741, 831)
 use_texture_padding = false
 0:0/0 = 0
 0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_dga24")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_5uswc"]
+scenes/1/scene = ExtResource("2_v1ejt")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qxy0u"]
 texture = ExtResource("2_gg2ul")
@@ -68,3 +72,4 @@ sources/3 = SubResource("TileSetAtlasSource_5uswc")
 sources/5 = SubResource("TileSetAtlasSource_8ldgo")
 sources/6 = SubResource("TileSetAtlasSource_28772")
 sources/8 = SubResource("TileSetAtlasSource_v1ejt")
+sources/1 = SubResource("TileSetScenesCollectionSource_5uswc")
