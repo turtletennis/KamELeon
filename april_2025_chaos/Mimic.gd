@@ -15,7 +15,9 @@ func book_revieved():
 
 
 func book_destroyed():
+
 	total_level_books -= 1
+	print(total_level_books)
 	if total_level_books == 0:
 		get_parent().get_parent().failed_level()
 

@@ -69,7 +69,8 @@ curve = SubResource("Curve2D_dga24")
 [node name="enemy" parent="y_sort/Path2D" instance=ExtResource("10_qxy0u")]
 position = Vector2(-339, 352)
 
-[node name="goblin_container" parent="y_sort" instance=ExtResource("3_sk5k4")]
+[node name="goblin_container" parent="y_sort" node_paths=PackedStringArray("collector") instance=ExtResource("3_sk5k4")]
+collector = NodePath("../mimic")
 
 [node name="goblin" parent="y_sort/goblin_container" instance=ExtResource("6_s8va5")]
 position = Vector2(393, 236)
@@ -139,7 +140,7 @@ position = Vector2(227, 397)
 
 [node name="mimic" parent="y_sort" instance=ExtResource("11_iav0o")]
 position = Vector2(73, 65)
-total_level_books = 1
+total_level_books = 8
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_dga24")

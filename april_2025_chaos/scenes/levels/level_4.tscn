@@ -61,7 +61,8 @@ scale = Vector2(0.2, 0.2)
 tile_map_data = PackedByteArray("AAAIAPv/AwAAAAAAABAIAPz/BgAAAAAAABAIAP3/BgAAAAAAABAIAP7/AwAAAAAAABAZAAMABQAAAAAAABAZAAQABQAAAAAAABAZAAUAAwAAAAAAABAZAAYABQAAAAAAABAQAAMAAwAAAAAAAAARAAMABgAAAAAAAAANAAgABgAAAAAAABANAAcABgAAAAAAABANAAYABgAAAAAAABAHAPf/BQAAAAAAAAAIAPf/BgAAAAAAAAAfAAAABQAAAAAAAAAgAAAABgAAAAAAAAAhAAAABgAAAAAAAAAiAAAABQAAAAAAAAAUAPf/BgAAAAAAAAAVAPf/BgAAAAAAAAA=")
 tile_set = ExtResource("4_um320")
 
-[node name="goblin_container" parent="y_sort" instance=ExtResource("5_glw47")]
+[node name="goblin_container" parent="y_sort" node_paths=PackedStringArray("collector") instance=ExtResource("5_glw47")]
+collector = NodePath("../mimic")
 
 [node name="goblin" parent="y_sort/goblin_container" instance=ExtResource("6_4wsov")]
 position = Vector2(366, 30)

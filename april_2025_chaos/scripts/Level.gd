@@ -5,7 +5,6 @@ extends Node2D
 
 
 
-
 func _ready() -> void:
 	GameManager.set_highest_level(level_number)
 
