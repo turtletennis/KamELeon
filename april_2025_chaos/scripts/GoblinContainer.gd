@@ -17,7 +17,7 @@ func goblin_died(goblin: Goblin):
 		collector.book_destroyed()
 	goblins.erase(goblin)
 	if goblins.is_empty():
-		get_parent().failed_level()
+		get_parent().get_parent().failed_level()
 		
 	
 	

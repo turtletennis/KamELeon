@@ -111,9 +111,10 @@ func startWork(body: CollectItem) -> void:
 	stateMachine.QueueSwapState(Constants.GoblinState.Working)
 
 func workCompleted() -> void:
-	workTarget.WorkCompleted()
-	workTarget = null
-	heldItem = true
+	if workTarget != null:
+		workTarget.WorkCompleted()
+		workTarget = null
+		heldItem = true
 	
 
 

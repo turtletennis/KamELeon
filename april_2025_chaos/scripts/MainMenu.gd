@@ -57,3 +57,7 @@ func _init() -> void:
 
 func _on_resume_button_pressed() -> void:
 	level_select.resume()
+
+
+func _on_how_to_play_button_pressed() -> void:
+	pass # Replace with function body.

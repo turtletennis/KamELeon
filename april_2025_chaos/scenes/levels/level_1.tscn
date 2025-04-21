@@ -76,28 +76,28 @@ collector = NodePath("../mimic")
 position = Vector2(393, 236)
 
 [node name="goblin_2" parent="y_sort/goblin_container" instance=ExtResource("6_s8va5")]
-position = Vector2(506, 301)
+position = Vector2(702, 366)
 
 [node name="goblin_3" parent="y_sort/goblin_container" instance=ExtResource("6_s8va5")]
-position = Vector2(298, 178)
+position = Vector2(160, 596)
 
 [node name="goblin_4" parent="y_sort/goblin_container" instance=ExtResource("6_s8va5")]
-position = Vector2(229, 141)
+position = Vector2(200, 440)
 
 [node name="goblin_5" parent="y_sort/goblin_container" instance=ExtResource("6_s8va5")]
-position = Vector2(149, 91)
+position = Vector2(-152, 363)
 
 [node name="goblin_6" parent="y_sort/goblin_container" instance=ExtResource("6_s8va5")]
-position = Vector2(-300, 552)
+position = Vector2(-489, 544)
 
 [node name="goblin_7" parent="y_sort/goblin_container" instance=ExtResource("6_s8va5")]
-position = Vector2(-225, 600)
+position = Vector2(-63, 740)
 
 [node name="goblin_8" parent="y_sort/goblin_container" instance=ExtResource("6_s8va5")]
-position = Vector2(-331, 698)
+position = Vector2(-528, 860)
 
 [node name="goblin_9" parent="y_sort/goblin_container" instance=ExtResource("6_s8va5")]
-position = Vector2(-489, 627)
+position = Vector2(-1074, 228)
 
 [node name="player" parent="y_sort" instance=ExtResource("4_oc4kc")]
 y_sort_enabled = true
@@ -115,32 +115,14 @@ script = ExtResource("9_dga24")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Book" parent="y_sort" instance=ExtResource("10_excbq")]
-position = Vector2(-690, 620)
-
-[node name="Book_2" parent="y_sort" instance=ExtResource("10_excbq")]
-position = Vector2(-468, 824)
-
-[node name="Book_3" parent="y_sort" instance=ExtResource("10_excbq")]
-position = Vector2(-435, 522)
-
-[node name="Book_4" parent="y_sort" instance=ExtResource("10_excbq")]
-position = Vector2(185, 553)
-
-[node name="Book_5" parent="y_sort" instance=ExtResource("10_excbq")]
-position = Vector2(-37, 701)
-
-[node name="Book_6" parent="y_sort" instance=ExtResource("10_excbq")]
-position = Vector2(-106, 344)
+position = Vector2(179, 507)
 
 [node name="Book_7" parent="y_sort" instance=ExtResource("10_excbq")]
-position = Vector2(632, 387)
-
-[node name="Book_8" parent="y_sort" instance=ExtResource("10_excbq")]
-position = Vector2(227, 397)
+position = Vector2(125, 493)
 
 [node name="mimic" parent="y_sort" instance=ExtResource("11_iav0o")]
 position = Vector2(73, 65)
-total_level_books = 8
+total_level_books = 2
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_dga24")
