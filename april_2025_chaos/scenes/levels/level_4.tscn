@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://c8mhhkjwr7cb1"]
+[gd_scene load_steps=16 format=4 uid="uid://c8mhhkjwr7cb1"]
 
 [ext_resource type="Script" uid="uid://b0vl88p0ccig2" path="res://scripts/Level.gd" id="1_06474"]
 [ext_resource type="PackedScene" uid="uid://dilv3clvp2v34" path="res://scenes/levels/level_5.tscn" id="2_vmkp1"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://di14b32uuj7nb" path="res://prefabs/player.tscn" id="7_qvnao"]
 [ext_resource type="PackedScene" uid="uid://j64iwnkk0v3j" path="res://prefabs/Enemy.tscn" id="8_hsvsk"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="9_um320"]
+[ext_resource type="PackedScene" uid="uid://fuqsqk363htm" path="res://prefabs/CollectItem.tscn" id="10_4wsov"]
+[ext_resource type="PackedScene" uid="uid://bpq00n66syr0a" path="res://prefabs/Mimic.tscn" id="11_qvnao"]
 
 [sub_resource type="Curve2D" id="Curve2D_fcb7b"]
 _data = {
@@ -117,7 +119,7 @@ position = Vector2(932, 1309)
 
 [node name="Camera2D" type="Camera2D" parent="y_sort"]
 physics_interpolation_mode = 1
-position = Vector2(734, -141)
+position = Vector2(732, -141)
 process_callback = 0
 
 [node name="PhantomCameraHost" type="Node" parent="y_sort/Camera2D"]
@@ -125,6 +127,95 @@ process_priority = 300
 process_physics_priority = 300
 script = ExtResource("9_um320")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="books" type="Node2D" parent="y_sort"]
+
+[node name="Book" parent="y_sort/books" instance=ExtResource("10_4wsov")]
+position = Vector2(863, 362)
+
+[node name="Book_2" parent="y_sort/books" instance=ExtResource("10_4wsov")]
+position = Vector2(951, 313)
+
+[node name="Book_3" parent="y_sort/books" instance=ExtResource("10_4wsov")]
+position = Vector2(1068, 260)
+
+[node name="Book_4" parent="y_sort/books" instance=ExtResource("10_4wsov")]
+position = Vector2(1249, 43)
+
+[node name="Book_5" parent="y_sort/books" instance=ExtResource("10_4wsov")]
+position = Vector2(769, 123)
+
+[node name="Book_6" parent="y_sort/books" instance=ExtResource("10_4wsov")]
+position = Vector2(765, -82)
+
+[node name="Book_7" parent="y_sort/books" instance=ExtResource("10_4wsov")]
+position = Vector2(2137, 598)
+
+[node name="Book_8" parent="y_sort/books" instance=ExtResource("10_4wsov")]
+position = Vector2(1884, 541)
+
+[node name="Book_9" parent="y_sort/books" instance=ExtResource("10_4wsov")]
+position = Vector2(1075, 948)
+
+[node name="Book_10" parent="y_sort/books" instance=ExtResource("10_4wsov")]
+position = Vector2(928, 859)
+
+[node name="Book_11" parent="y_sort/books" instance=ExtResource("10_4wsov")]
+position = Vector2(969, 933)
+
+[node name="Book_12" parent="y_sort/books" instance=ExtResource("10_4wsov")]
+position = Vector2(640, 970)
+
+[node name="Book_13" parent="y_sort/books" instance=ExtResource("10_4wsov")]
+position = Vector2(516, 1042)
+
+[node name="Book_14" parent="y_sort/books" instance=ExtResource("10_4wsov")]
+position = Vector2(1552, 1413)
+
+[node name="Book_15" parent="y_sort/books" instance=ExtResource("10_4wsov")]
+position = Vector2(1770, 1331)
+
+[node name="Book_16" parent="y_sort/books" instance=ExtResource("10_4wsov")]
+position = Vector2(1492, 1139)
+
+[node name="Book_17" parent="y_sort/books" instance=ExtResource("10_4wsov")]
+position = Vector2(2244, 1449)
+
+[node name="Book_18" parent="y_sort/books" instance=ExtResource("10_4wsov")]
+position = Vector2(2385, 1394)
+
+[node name="Book_19" parent="y_sort/books" instance=ExtResource("10_4wsov")]
+position = Vector2(2414, 1538)
+
+[node name="Book_20" parent="y_sort/books" instance=ExtResource("10_4wsov")]
+position = Vector2(2030, 1719)
+
+[node name="Book_21" parent="y_sort/books" instance=ExtResource("10_4wsov")]
+position = Vector2(1627, 1624)
+
+[node name="Book_22" parent="y_sort/books" instance=ExtResource("10_4wsov")]
+position = Vector2(1185, 828)
+
+[node name="Book_23" parent="y_sort/books" instance=ExtResource("10_4wsov")]
+position = Vector2(2040, 663)
+
+[node name="Book_24" parent="y_sort/books" instance=ExtResource("10_4wsov")]
+position = Vector2(1383, 119)
+
+[node name="Book_25" parent="y_sort/books" instance=ExtResource("10_4wsov")]
+position = Vector2(630, 359)
+
+[node name="Book_26" parent="y_sort/books" instance=ExtResource("10_4wsov")]
+position = Vector2(711, 218)
+
+[node name="Book_27" parent="y_sort/books" instance=ExtResource("10_4wsov")]
+position = Vector2(1455, 1225)
+
+[node name="Book_28" parent="y_sort/books" instance=ExtResource("10_4wsov")]
+position = Vector2(1382, 1137)
+
+[node name="mimic" parent="y_sort" instance=ExtResource("11_qvnao")]
+position = Vector2(860, -195)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_um320")
