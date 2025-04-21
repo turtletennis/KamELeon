@@ -1,4 +1,4 @@
-class_name GoblinContainer extends Node
+class_name GoblinContainer extends Node2D
 
 var goblins : Array[Goblin] = []
 
