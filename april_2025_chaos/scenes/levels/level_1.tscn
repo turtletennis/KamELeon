@@ -34,70 +34,75 @@ scale = Vector2(0.2, 0.2)
 tile_map_data = PackedByteArray("AAAAAP//AAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAP//AAAAAAAAAAACAP//AAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAACAP7/AgAAAAAAAAABAP7/AgAAAAAAAAAAAP7/AgAAAAAAAAD/////AgAAAAAAABD//wAAAgAAAAAAABD//wEAAgAAAAAAABAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAABAAMAAAAAAAAAAAABAAQAAAAAAAAAAAABAAUAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAYAAAAAAAAAAAABAAYAAAAAAAAAAAABAAcAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAgAAAAAAAAAAAABAAgAAAAAAAAAAAACAAgAAAAAAAAAAAACAAcAAAAAAAAAAAADAAcAAAAAAAAAAAADAAYAAAAAAAAAAAADAAUAAAAAAAAAAAADAAQAAAAAAAAAAAADAAMAAAAAAAAAAAACAAMAAAAAAAAAAAACAAIAAAAAAAAAAAABAAIAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAEAAAAAAAAAAAADAAEAAAAAAAAAAAADAAAAAAAAAAAAAAADAP//AAAAAAAAAAAEAP//AAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAGAP//AAAAAAAAAAAFAP//AAAAAAAAAAAGAAEAAAAAAAAAAAAGAAIAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAMAAAAAAAAAAAAHAAQAAAAAAAAAAAAHAAUAAAAAAAAAAAAHAAYAAAAAAAAAAAAHAAcAAAAAAAAAAAAHAAgAAAAAAAAAAAAGAAgAAAAAAAAAAAAFAAgAAAAAAAAAAAAFAAkAAAAAAAAAAAAEAAkAAAAAAAAAAAADAAkAAAAAAAAAAAADAAgAAAAAAAAAAAACAAkAAAAAAAAAAAABAAkAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAAwAAAAAAAAAAAABAAwAAAAAAAAAAAABAA0AAAAAAAAAAAACAA0AAAAAAAAAAAACAA4AAAAAAAAAAAAAAA0AAAAAAAAAAAABAA4AAAAAAAAAAAAAAA4AAAAAAAAAAAADAA4AAAAAAAAAAAAEAA4AAAAAAAAAAAAFAA4AAAAAAAAAAAAGAA4AAAAAAAAAAAAHAA4AAAAAAAAAAAAIAA4AAAAAAAAAAAABAAsAAAAAAAAAAAABAAoAAAAAAAAAAAACAAwAAAAAAAAAAAACAAsAAAAAAAAAAAADAAwAAAAAAAAAAAADAA0AAAAAAAAAAAADAAsAAAAAAAAAAAADAAoAAAAAAAAAAAACAAoAAAAAAAAAAAAEAA0AAAAAAAAAAAAEAAwAAAAAAAAAAAAEAAsAAAAAAAAAAAAEAAoAAAAAAAAAAAAFAA0AAAAAAAAAAAAFAAwAAAAAAAAAAAAFAAoAAAAAAAAAAAAFAAsAAAAAAAAAAAAGAAwAAAAAAAAAAAAGAAsAAAAAAAAAAAAGAAoAAAAAAAAAAAAGAAkAAAAAAAAAAAAGAA0AAAAAAAAAAAAHAA0AAAAAAAAAAAAIAA0AAAAAAAAAAAAIAAwAAAAAAAAAAAAIAAsAAAAAAAAAAAAIAAoAAAAAAAAAAAAIAAkAAAAAAAAAAAAIAAgAAAAAAAAAAAAIAAcAAAAAAAAAAAAIAAYAAAAAAAAAAAAIAAUAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAEAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAP//AAAAAAAAAAAHAP//AAAAAAAAAAAHAAAAAAAAAAAAAAAHAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAIAAAAAAAAAAAACAAQAAAAAAAAAAAACAAUAAAAAAAAAAAACAAYAAAAAAAAAAAAEAAUAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAYAAAAAAAAAAAAEAAcAAAAAAAAAAAAEAAgAAAAAAAAAAAAFAAcAAAAAAAAAAAAFAAYAAAAAAAAAAAAFAAUAAAAAAAAAAAAGAAUAAAAAAAAAAAAGAAQAAAAAAAAAAAAGAAMAAAAAAAAAAAAGAAYAAAAAAAAAAAAGAAcAAAAAAAAAAAAFAAQAAAAAAAAAAAAHAAkAAAAAAAAAAAAHAAsAAAAAAAAAAAAHAAoAAAAAAAAAAAAHAAwAAAAAAAAAAAADAP7/AgAAAAAAAAAEAP7/AgAAAAAAAAAFAP7/AgAAAAAAAAAGAP7/AgAAAAAAAAAHAP7/AgAAAAAAAAAIAP7/AgAAAAAAAAD//wIAAgAAAAAAABD//wMAAgAAAAAAABD//wUAAgAAAAAAABD//wQAAgAAAAAAABD//wYAAgAAAAAAABD//wcAAgAAAAAAABD//wgAAgAAAAAAABD//wkAAgAAAAAAABD//woAAgAAAAAAABD//wsAAgAAAAAAABD//wwAAgAAAAAAABD//w0AAgAAAAAAABD//w4AAgAAAAAAABA=")
 tile_set = ExtResource("3_dga24")
 
-[node name="bookshelves" type="TileMapLayer" parent="."]
-scale = Vector2(0.2, 0.2)
-tile_map_data = PackedByteArray("AAAAAAQABgAAAAAAABAHAP//BgAAAAAAAAAGAP//AwAAAAAAAAAEAP//AwAAAAAAAAAAAAIAAwAAAAAAABAAAAgABgAAAAAAABAAAAkABQAAAAAAABA=")
-tile_set = ExtResource("3_dga24")
-
 [node name="death_portals" type="TileMapLayer" parent="."]
 scale = Vector2(0.2, 0.2)
 tile_map_data = PackedByteArray("AAAEAAQAAQAAAAAAAQA=")
 tile_set = ExtResource("3_dga24")
 
-[node name="goblin_container" parent="." instance=ExtResource("3_sk5k4")]
+[node name="y_sort" type="Node2D" parent="."]
+y_sort_enabled = true
 
-[node name="goblin" parent="goblin_container" instance=ExtResource("6_s8va5")]
+[node name="bookshelves" type="TileMapLayer" parent="y_sort"]
+y_sort_enabled = true
+scale = Vector2(0.2, 0.2)
+tile_map_data = PackedByteArray("AAAAAAQABgAAAAAAABAHAP//BgAAAAAAAAAGAP//AwAAAAAAAAAEAP//AwAAAAAAAAAAAAIAAwAAAAAAABAAAAgABgAAAAAAABAAAAkABQAAAAAAABA=")
+tile_set = ExtResource("3_dga24")
+
+[node name="Path2D_2" type="Path2D" parent="y_sort"]
+y_sort_enabled = true
+curve = SubResource("Curve2D_qxy0u")
+
+[node name="enemy" parent="y_sort/Path2D_2" instance=ExtResource("10_qxy0u")]
+position = Vector2(-867, 639)
+
+[node name="Path2D" type="Path2D" parent="y_sort"]
+y_sort_enabled = true
+curve = SubResource("Curve2D_dga24")
+
+[node name="enemy" parent="y_sort/Path2D" instance=ExtResource("10_qxy0u")]
+position = Vector2(-339, 352)
+
+[node name="goblin_container" parent="y_sort" instance=ExtResource("3_sk5k4")]
+y_sort_enabled = true
+
+[node name="goblin" parent="y_sort/goblin_container" instance=ExtResource("6_s8va5")]
 position = Vector2(393, 236)
 
-[node name="goblin_2" parent="goblin_container" instance=ExtResource("6_s8va5")]
+[node name="goblin_2" parent="y_sort/goblin_container" instance=ExtResource("6_s8va5")]
 position = Vector2(506, 301)
 
-[node name="goblin_3" parent="goblin_container" instance=ExtResource("6_s8va5")]
+[node name="goblin_3" parent="y_sort/goblin_container" instance=ExtResource("6_s8va5")]
 position = Vector2(298, 178)
 
-[node name="goblin_4" parent="goblin_container" instance=ExtResource("6_s8va5")]
+[node name="goblin_4" parent="y_sort/goblin_container" instance=ExtResource("6_s8va5")]
 position = Vector2(229, 141)
 
-[node name="goblin_5" parent="goblin_container" instance=ExtResource("6_s8va5")]
+[node name="goblin_5" parent="y_sort/goblin_container" instance=ExtResource("6_s8va5")]
 position = Vector2(149, 91)
 
-[node name="goblin_6" parent="goblin_container" instance=ExtResource("6_s8va5")]
+[node name="goblin_6" parent="y_sort/goblin_container" instance=ExtResource("6_s8va5")]
 position = Vector2(-300, 552)
 
-[node name="goblin_7" parent="goblin_container" instance=ExtResource("6_s8va5")]
+[node name="goblin_7" parent="y_sort/goblin_container" instance=ExtResource("6_s8va5")]
 position = Vector2(-225, 600)
 
-[node name="goblin_8" parent="goblin_container" instance=ExtResource("6_s8va5")]
+[node name="goblin_8" parent="y_sort/goblin_container" instance=ExtResource("6_s8va5")]
 position = Vector2(-331, 698)
 
-[node name="goblin_9" parent="goblin_container" instance=ExtResource("6_s8va5")]
+[node name="goblin_9" parent="y_sort/goblin_container" instance=ExtResource("6_s8va5")]
 position = Vector2(-489, 627)
 
-[node name="player" parent="." instance=ExtResource("4_oc4kc")]
+[node name="player" parent="y_sort" instance=ExtResource("4_oc4kc")]
 y_sort_enabled = true
 position = Vector2(5, 108)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="y_sort"]
 physics_interpolation_mode = 1
 position = Vector2(5, 108)
 process_callback = 0
 
-[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+[node name="PhantomCameraHost" type="Node" parent="y_sort/Camera2D"]
 process_priority = 300
 process_physics_priority = 300
 script = ExtResource("9_dga24")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
-
-[node name="enemys" type="Node" parent="."]
-
-[node name="Path2D_2" type="Path2D" parent="enemys"]
-curve = SubResource("Curve2D_qxy0u")
-
-[node name="enemy" parent="enemys/Path2D_2" instance=ExtResource("10_qxy0u")]
-position = Vector2(-867, 639)
-
-[node name="Path2D" type="Path2D" parent="enemys"]
-curve = SubResource("Curve2D_dga24")
-
-[node name="enemy" parent="enemys/Path2D" instance=ExtResource("10_qxy0u")]
-position = Vector2(-339, 352)

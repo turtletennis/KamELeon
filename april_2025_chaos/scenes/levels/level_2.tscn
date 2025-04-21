@@ -50,6 +50,7 @@ tile_set = ExtResource("6_qsp8v")
 y_sort_enabled = true
 
 [node name="extra_wall" parent="Y-sort" instance=ExtResource("7_nt80m")]
+y_sort_enabled = true
 position = Vector2(1106, -123)
 scale = Vector2(0.2, 0.2)
 
@@ -61,7 +62,7 @@ tile_set = ExtResource("6_qsp8v")
 
 [node name="Camera2D" type="Camera2D" parent="Y-sort"]
 physics_interpolation_mode = 1
-position = Vector2(417, 68)
+position = Vector2(408, 66)
 process_callback = 0
 
 [node name="PhantomCameraHost" type="Node" parent="Y-sort/Camera2D"]

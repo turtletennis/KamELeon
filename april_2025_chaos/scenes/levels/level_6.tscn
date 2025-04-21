@@ -48,6 +48,7 @@ tile_map_data = PackedByteArray("AAABACAAAQAAAAAAAQABAA8AAQAAAAAAAQALAAkAAQAAAAA
 tile_set = ExtResource("2_7x7cx")
 
 [node name="y_sort" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="bookshelves" type="TileMapLayer" parent="y_sort"]
 y_sort_enabled = true
@@ -56,6 +57,7 @@ tile_map_data = PackedByteArray("AAAeAAQAAwAAAAAAAAAdAAQABQAAAAAAAAAcAAQABQAAAAA
 tile_set = ExtResource("2_7x7cx")
 
 [node name="goblin_container" parent="y_sort" instance=ExtResource("3_b6i88")]
+y_sort_enabled = true
 
 [node name="goblin" parent="y_sort/goblin_container" instance=ExtResource("4_e18e5")]
 position = Vector2(-488, 376)

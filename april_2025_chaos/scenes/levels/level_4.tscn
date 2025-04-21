@@ -46,6 +46,7 @@ tile_map_data = PackedByteArray("AAARAAgAAQAAAAAAAQARAPv/AQAAAAAAAQAfAAUAAQAAAAA
 tile_set = ExtResource("4_um320")
 
 [node name="y_sort" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="book_shelves" type="TileMapLayer" parent="y_sort"]
 y_sort_enabled = true
@@ -111,7 +112,7 @@ position = Vector2(932, 1309)
 
 [node name="Camera2D" type="Camera2D" parent="y_sort"]
 physics_interpolation_mode = 1
-position = Vector2(734, -141)
+position = Vector2(720, -138)
 process_callback = 0
 
 [node name="PhantomCameraHost" type="Node" parent="y_sort/Camera2D"]
