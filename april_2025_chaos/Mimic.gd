@@ -9,27 +9,24 @@ func _process(delta: float) -> void:
 	animation_control()
 	
 func book_revieved():
-	total_level_books -1
 	books_recieved += 1
 	calcLevelComplete()
 	
 func book_destroyed():
 	total_level_books -= 1
-	print(total_level_books)
 	calcLevelComplete()
 	
 func level_complete():
 	get_parent().get_parent().finished_level()
 	
 func calcLevelComplete():
-	if total_level_books == 0:
-		if books_recieved >= books_needed:
-			level_complete()
-		else: 
-			level_fail()
+	if books_recieved >= total_level_books and books_recieved >= books_needed:
+		level_complete()
+	elif total_level_books <= 0 and books_recieved < books_needed:
+		level_fail.call_deferred()
 
 func level_fail() -> void:
-	get_parent().get_parent().failed_level()
+	get_parent().get_parent().level_fail.call_deferred()
 
 	
 

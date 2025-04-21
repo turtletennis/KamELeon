@@ -215,6 +215,7 @@ position = Vector2(1382, 1137)
 
 [node name="mimic" parent="y_sort" instance=ExtResource("11_qvnao")]
 position = Vector2(860, -195)
+total_level_books = 28
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_um320")

@@ -210,7 +210,7 @@ position = Vector2(1738, -207)
 
 [node name="mimic" parent="Y-sort" instance=ExtResource("12_tv7cl")]
 position = Vector2(664, -235)
-total_level_books = 10
+total_level_books = 24
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_qsp8v")

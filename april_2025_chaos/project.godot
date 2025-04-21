@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="sheep jam"
-run/main_scene="uid://cd76yyqk6xweu"
+run/main_scene="uid://b6u6g6ugmtb4e"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

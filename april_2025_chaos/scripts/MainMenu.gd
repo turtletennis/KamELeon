@@ -4,6 +4,7 @@ extends Control
 @onready var credits: Node2D = $credits
 @onready var level_select: Node2D = $level_select
 @onready var resume_button: Button = $"GridContainer/resume button"
+@onready var how_to_play: Node2D = $how_to_play
 
 
 
@@ -34,16 +35,19 @@ func _on_quit_button_pressed() -> void:
 func show_hide_settings():
 	credits.visible = false
 	level_select.visible = false
+	how_to_play.visible = false
 	settings.visible = !settings.visible
 
 func show_hide_credits():
 	level_select.visible = false
 	settings.visible = false
+	how_to_play.visible = false
 	credits.visible = !credits.visible
 
 func show_hide_level_select():
 	credits.visible = false
 	settings.visible = false
+	how_to_play.visible = false
 	level_select.visible = !level_select.visible
 
 	
@@ -52,6 +56,7 @@ func show_hide_level_select():
 
 func _ready() -> void:
 	resume_button.disabled = !Save_Load.file_saved
+	
 func _init() -> void:
 	print('something')
 
@@ -60,4 +65,7 @@ func _on_resume_button_pressed() -> void:
 
 
 func _on_how_to_play_button_pressed() -> void:
-	pass # Replace with function body.
+	credits.visible = false
+	settings.visible = false
+	level_select.visible = false
+	how_to_play.visible = !how_to_play.visible

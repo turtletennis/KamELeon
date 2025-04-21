@@ -15,6 +15,5 @@ func finished_level():
 		print("no next level assigned")
 	
 func failed_level():
-	SceneLoader.play()
-	await get_tree().create_timer(0.7).timeout
+	await get_tree().physics_frame
 	get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")

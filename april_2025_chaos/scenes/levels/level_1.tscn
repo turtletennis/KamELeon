@@ -94,10 +94,10 @@ position = Vector2(-489, 544)
 position = Vector2(-63, 740)
 
 [node name="goblin_8" parent="y_sort/goblin_container" instance=ExtResource("6_s8va5")]
-position = Vector2(-528, 860)
+position = Vector2(-150, 651)
 
 [node name="goblin_9" parent="y_sort/goblin_container" instance=ExtResource("6_s8va5")]
-position = Vector2(-1074, 228)
+position = Vector2(-230, 600)
 
 [node name="player" parent="y_sort" instance=ExtResource("4_oc4kc")]
 y_sort_enabled = true
@@ -115,14 +115,32 @@ script = ExtResource("9_dga24")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Book" parent="y_sort" instance=ExtResource("10_excbq")]
-position = Vector2(179, 507)
+position = Vector2(549, 336)
+
+[node name="Book_2" parent="y_sort" instance=ExtResource("10_excbq")]
+position = Vector2(316, 205)
+
+[node name="Book_3" parent="y_sort" instance=ExtResource("10_excbq")]
+position = Vector2(-50, 185)
+
+[node name="Book_4" parent="y_sort" instance=ExtResource("10_excbq")]
+position = Vector2(-495, 460)
+
+[node name="Book_5" parent="y_sort" instance=ExtResource("10_excbq")]
+position = Vector2(-573, 508)
+
+[node name="Book_6" parent="y_sort" instance=ExtResource("10_excbq")]
+position = Vector2(-159, 306)
+
+[node name="Book_8" parent="y_sort" instance=ExtResource("10_excbq")]
+position = Vector2(-317, 650)
 
 [node name="Book_7" parent="y_sort" instance=ExtResource("10_excbq")]
 position = Vector2(125, 493)
 
 [node name="mimic" parent="y_sort" instance=ExtResource("11_iav0o")]
 position = Vector2(73, 65)
-total_level_books = 2
+total_level_books = 8
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_dga24")
