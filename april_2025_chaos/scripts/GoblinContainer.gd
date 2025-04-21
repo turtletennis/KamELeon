@@ -1,5 +1,7 @@
 class_name GoblinContainer extends Node2D
 
+@export var collector : CollectionPoint
+
 var goblins : Array[Goblin] = []
 
 func _ready() -> void:
@@ -10,9 +12,10 @@ func _ready() -> void:
 	
 	GameManager.set_goblins(self)
 	 
-func goblin_died():
-	if goblins.size() == 1:
-		get_parent().get_parent().failed_level()
+func goblin_died(goblin: Goblin):
+	goblins.erase(goblin)
+	if goblins.is_empty():
+		get_parent().failed_level()
 	
 	
 func findGoblinCanMoveClosestToPosition(waypoint: WaypointMarker) -> Goblin:

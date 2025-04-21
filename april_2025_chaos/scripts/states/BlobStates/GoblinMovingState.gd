@@ -54,9 +54,13 @@ func DoAnimationControl() -> void:
 	lastPosition = ourBody.global_position
 
 func OnDetection(body: Node2D) -> Constants.GoblinState:
-	var book := body as CollectItem
-	if book != null and book.worker == null:
-		ourBody.setWorkTarget(book)
-		return Constants.GoblinState.MovingToTask
+	if ourBody.heldItem:
+		if body
+	# else no book on head
+	else:
+		var book := body as CollectItem
+		if book != null and book.worker == null:
+			ourBody.setWorkTarget(book)
+			return Constants.GoblinState.MovingToTask
 	
 	return state

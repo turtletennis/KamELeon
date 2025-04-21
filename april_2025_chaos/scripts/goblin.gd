@@ -14,7 +14,7 @@ var stateMachine: GoblinStateMachine
 var currentWaypoint: WaypointMarker = null
 
 var workTarget :CollectItem = null
-
+var dropoffPoint : CollectionPoint = null
 var heldItem:= false
 
 
@@ -52,8 +52,7 @@ func animation_control():
 	
 func die():
 	stateMachine.QueueSwapState(Constants.GoblinState.Dead)
-	get_parent().goblin_died()
-	GameManager.goblins.goblins.erase(self)
+	get_parent().goblin_died(self)
 	
 
 func setWaypoint(waypoint:WaypointMarker):
@@ -95,7 +94,19 @@ func setWorkTarget(body: CollectItem) -> void:
 	body.worker = self
 	navigation_agent_2d.target_position = body.global_position
 	navigation_agent_2d.target_desired_distance = 5.0
+
+func setCollectionTarget(body: CollectionPoint) -> void:
+	dropoffPoint = body
+	navigation_agent_2d.target_position = body.global_position
+	navigation_agent_2d.target_desired_distance = 5.0
 	
+func dropBook() -> void:
+	heldItem = false
+	workTarget = null
+	dropoffPoint = null
+	stateMachine.QueueSwapState(Constants.GoblinState.Idle)
+
+
 func startWork(body: CollectItem) -> void:
 	stateMachine.QueueSwapState(Constants.GoblinState.Working)
 

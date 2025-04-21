@@ -1,4 +1,4 @@
-extends Node2D
+class_name CollectionPoint extends Area2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @export var total_level_books : int
@@ -33,3 +33,10 @@ func animation_control():
 		animated_sprite_2d.play("mimic_closed_3")
 	elif books_recieved == total_level_books:
 		animated_sprite_2d.play("mimic_open")
+
+
+func _on_body_entered(body: Node2D) -> void:
+	var gobbo = body as Goblin
+	if gobbo != null and gobbo.heldItem:
+		book_revieved()
+		gobbo.dropBook()
