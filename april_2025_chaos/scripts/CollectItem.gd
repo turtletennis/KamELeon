@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	var goblin := body as Goblin
-	if goblin != null and worker == null:
+	if goblin != null and worker == goblin:
 		goblin.startWork(self)
 
 func GetMoveToTarget() -> Vector2:

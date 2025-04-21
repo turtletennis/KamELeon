@@ -724,7 +724,7 @@ height = 60.0
 [node name="goblin" type="CharacterBody2D" groups=["goblin"]]
 y_sort_enabled = true
 collision_layer = 4
-collision_mask = 125
+collision_mask = 121
 motion_mode = 1
 script = ExtResource("1_0ukbv")
 separation_radius = 30.0

@@ -3,26 +3,35 @@ class_name CollectionPoint extends Area2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @export var total_level_books : int
 var books_recieved : int
+@export var books_needed: int = 2
 
 func _process(delta: float) -> void:
 	animation_control()
 	
 func book_revieved():
+	total_level_books -1
 	books_recieved += 1
-	if books_recieved == total_level_books:
-		level_complete()
-
-
-
+	calcLevelComplete()
+	
 func book_destroyed():
-
 	total_level_books -= 1
 	print(total_level_books)
-	if total_level_books == 0:
-		get_parent().get_parent().failed_level()
-
+	calcLevelComplete()
+	
 func level_complete():
 	get_parent().get_parent().finished_level()
+	
+func calcLevelComplete():
+	if total_level_books == 0:
+		if books_recieved >= books_needed:
+			level_complete()
+		else: 
+			level_fail()
+
+func level_fail() -> void:
+	get_parent().get_parent().failed_level()
+
+	
 
 func animation_control():
 	if books_recieved == 0:
