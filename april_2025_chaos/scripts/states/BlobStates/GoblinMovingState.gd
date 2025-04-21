@@ -55,7 +55,9 @@ func DoAnimationControl() -> void:
 
 func OnDetection(body: Node2D) -> Constants.GoblinState:
 	if ourBody.heldItem:
-		if body
+		var mimic = body as CollectionPoint
+		if mimic != null:
+			ourBody.setCollectionTarget(mimic)
 	# else no book on head
 	else:
 		var book := body as CollectItem

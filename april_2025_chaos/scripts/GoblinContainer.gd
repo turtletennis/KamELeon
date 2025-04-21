@@ -13,9 +13,12 @@ func _ready() -> void:
 	GameManager.set_goblins(self)
 	 
 func goblin_died(goblin: Goblin):
+	if goblin.heldItem:
+		collector.book_destroyed()
 	goblins.erase(goblin)
 	if goblins.is_empty():
 		get_parent().failed_level()
+		
 	
 	
 func findGoblinCanMoveClosestToPosition(waypoint: WaypointMarker) -> Goblin:

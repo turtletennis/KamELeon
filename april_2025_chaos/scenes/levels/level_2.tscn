@@ -78,7 +78,8 @@ process_physics_priority = 300
 script = ExtResource("4_8qukl")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="goblin_container" parent="Y-sort" instance=ExtResource("8_nt80m")]
+[node name="goblin_container" parent="Y-sort" node_paths=PackedStringArray("collector") instance=ExtResource("8_nt80m")]
+collector = NodePath("../mimic")
 
 [node name="goblin" parent="Y-sort/goblin_container" instance=ExtResource("7_qsp8v")]
 position = Vector2(678, -172)
@@ -209,6 +210,7 @@ position = Vector2(1738, -207)
 
 [node name="mimic" parent="Y-sort" instance=ExtResource("12_tv7cl")]
 position = Vector2(664, -235)
+total_level_books = 10
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_qsp8v")

@@ -54,6 +54,8 @@ animations = [{
 }]
 
 [node name="Area2D" type="Area2D"]
+collision_layer = 128
+collision_mask = 4
 script = ExtResource("1_0keri")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
