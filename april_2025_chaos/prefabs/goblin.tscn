@@ -747,7 +747,6 @@ bus = &"SFX"
 path_desired_distance = 30.0
 target_desired_distance = 60.0
 path_max_distance = 250.0
-path_postprocessing = 1
 simplify_path = true
 simplify_epsilon = 1.0
 avoidance_enabled = true
