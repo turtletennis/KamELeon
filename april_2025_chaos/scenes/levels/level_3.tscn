@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://5850mpp0ibc4"]
+[gd_scene load_steps=17 format=4 uid="uid://5850mpp0ibc4"]
 
 [ext_resource type="Script" uid="uid://b0vl88p0ccig2" path="res://scripts/Level.gd" id="1_o8c3j"]
 [ext_resource type="PackedScene" uid="uid://c8mhhkjwr7cb1" path="res://scenes/levels/level_4.tscn" id="2_44gv1"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://di14b32uuj7nb" path="res://prefabs/player.tscn" id="8_t4txi"]
 [ext_resource type="PackedScene" uid="uid://j64iwnkk0v3j" path="res://prefabs/Enemy.tscn" id="9_apo5x"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="10_2bnyt"]
+[ext_resource type="PackedScene" uid="uid://fuqsqk363htm" path="res://prefabs/CollectItem.tscn" id="11_qi5uv"]
+[ext_resource type="PackedScene" uid="uid://bpq00n66syr0a" path="res://prefabs/Mimic.tscn" id="12_f6egh"]
 
 [sub_resource type="Curve2D" id="Curve2D_josfm"]
 _data = {
@@ -131,6 +133,95 @@ process_priority = 300
 process_physics_priority = 300
 script = ExtResource("10_2bnyt")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="books" type="Node2D" parent="y_sort"]
+
+[node name="Book" parent="y_sort/books" instance=ExtResource("11_qi5uv")]
+position = Vector2(117, 55)
+
+[node name="Book_2" parent="y_sort/books" instance=ExtResource("11_qi5uv")]
+position = Vector2(-189, 244)
+
+[node name="Book_3" parent="y_sort/books" instance=ExtResource("11_qi5uv")]
+position = Vector2(-248, 459)
+
+[node name="Book_4" parent="y_sort/books" instance=ExtResource("11_qi5uv")]
+position = Vector2(452, 224)
+
+[node name="Book_5" parent="y_sort/books" instance=ExtResource("11_qi5uv")]
+position = Vector2(-71, 599)
+
+[node name="Book_6" parent="y_sort/books" instance=ExtResource("11_qi5uv")]
+position = Vector2(-367, 659)
+
+[node name="Book_7" parent="y_sort/books" instance=ExtResource("11_qi5uv")]
+position = Vector2(-533, 551)
+
+[node name="Book_8" parent="y_sort/books" instance=ExtResource("11_qi5uv")]
+position = Vector2(-781, 551)
+
+[node name="Book_9" parent="y_sort/books" instance=ExtResource("11_qi5uv")]
+position = Vector2(-573, 1202)
+
+[node name="Book_10" parent="y_sort/books" instance=ExtResource("11_qi5uv")]
+position = Vector2(-389, 1320)
+
+[node name="Book_11" parent="y_sort/books" instance=ExtResource("11_qi5uv")]
+position = Vector2(490, 764)
+
+[node name="Book_12" parent="y_sort/books" instance=ExtResource("11_qi5uv")]
+position = Vector2(585, 1078)
+
+[node name="Book_13" parent="y_sort/books" instance=ExtResource("11_qi5uv")]
+position = Vector2(876, 1413)
+
+[node name="Book_14" parent="y_sort/books" instance=ExtResource("11_qi5uv")]
+position = Vector2(811, 1281)
+
+[node name="Book_15" parent="y_sort/books" instance=ExtResource("11_qi5uv")]
+position = Vector2(618, 1232)
+
+[node name="Book_16" parent="y_sort/books" instance=ExtResource("11_qi5uv")]
+position = Vector2(825, 1103)
+
+[node name="Book_17" parent="y_sort/books" instance=ExtResource("11_qi5uv")]
+position = Vector2(1025, 1209)
+
+[node name="Book_18" parent="y_sort/books" instance=ExtResource("11_qi5uv")]
+position = Vector2(1268, 1114)
+
+[node name="Book_19" parent="y_sort/books" instance=ExtResource("11_qi5uv")]
+position = Vector2(1429, 1026)
+
+[node name="Book_20" parent="y_sort/books" instance=ExtResource("11_qi5uv")]
+position = Vector2(1050, 821)
+
+[node name="Book_21" parent="y_sort/books" instance=ExtResource("11_qi5uv")]
+position = Vector2(1452, 732)
+
+[node name="Book_22" parent="y_sort/books" instance=ExtResource("11_qi5uv")]
+position = Vector2(1571, 796)
+
+[node name="Book_23" parent="y_sort/books" instance=ExtResource("11_qi5uv")]
+position = Vector2(1321, 910)
+
+[node name="Book_24" parent="y_sort/books" instance=ExtResource("11_qi5uv")]
+position = Vector2(1186, 976)
+
+[node name="Book_25" parent="y_sort/books" instance=ExtResource("11_qi5uv")]
+position = Vector2(-411, 1062)
+
+[node name="Book_26" parent="y_sort/books" instance=ExtResource("11_qi5uv")]
+position = Vector2(-220, 1172)
+
+[node name="Book_27" parent="y_sort/books" instance=ExtResource("11_qi5uv")]
+position = Vector2(1128, 771)
+
+[node name="Book_28" parent="y_sort/books" instance=ExtResource("11_qi5uv")]
+position = Vector2(1355, 1063)
+
+[node name="mimic" parent="y_sort" instance=ExtResource("12_f6egh")]
+total_level_books = 28
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_2bnyt")

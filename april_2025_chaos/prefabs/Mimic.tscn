@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bpct1pksd428" path="res://assets/Mimic_open.png" id="6_g83ya"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mvhcq"]
-radius = 61.0328
+radius = 141.032
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_h3eoq"]
 animations = [{
@@ -64,4 +64,5 @@ shape = SubResource("CircleShape2D_mvhcq")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_h3eoq")
-animation = &"mimic_open"
+animation = &"mimic_closed_0"
+autoplay = "mimic_closed_0"
