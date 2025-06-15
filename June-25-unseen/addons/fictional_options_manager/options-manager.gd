@@ -1,4 +1,3 @@
-@tool
 extends Node
 
 var CONFIG_FILE_PATH: String
@@ -10,14 +9,19 @@ var configSets :Dictionary[String, OptionsSection] = {
 }
 
 func _init() -> void:
-	CONFIG_FILE_PATH = ProjectSettings.get_setting(OptionsManagerConsts.config_file_path_settings_prop_path)
+	CONFIG_FILE_PATH = ProjectSettings.get_setting(OptionsManagerConsts.config_file_path_settings_prop_path, OptionsManagerConsts.config_file_path_default)
 
 func _ready():
 	_config.load(CONFIG_FILE_PATH)
 	LoadConfiguration()
 
-func AddConfigSection(sectionName: String, type: OptionsSection) -> void:
+func AddConfigSection(sectionName: String, type) -> void:
+	
 	configSets[sectionName] = type
+
+func GetConfigSection(sectionName: String):
+	return configSets.get(sectionName)
+
 
 func LoadConfiguration() -> void:
 	for cset: OptionsSection in configSets.values():

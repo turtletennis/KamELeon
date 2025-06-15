@@ -1,0 +1,23 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://7giom6xpji7b"]
+
+[ext_resource type="StyleBox" uid="uid://dymhbv1vc76je" path="res://assets/ui/theme/button-normal.tres" id="1_skoc4"]
+[ext_resource type="StyleBox" uid="uid://dc6ija8euwhfx" path="res://assets/ui/theme/button-pressed.tres" id="2_0dltl"]
+[ext_resource type="Texture2D" uid="uid://bldxk33egywi5" path="res://assets/ui/Menu Buttons 18.png" id="3_nd4ev"]
+[ext_resource type="FontFile" uid="uid://d2do5dsvgyu2i" path="res://assets/ui/theme/OpenDyslexic-Regular.otf" id="4_0dltl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0gkca"]
+texture = ExtResource("3_nd4ev")
+texture_margin_left = 12.0
+texture_margin_top = 15.0
+texture_margin_right = 12.0
+texture_margin_bottom = 15.0
+
+[resource]
+default_font = ExtResource("4_0dltl")
+default_font_size = 20
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = ExtResource("1_skoc4")
+Button/styles/pressed = ExtResource("2_0dltl")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_0gkca")
+VBoxContainer/constants/separation = 20
