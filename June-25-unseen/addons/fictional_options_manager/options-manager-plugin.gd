@@ -6,7 +6,7 @@ const AUTOLOAD_NAME := "FictionalOptionsManager"
 
 func _enable_plugin():
 	# The autoload can be a scene or script file.
-	add_autoload_singleton(AUTOLOAD_NAME, "res://addons/options-manager/options-manager-plugin.gd")
+	add_autoload_singleton(AUTOLOAD_NAME, "res://addons/fictional_options_manager/options-manager.gd")
 
 	if not ProjectSettings.has_setting(OptionsManagerConsts.config_file_path_settings_prop_path):
 		ProjectSettings.set_setting(OptionsManagerConsts.config_file_path_settings_prop_path, OptionsManagerConsts.config_file_path_default)

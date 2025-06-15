@@ -11,10 +11,15 @@ config_version=5
 [application]
 
 config/name="KamELeon"
-run/main_scene="uid://bmemra1drbrvt"
+run/main_scene="uid://br5stdthny2l0"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/image="uid://ccbd7x76duxtb"
 config/icon="res://icon.svg"
+
+[autoload]
+
+FictionalOptionsManager="*res://addons/fictional_options_manager/options-manager.gd"
+AudioManager="*res://scripts/Globals/AudioManager.gd"
 
 [display]
 
@@ -30,6 +35,10 @@ window/stretch/scale_mode="integer"
 naming/node_name_num_separator=2
 naming/scene_name_casing=1
 naming/script_name_casing=1
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/fictional_options_manager/plugin.cfg")
 
 [input]
 

@@ -1,4 +1,3 @@
-@tool
 class_name OptionsSection extends RefCounted
 
 var _section: String
