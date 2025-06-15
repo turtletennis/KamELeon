@@ -28,11 +28,13 @@ var on_any_wall : bool
 var coyotee_time_active : bool 
 var double_jump_available : bool 
 
+func _ready() -> void:
+	GameManager.set_player(self)
+
 func _physics_process(delta: float) -> void:
 	on_left_wall = left_ray_cast_1.is_colliding() and left_ray_cast_2.is_colliding()
 	on_right_wall = right_ray_cast_1.is_colliding() and right_ray_cast_2.is_colliding()
 	on_any_wall = on_left_wall or on_right_wall
-	print(on_any_wall)
 	move_and_slide()
 	if is_on_floor():
 		double_jump_available = true
@@ -47,3 +49,17 @@ func coyotee_time():
 
 func _on_coyotee_timer_timeout() -> void:
 	coyotee_time_active = false
+
+
+## colors,0 = normal,  1 = blue, 2 = pink 
+var current_color = 0
+
+
+func _on_blue_pressed() -> void:
+	current_color = 1
+
+func _on_pink_pressed() -> void:
+	current_color = 2
+
+func _on_normal_pressed() -> void:
+	current_color = 0
