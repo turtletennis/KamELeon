@@ -22,6 +22,8 @@ extends CharacterBody2D
 @onready var left_ray_cast_2: RayCast2D = $left_ray_cast_2
 @onready var coyotee_timer: Timer = $coyotee_timer
 
+@onready var state_machine: Node = $state_machine
+
 var on_left_wall : bool
 var on_right_wall : bool
 var on_any_wall : bool
@@ -40,7 +42,7 @@ func _physics_process(delta: float) -> void:
 		double_jump_available = true
 	
 func die():
-	pass
+	state_machine.on_child_transition(state_machine.current_state, "dead")
 
 
 func coyotee_time():
@@ -63,3 +65,8 @@ func _on_pink_pressed() -> void:
 
 func _on_normal_pressed() -> void:
 	current_color = 0
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		body.die()

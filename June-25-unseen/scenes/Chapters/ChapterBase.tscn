@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://bda3ca1mxqdym"]
+
+[ext_resource type="TileSet" uid="uid://dycbkeaxj62qw" path="res://assets/tiles/vector grass.tres" id="1_t1qet"]
+[ext_resource type="Script" uid="uid://odrbd7ohc1g5" path="res://addons/cameraregion2d/CameraRegionController2D.gd" id="2_7kyf7"]
+[ext_resource type="PackedScene" uid="uid://bs11isf4ve882" path="res://prefabs/player.tscn" id="3_tehvk"]
+
+[node name="chapter_base" type="Node2D"]
+
+[node name="base_tiles" type="TileMapLayer" parent="."]
+tile_set = ExtResource("1_t1qet")
+
+[node name="decoration_tiles" type="TileMapLayer" parent="."]
+tile_set = ExtResource("1_t1qet")
+
+[node name="interactable_tiles" type="TileMapLayer" parent="."]
+tile_set = ExtResource("1_t1qet")
+
+[node name="yellow_tiles" type="TileMapLayer" parent="."]
+tile_set = ExtResource("1_t1qet")
+
+[node name="blue_tiles" type="TileMapLayer" parent="."]
+tile_set = ExtResource("1_t1qet")
+
+[node name="green_tiles" type="TileMapLayer" parent="."]
+tile_set = ExtResource("1_t1qet")
+
+[node name="red_tiles" type="TileMapLayer" parent="."]
+tile_set = ExtResource("1_t1qet")
+
+[node name="CameraRegionController2D" type="Node2D" parent="." node_paths=PackedStringArray("camera", "target_node")]
+position = Vector2(2, 0)
+script = ExtResource("2_7kyf7")
+camera = NodePath("../Camera2D")
+target_node = NodePath("../player")
+metadata/_custom_type_script = "uid://odrbd7ohc1g5"
+
+[node name="player" parent="." instance=ExtResource("3_tehvk")]
+
+[node name="Camera2D" type="Camera2D" parent="."]

@@ -3,7 +3,10 @@ extends PlayerState
 
 
 func enter():
-	pass
+	player.velocity.x = 0
+	player.animation.play("death")
+	
+	
 
 
 func physics_process_state(delta: float) -> void:
