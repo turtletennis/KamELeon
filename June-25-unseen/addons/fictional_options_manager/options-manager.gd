@@ -15,11 +15,10 @@ func _ready():
 	_config.load(CONFIG_FILE_PATH)
 	LoadConfiguration()
 
-func AddConfigSection(sectionName: String, type) -> void:
-	
+func AddConfigSection(sectionName: String, type: OptionsSection) -> void:
 	configSets[sectionName] = type
 
-func GetConfigSection(sectionName: String):
+func GetConfigSection(sectionName: String) -> OptionsSection:
 	return configSets.get(sectionName)
 
 

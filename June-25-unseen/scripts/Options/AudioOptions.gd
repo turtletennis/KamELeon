@@ -34,6 +34,7 @@ var EffectMuted: bool = false:
 		NotifyChange()
 
 func _init() -> void:
+	super._init("Audio")
 	configKeyMap["MasterVolume"] = &"MasterVolume"
 	configKeyMap["MusicVolume"] = &"MusicVolume"
 	configKeyMap["EffectVolume"] = &"EffectVolume"

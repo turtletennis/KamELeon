@@ -8,6 +8,7 @@ var _suppressNotifications: bool = false
 var _notification: Signal = Signal(self, &"NotifyChanges")
 
 func _init( section: String):
+	
 	_section = section
 
 var configKeyMap : Dictionary[String, StringName] = {

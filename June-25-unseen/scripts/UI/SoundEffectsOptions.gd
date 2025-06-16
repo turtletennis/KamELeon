@@ -9,7 +9,8 @@ var _options : AudioOptions
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
-	_options = FictionalOptionsManager.GetConfigSection("Audio")
+	var grabbed = FictionalOptionsManager.GetConfigSection("Audio")
+	_options = grabbed as AudioOptions
 	SetSliderValues()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
