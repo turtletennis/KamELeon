@@ -18,8 +18,12 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+<<<<<<< Updated upstream
 FictionalOptionsManager="*res://addons/fictional_options_manager/options-manager.gd"
 AudioManager="*res://scripts/Globals/AudioManager.gd"
+=======
+GameManager="*res://scripts/globals/game_manager.gd"
+>>>>>>> Stashed changes
 
 [display]
 
@@ -89,6 +93,8 @@ action={
 2d_physics/layer_2="Terrain"
 2d_physics/layer_3="Death"
 2d_physics/layer_4="Enemy"
+2d_physics/layer_5="blue"
+2d_physics/layer_6="pink"
 
 [physics]
 
