@@ -2,8 +2,8 @@
 
 [ext_resource type="TileSet" uid="uid://dycbkeaxj62qw" path="res://assets/tiles/vector grass.tres" id="2_ia1lp"]
 [ext_resource type="PackedScene" uid="uid://bs11isf4ve882" path="res://prefabs/player.tscn" id="2_sasra"]
-[ext_resource type="Script" path="res://Blue_test.gd" id="3_coq8p"]
-[ext_resource type="Script" path="res://Pink_test.gd" id="4_2nij2"]
+[ext_resource type="Script" uid="uid://cgns3fwwvr3co" path="res://Blue_test.gd" id="3_coq8p"]
+[ext_resource type="Script" uid="uid://ci6qa4p43so1f" path="res://Pink_test.gd" id="4_2nij2"]
 
 [node name="Node2D" type="Node2D"]
 

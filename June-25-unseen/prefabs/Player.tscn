@@ -1,6 +1,6 @@
 [gd_scene load_steps=61 format=3 uid="uid://bs11isf4ve882"]
 
-[ext_resource type="Script" uid="uid://bkxjeydfq35ws" path="res://scripts/Player.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://bkxjeydfq35ws" path="res://scripts/Player_controller.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://b4w2na2cryvii" path="res://assets/elia.png" id="2_f1ej7"]
 [ext_resource type="Script" uid="uid://74r51hww4olr" path="res://scripts/state_machine/state_machine.gd" id="3_qhqgy"]
 [ext_resource type="Script" uid="uid://cdi6xpi18mhu3" path="res://scripts/state_machine/states/idle_state.gd" id="4_dqkch"]

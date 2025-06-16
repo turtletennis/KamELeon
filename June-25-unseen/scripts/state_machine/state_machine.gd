@@ -39,7 +39,7 @@ func on_child_transition(state: PlayerState, new_state_name: String):
 	# Clean up the previous state
 	if current_state:
 		current_state.exit()
-		current_state.process_mode = Node.PROCESS_MODE_DISABLED
+		#current_state.process_mode = Node.PROCESS_MODE_DISABLED
 	
 	# Intialize the new state
 	new_state.enter()
