@@ -15,7 +15,6 @@ func _ready():
 	if initial_state:
 		current_state = initial_state
 		current_state.enter.call_deferred()
-	print(states)
 
 
 func _process(delta):

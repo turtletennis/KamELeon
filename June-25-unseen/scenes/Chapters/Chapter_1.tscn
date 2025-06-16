@@ -1,8 +1,14 @@
-[gd_scene load_steps=9 format=4 uid="uid://b0fge1jbl8w8s"]
+[gd_scene load_steps=15 format=4 uid="uid://b0fge1jbl8w8s"]
 
 [ext_resource type="PackedScene" uid="uid://bda3ca1mxqdym" path="res://scenes/Chapters/ChapterBase.tscn" id="1_rovs1"]
 [ext_resource type="Script" uid="uid://ng0u1it2b1h0" path="res://addons/cameraregion2d/CameraRegion2D.gd" id="2_dk4i5"]
+[ext_resource type="Script" uid="uid://ddyltod36isap" path="res://scripts/colord_tiles.gd" id="2_ja6ly"]
 [ext_resource type="Script" uid="uid://bpqsytj8gjeac" path="res://addons/cameraregion2d/CameraTransition.gd" id="3_gy0hy"]
+[ext_resource type="PackedScene" uid="uid://c6vx6h2wdm7py" path="res://prefabs/RespawnPoint.tscn" id="4_dk4i5"]
+[ext_resource type="PackedScene" uid="uid://rittry0gwngo" path="res://prefabs/ColorBug.tscn" id="6_lnl3j"]
+[ext_resource type="Resource" uid="uid://b6r5dfwp51kvk" path="res://scripts/resources/red_bug_resource.tres" id="7_mbnh7"]
+[ext_resource type="Resource" uid="uid://dfuyglot3yr5f" path="res://scripts/resources/blue_bug_resource.tres" id="8_xh06f"]
+[ext_resource type="Resource" uid="uid://gbg7f57j4lq3" path="res://scripts/resources/green_bug_resource.tres" id="9_jgd0q"]
 
 [sub_resource type="Curve" id="Curve_x3q80"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -32,6 +38,21 @@ size = Vector2(40, 40)
 [node name="base_tiles" parent="." index="0"]
 tile_map_data = PackedByteArray("AAA8AAsAAAACAAEAAAA8AAoAAAACAAAAAAA7AAsAAAAAAAIAAAA7AAoAAAAAAAEAAAA6AAsAAAAAAAIAAAA6AAoAAAAAAAEAAAA5AAsAAAAAAAIAAAA5AAoAAAAAAAEAAAA4AAsAAAAAAAIAAAA4AAoAAAAAAAEAAAA3AAsAAAAAAAIAAAA3AAoAAAAAAAEAAAA2AAsAAAAAAAIAAAA2AAoAAAAAAAEAAAA1AAsAAAAAAAIAAAA1AAoAAAAAAAEAAAA0AAsAAAAAAAIAAAA0AAoAAAAAAAEAAAAzAAsAAAAAAAIAAAAzAAoAAAAAAAEAAAAyAAsAAAAAAAIAAAAyAAoAAAAAAAEAAAAxAAsAAAAAAAIAAAAxAAoAAAAAAAEAAAAwAAsAAAAAAAIAAAAwAAoAAAAAAAEAAAAvAAsAAAAAAAIAAAAvAAoAAAAAAAEAAAAuAAsAAAAAAAIAAAAuAAoAAAAAAAEAAAAtAAsAAAAAAAIAAAAtAAoAAAAAAAEAAAAsAAsAAAAAAAIAAAAsAAoAAAAAAAEAAAArAAsAAAAAAAIAAAArAAoAAAAAAAEAAAAqAAsAAAAAAAIAAAAqAAoAAAAAAAEAAAApAAsAAAAAAAIAAAApAAoAAAAAAAEAAAAoAAsAAAAAAAIAAAAoAAoAAAAAAAEAAAAnAAsAAAAAAAIAAAAnAAoAAAAAAAEAAAAmAAsAAAAAAAIAAAAmAAoAAAAAAAEAAAAlAAsAAAAAAAIAAAAlAAoAAAAAAAEAAAAkAAsAAAAAAAIAAAAkAAoAAAAAAAEAAAAjAAsAAAAAAAIAAAAjAAoAAAAAAAEAAAAiAAsAAAAAAAIAAAAiAAoAAAAAAAEAAAAhAAsAAAAAAAIAAAAhAAoAAAAAAAEAAAAgAAsAAAAAAAIAAAAgAAoAAAAAAAEAAAAfAAsAAAAAAAIAAAAfAAoAAAAAAAEAAAAeAAsAAAAAAAIAAAAeAAoAAAAAAAEAAAAdAAsAAAAAAAIAAAAdAAoAAAAAAAEAAAAcAAsAAAAAAAIAAAAcAAoAAAAAAAEAAAAbAAsAAAAAAAIAAAAbAAoAAAAAAAEAAAAaAAsAAAAAAAIAAAAaAAoAAAAAAAEAAAAZAAsAAAAAAAIAAAAZAAoAAAAAAAEAAAAYAAsAAAAAAAIAAAAYAAoAAAAAAAEAAAAXAAsAAAAAAAIAAAAXAAoAAAAAAAEAAAAWAAsAAAAAAAIAAAAWAAoAAAAAAAEAAAAVAAsAAAAAAAIAAAAVAAoAAAAAAAEAAAAUAAsAAAAAAAIAAAAUAAoAAAAAAAEAAAATAAsAAAAAAAIAAAATAAoAAAAAAAEAAAASAAsAAAAAAAIAAAASAAoAAAAAAAEAAAARAAsAAAAAAAIAAAARAAoAAAAAAAEAAAAQAAsAAAAAAAIAAAAQAAoAAAAAAAEAAAAPAAsAAAAAAAIAAAAPAAoAAAAAAAEAAAAOAAsAAAAAAAIAAAAOAAoAAAAAAAEAAAANAAsAAAAAAAIAAAANAAoAAAAAAAEAAAAMAAsAAAAAAAIAAAAMAAoAAAAAAAEAAAALAAsAAAAAAAIAAAALAAoAAAAAAAEAAAAKAAsAAAAAAAIAAAAKAAoAAAADAAEAAAAJAAsAAAAAAAIAAAAJAAoAAAAEAAEAAAAIAAsAAAAAAAIAAAAIAAoAAAAAAAEAAAAHAAsAAAAAAAIAAAAHAAoAAAAAAAEAAAAGAAsAAAAAAAIAAAAGAAoAAAAAAAEAAAAFAAsAAAAAAAIAAAAFAAoAAAAAAAEAAAAEAAsAAAAAAAIAAAAEAAoAAAAAAAEAAAADAAsAAAAAAAIAAAADAAoAAAAAAAEAAAACAAsAAAAAAAIAAAACAAoAAAAAAAEAAAABAAsAAAAAAAIAAAABAAoAAAAAAAEAAAAAAAsAAAABAAEAAAAAAAoAAAABAAAAAAAKAAkAAAACAAIAAAAKAAgAAAACAAIAAAAJAAkAAAABAAIAAAAJAAgAAAABAAIAAAAKAAcAAAACAAIAAAAKAAYAAAACAAIAAAAKAAUAAAACAAAAAAAJAAcAAAABAAIAAAAJAAYAAAABAAIAAAAJAAUAAAABAAAAAAA=")
 
+[node name="red_tiles" parent="." index="3"]
+tile_map_data = PackedByteArray("AAAYAAgAAAAFAAAAAAAYAAkAAAAFAAIAAAA=")
+script = ExtResource("2_ja6ly")
+color_index = 1
+
+[node name="blue_tiles" parent="." index="4"]
+tile_map_data = PackedByteArray("AAAbAAgAAAAFAAAAAAAbAAkAAAAFAAIAAAA=")
+script = ExtResource("2_ja6ly")
+color_index = 2
+
+[node name="green_tiles" parent="." index="5"]
+tile_map_data = PackedByteArray("AAAeAAgAAAAFAAAAAAAeAAkAAAAFAAIAAAA=")
+script = ExtResource("2_ja6ly")
+color_index = 3
+
 [node name="CameraRegion2D" type="Node2D" parent="CameraRegionController2D" index="0"]
 position = Vector2(638, 360)
 script = ExtResource("2_dk4i5")
@@ -53,11 +74,11 @@ size = Vector2(1280, 720)
 transition = SubResource("Resource_ja6ly")
 metadata/_custom_type_script = "uid://ng0u1it2b1h0"
 
-[node name="player" parent="." index="8"]
-position = Vector2(374, 583)
+[node name="player" parent="." index="7"]
+position = Vector2(59, 585)
 
-[node name="Area2D" type="Area2D" parent="." index="10"]
-position = Vector2(1870, 596)
+[node name="Area2D" type="Area2D" parent="." index="9"]
+position = Vector2(2240, 580)
 
 [node name="ColorRect" type="ColorRect" parent="Area2D" index="0"]
 offset_right = 40.0
@@ -68,4 +89,44 @@ color = Color(1, 0, 0, 1)
 position = Vector2(20, 20)
 shape = SubResource("RectangleShape2D_rovs1")
 
+[node name="Area2D_2" type="Area2D" parent="." index="10"]
+position = Vector2(747, 582)
+
+[node name="ColorRect" type="ColorRect" parent="Area2D_2" index="0"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_2" index="1"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_rovs1")
+
+[node name="respawn_point" parent="." index="11" instance=ExtResource("4_dk4i5")]
+position = Vector2(111, 0)
+
+[node name="respawn_point_2" parent="." index="12" instance=ExtResource("4_dk4i5")]
+position = Vector2(1220, 0)
+
+[node name="respawn_point_3" parent="." index="13" instance=ExtResource("4_dk4i5")]
+position = Vector2(1316, 0)
+
+[node name="respawn_point_4" parent="." index="14" instance=ExtResource("4_dk4i5")]
+position = Vector2(2503, 0)
+
+[node name="respawn_point_5" parent="." index="15" instance=ExtResource("4_dk4i5")]
+position = Vector2(2595, 0)
+
+[node name="color_bug" parent="." index="16" instance=ExtResource("6_lnl3j")]
+position = Vector2(1569, 250)
+bug_resource = ExtResource("7_mbnh7")
+
+[node name="color_bug_2" parent="." index="17" instance=ExtResource("6_lnl3j")]
+position = Vector2(1762, 250)
+bug_resource = ExtResource("8_xh06f")
+
+[node name="color_bug_3" parent="." index="18" instance=ExtResource("6_lnl3j")]
+position = Vector2(1960, 250)
+bug_resource = ExtResource("9_jgd0q")
+
 [connection signal="body_entered" from="Area2D" to="player" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D_2" to="player" method="_on_area_2d_body_entered"]

@@ -375,6 +375,7 @@ animations = [{
 size = Vector2(3.6, 12.7)
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
+z_index = 1
 collision_mask = 2
 script = ExtResource("1_g2els")
 movement_speed = 500
@@ -388,6 +389,7 @@ max_fall_speed = 6000
 wall_slide_speed = 200
 wall_friction = 10000
 wall_jump_power = 1000
+time_to_respawn = 2
 
 [node name="coyotee_timer" type="Timer" parent="."]
 wait_time = 0.1
@@ -409,7 +411,7 @@ shape = SubResource("RectangleShape2D_g2els")
 
 [node name="state_machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_qhqgy")
-initial_state = NodePath("idle")
+initial_state = NodePath("falling")
 
 [node name="idle" type="Node" parent="state_machine"]
 script = ExtResource("4_dqkch")
@@ -468,47 +470,5 @@ position = Vector2(-11, 23)
 target_position = Vector2(-2, 0)
 collision_mask = 2
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -9.0
-offset_top = -75.0
-offset_right = 11.0
-offset_bottom = -58.0
-color = Color(0, 1, 1, 1)
-
-[node name="blue" type="Button" parent="ColorRect"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_right = 20.0
-offset_bottom = 17.0
-
-[node name="ColorRect_3" type="ColorRect" parent="."]
-offset_left = 20.0
-offset_top = -75.0
-offset_right = 40.0
-offset_bottom = -58.0
-color = Color(0, 0, 0, 1)
-
-[node name="normal" type="Button" parent="ColorRect_3"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_right = 20.0
-offset_bottom = 17.0
-
-[node name="ColorRect_2" type="ColorRect" parent="."]
-offset_left = -39.0
-offset_top = -75.0
-offset_right = -19.0
-offset_bottom = -58.0
-color = Color(1, 0, 1, 1)
-
-[node name="pink" type="Button" parent="ColorRect_2"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_right = 20.0
-offset_bottom = 17.0
-
 [connection signal="timeout" from="coyotee_timer" to="." method="_on_coyotee_timer_timeout"]
 [connection signal="timeout" from="state_machine/falling/jump_buffer_timer" to="state_machine/falling" method="_on_jump_buffer_timer_timeout"]
-[connection signal="pressed" from="ColorRect/blue" to="." method="_on_blue_pressed"]
-[connection signal="pressed" from="ColorRect_3/normal" to="." method="_on_normal_pressed"]
-[connection signal="pressed" from="ColorRect_2/pink" to="." method="_on_pink_pressed"]

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BugResource" load_steps=3 format=3 uid="uid://b6r5dfwp51kvk"]
+
+[ext_resource type="Script" uid="uid://b50gw7f5xltmv" path="res://scripts/resources/bug_resource_base.gd" id="1_yqqo8"]
+[ext_resource type="Texture2D" uid="uid://cmqbbuwx4lxi3" path="res://assets/sprites/red_bug.png" id="2_hlgdy"]
+
+[resource]
+script = ExtResource("1_yqqo8")
+texture = ExtResource("2_hlgdy")
+color_index = 1
+metadata/_custom_type_script = "uid://b50gw7f5xltmv"
