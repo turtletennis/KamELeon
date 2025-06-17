@@ -372,11 +372,24 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(4, 13)
+size = Vector2(3.6, 12.7)
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
+z_index = 1
 collision_mask = 2
 script = ExtResource("1_g2els")
+movement_speed = 500
+air_movement_speed = 500
+acceleration = 5000
+decceleration = 5000
+jump_power = 1000
+jump_gravity = 3000
+fall_gravity = 3000
+max_fall_speed = 6000
+wall_slide_speed = 200
+wall_friction = 10000
+wall_jump_power = 1000
+time_to_respawn = 2
 
 [node name="coyotee_timer" type="Timer" parent="."]
 wait_time = 0.1
@@ -384,20 +397,21 @@ one_shot = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-15, 5)
+position = Vector2(-37, -28)
+scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_gvmy4")
-animation = &"wall_slide"
+animation = &"death"
 autoplay = "dash"
-frame_progress = 0.95861
 offset = Vector2(7, -13)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-8, 11.5)
+position = Vector2(-2, 5.25)
+scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_g2els")
 
 [node name="state_machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_qhqgy")
-initial_state = NodePath("idle")
+initial_state = NodePath("falling")
 
 [node name="idle" type="Node" parent="state_machine"]
 script = ExtResource("4_dqkch")
@@ -437,68 +451,24 @@ script = ExtResource("14_l71n6")
 script = ExtResource("15_ke2ow")
 
 [node name="right_ray_cast_1" type="RayCast2D" parent="."]
-position = Vector2(-6, 1)
+position = Vector2(7, -26)
 target_position = Vector2(2, 0)
 collision_mask = 2
 
 [node name="right_ray_cast_2" type="RayCast2D" parent="."]
-position = Vector2(-6, 12)
+position = Vector2(7, 23)
 target_position = Vector2(2, 0)
 collision_mask = 2
 
 [node name="left_ray_cast_1" type="RayCast2D" parent="."]
-position = Vector2(-10, 12)
+position = Vector2(-11, -26)
 target_position = Vector2(-2, 0)
 collision_mask = 2
 
 [node name="left_ray_cast_2" type="RayCast2D" parent="."]
-position = Vector2(-10, 1)
+position = Vector2(-11, 23)
 target_position = Vector2(-2, 0)
 collision_mask = 2
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -28.0
-offset_top = -15.0
-offset_right = -20.0
-offset_bottom = -7.0
-color = Color(0, 1, 1, 1)
-
-[node name="blue" type="Button" parent="ColorRect"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-
-[node name="ColorRect_3" type="ColorRect" parent="."]
-offset_left = -8.0
-offset_top = -15.0
-offset_bottom = -7.0
-color = Color(0, 0, 0, 1)
-
-[node name="normal" type="Button" parent="ColorRect_3"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-
-[node name="ColorRect_2" type="ColorRect" parent="."]
-offset_left = -18.0
-offset_top = -15.0
-offset_right = -10.0
-offset_bottom = -7.0
-color = Color(1, 0, 1, 1)
-
-[node name="pink" type="Button" parent="ColorRect_2"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
-
 [connection signal="timeout" from="coyotee_timer" to="." method="_on_coyotee_timer_timeout"]
 [connection signal="timeout" from="state_machine/falling/jump_buffer_timer" to="state_machine/falling" method="_on_jump_buffer_timer_timeout"]
-[connection signal="pressed" from="ColorRect/blue" to="." method="_on_blue_pressed"]
-[connection signal="pressed" from="ColorRect_3/normal" to="." method="_on_normal_pressed"]
-[connection signal="pressed" from="ColorRect_2/pink" to="." method="_on_pink_pressed"]

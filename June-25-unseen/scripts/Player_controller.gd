@@ -13,6 +13,7 @@ extends CharacterBody2D
 @export var wall_slide_speed : int = 40
 @export var wall_friction : int = 2000
 @export var wall_jump_power : int = 200
+@export var time_to_respawn : int = 4
 
 
 @onready var animation: AnimatedSprite2D = $AnimatedSprite2D
@@ -21,6 +22,8 @@ extends CharacterBody2D
 @onready var left_ray_cast_1: RayCast2D = $left_ray_cast_1
 @onready var left_ray_cast_2: RayCast2D = $left_ray_cast_2
 @onready var coyotee_timer: Timer = $coyotee_timer
+
+@onready var state_machine: Node = $state_machine
 
 var on_left_wall : bool
 var on_right_wall : bool
@@ -40,8 +43,10 @@ func _physics_process(delta: float) -> void:
 		double_jump_available = true
 	
 func die():
-	pass
+	state_machine.on_child_transition(state_machine.current_state, "dead")
 
+func respawn():
+	global_position = GameManager.current_checkpoint_position
 
 func coyotee_time():
 	coyotee_time_active = true
@@ -51,15 +56,14 @@ func _on_coyotee_timer_timeout() -> void:
 	coyotee_time_active = false
 
 
-## colors,0 = normal,  1 = blue, 2 = pink 
+## colors,0 = normal,  1 = red, 2 = blue, 3 = green
 var current_color = 0
 
+func change_color(color_index):
+	current_color = color_index
 
-func _on_blue_pressed() -> void:
-	current_color = 1
 
-func _on_pink_pressed() -> void:
-	current_color = 2
 
-func _on_normal_pressed() -> void:
-	current_color = 0
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		body.die()

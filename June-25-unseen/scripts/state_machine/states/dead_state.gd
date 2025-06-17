@@ -3,7 +3,13 @@ extends PlayerState
 
 
 func enter():
-	pass
+	player.velocity.x = 0
+	player.animation.play("death")
+	await get_tree().create_timer(player.time_to_respawn).timeout 
+	transitioned.emit.call_deferred(self, "falling")
+	player.respawn()
+	
+	
 
 
 func physics_process_state(delta: float) -> void:
