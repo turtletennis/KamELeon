@@ -1,14 +1,15 @@
-[gd_scene load_steps=15 format=4 uid="uid://b0fge1jbl8w8s"]
+[gd_scene load_steps=16 format=4 uid="uid://b0fge1jbl8w8s"]
 
 [ext_resource type="PackedScene" uid="uid://bda3ca1mxqdym" path="res://scenes/Chapters/ChapterBase.tscn" id="1_rovs1"]
 [ext_resource type="Script" uid="uid://ng0u1it2b1h0" path="res://addons/cameraregion2d/CameraRegion2D.gd" id="2_dk4i5"]
 [ext_resource type="Script" uid="uid://ddyltod36isap" path="res://scripts/colord_tiles.gd" id="2_ja6ly"]
 [ext_resource type="Script" uid="uid://bpqsytj8gjeac" path="res://addons/cameraregion2d/CameraTransition.gd" id="3_gy0hy"]
-[ext_resource type="PackedScene" uid="uid://c6vx6h2wdm7py" path="res://prefabs/RespawnPoint.tscn" id="4_dk4i5"]
-[ext_resource type="PackedScene" uid="uid://rittry0gwngo" path="res://prefabs/ColorBug.tscn" id="6_lnl3j"]
+[ext_resource type="PackedScene" path="res://prefabs/RespawnPoint.tscn" id="4_dk4i5"]
+[ext_resource type="PackedScene" path="res://prefabs/ColorBug.tscn" id="6_lnl3j"]
 [ext_resource type="Resource" uid="uid://b6r5dfwp51kvk" path="res://scripts/resources/red_bug_resource.tres" id="7_mbnh7"]
 [ext_resource type="Resource" uid="uid://dfuyglot3yr5f" path="res://scripts/resources/blue_bug_resource.tres" id="8_xh06f"]
 [ext_resource type="Resource" uid="uid://gbg7f57j4lq3" path="res://scripts/resources/green_bug_resource.tres" id="9_jgd0q"]
+[ext_resource type="PackedScene" uid="uid://dddlpk1enc4l0" path="res://prefabs/RoseBlocker.tscn" id="10_lnl3j"]
 
 [sub_resource type="Curve" id="Curve_x3q80"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -127,6 +128,9 @@ bug_resource = ExtResource("8_xh06f")
 [node name="color_bug_3" parent="." index="18" instance=ExtResource("6_lnl3j")]
 position = Vector2(1960, 250)
 bug_resource = ExtResource("9_jgd0q")
+
+[node name="RoseBlocker" parent="." index="19" instance=ExtResource("10_lnl3j")]
+position = Vector2(992, 608)
 
 [connection signal="body_entered" from="Area2D" to="player" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D_2" to="player" method="_on_area_2d_body_entered"]

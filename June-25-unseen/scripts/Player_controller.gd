@@ -57,7 +57,7 @@ func _on_coyotee_timer_timeout() -> void:
 
 
 ## colors,0 = normal,  1 = red, 2 = blue, 3 = green
-var current_color = 0
+var current_color = ChameleonColour.Colour.NORMAL
 
 func change_color(color_index):
 	current_color = color_index
