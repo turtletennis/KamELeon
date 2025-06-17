@@ -1,10 +1,15 @@
 extends Node
 
 var player : CharacterBody2D
-var current_checkpoint_position
+var current_checkpoint_position : Vector2
 
-func set_checkpoint_position(target):
+signal color_changed(color : int)
+
+func set_checkpoint_position(target : Vector2):
 	current_checkpoint_position = target 
 	
-func set_player(target):
+func set_player(target : CharacterBody2D):
 	player = target
+
+func change_color(color : int):
+	color_changed.emit(color)

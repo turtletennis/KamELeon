@@ -11,7 +11,7 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		body.change_color(color_index)
+		GameManager.change_color(color_index)
 		visible = false
 		await get_tree().create_timer(1).timeout
 		visible = true
