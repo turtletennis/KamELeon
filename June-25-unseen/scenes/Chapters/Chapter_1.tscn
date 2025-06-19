@@ -132,15 +132,12 @@ position = Vector2(2309, 353)
 
 [node name="BlockerApple" parent="." index="20" instance=ExtResource("12_ncdvl")]
 position = Vector2(1568, 479)
-debug = true
 
 [node name="BlockerRose" parent="." index="21" instance=ExtResource("10_xh06f")]
 position = Vector2(1760, 480)
-debug = true
 
 [node name="BlockerSapphire" parent="." index="22" instance=ExtResource("11_jgd0q")]
 position = Vector2(1952, 480)
-debug = true
 
 [connection signal="body_entered" from="Area2D" to="player" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D_2" to="player" method="_on_area_2d_body_entered"]

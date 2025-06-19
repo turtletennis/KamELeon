@@ -1,8 +1,10 @@
-[gd_scene load_steps=61 format=3 uid="uid://bs11isf4ve882"]
+[gd_scene load_steps=64 format=3 uid="uid://bs11isf4ve882"]
 
 [ext_resource type="Script" uid="uid://bkxjeydfq35ws" path="res://scripts/Player_controller.gd" id="1_g2els"]
+[ext_resource type="Shader" uid="uid://byyqhrabelps4" path="res://assets/shaders/hsv.gdshader" id="1_sf8ex"]
 [ext_resource type="Texture2D" uid="uid://b4w2na2cryvii" path="res://assets/elia.png" id="2_f1ej7"]
 [ext_resource type="Script" uid="uid://74r51hww4olr" path="res://scripts/state_machine/state_machine.gd" id="3_qhqgy"]
+[ext_resource type="Script" uid="uid://bxoikmcg5v1gt" path="res://prefabs/SpriteColourChanger.gd" id="4_8mk5r"]
 [ext_resource type="Script" uid="uid://cdi6xpi18mhu3" path="res://scripts/state_machine/states/idle_state.gd" id="4_dqkch"]
 [ext_resource type="Script" uid="uid://dqo2bf7of20or" path="res://scripts/state_machine/states/running_state.gd" id="5_oprun"]
 [ext_resource type="Script" uid="uid://bgpgo383ah3cw" path="res://scripts/state_machine/states/jumping_state.gd" id="6_a8ls1"]
@@ -14,6 +16,14 @@
 [ext_resource type="Script" uid="uid://cyjnoy5s3cbxw" path="res://scripts/state_machine/states/climb_jump_state.gd" id="13_4ni07"]
 [ext_resource type="Script" uid="uid://d4cwawf4i22j8" path="res://scripts/state_machine/states/cutscene_state.gd" id="14_l71n6"]
 [ext_resource type="Script" uid="uid://bwpenf1idku2f" path="res://scripts/state_machine/states/dead_state.gd" id="15_ke2ow"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1y3c5"]
+shader = ExtResource("1_sf8ex")
+shader_parameter/hue_shift = -0.054
+shader_parameter/saturation_mult = 1.0
+shader_parameter/value_mult = 1.0
+shader_parameter/brightness_add = 0.0
+shader_parameter/contrast_mult = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
 atlas = ExtResource("2_f1ej7")
@@ -397,12 +407,14 @@ one_shot = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+material = SubResource("ShaderMaterial_1y3c5")
 position = Vector2(-37, -28)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_gvmy4")
-animation = &"death"
+animation = &"dash"
 autoplay = "dash"
 offset = Vector2(7, -13)
+script = ExtResource("4_8mk5r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 5.25)

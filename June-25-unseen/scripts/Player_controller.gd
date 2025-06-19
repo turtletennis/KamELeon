@@ -24,17 +24,19 @@ extends CharacterBody2D
 @onready var coyotee_timer: Timer = $coyotee_timer
 
 @onready var state_machine: Node = $state_machine
-
+@onready var sprite:SpriteColourChanger = $AnimatedSprite2D
 var on_left_wall : bool
 var on_right_wall : bool
 var on_any_wall : bool
 var coyotee_time_active : bool 
-var double_jump_available : bool 
+var double_jump_available : bool
 
 func _ready() -> void:
 	GameManager.set_player(self)
+	GameManager.color_changed.connect(change_color)
+	
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	on_left_wall = left_ray_cast_1.is_colliding() and left_ray_cast_2.is_colliding()
 	on_right_wall = right_ray_cast_1.is_colliding() and right_ray_cast_2.is_colliding()
 	on_any_wall = on_left_wall or on_right_wall
@@ -56,11 +58,12 @@ func _on_coyotee_timer_timeout() -> void:
 	coyotee_time_active = false
 
 
-## colors,0 = normal,  1 = red, 2 = blue, 3 = green
 var current_color = ChameleonColour.Colour.NORMAL
 
-func change_color(color_index):
+func change_color(color_index:ChameleonColour.Colour):
 	current_color = color_index
+	print_debug("player colour changing to ",color_index)
+	sprite.setColour(color_index)
 
 
 
