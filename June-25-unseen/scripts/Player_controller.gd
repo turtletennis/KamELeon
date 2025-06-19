@@ -34,6 +34,7 @@ var double_jump_available : bool
 func _ready() -> void:
 	GameManager.set_player(self)
 	GameManager.color_changed.connect(change_color)
+	change_color(ChameleonColour.Colour.NORMAL)
 	
 
 func _physics_process(_delta: float) -> void:
