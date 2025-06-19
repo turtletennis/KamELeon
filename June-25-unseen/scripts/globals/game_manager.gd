@@ -3,7 +3,7 @@ extends Node
 var player : CharacterBody2D
 var current_checkpoint_position : Vector2
 
-signal color_changed(color : int)
+signal color_changed(color :ChameleonColour.Colour)
 
 func set_checkpoint_position(target : Vector2):
 	current_checkpoint_position = target 

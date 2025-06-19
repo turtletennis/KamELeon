@@ -6,13 +6,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xh06f"]
 size = Vector2(64, 64)
 
-[node name="RoseBlocker" type="AnimatableBody2D"]
+[node name="Blocker" type="AnimatableBody2D"]
 collision_layer = 2
 script = ExtResource("1_8k34b")
-colour = 1
 
-[node name="RoseSprite" type="Sprite2D" parent="."]
-position = Vector2(0, -8)
+[node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(1, 0.983961)
 texture = ExtResource("2_njrww")
 hframes = 4

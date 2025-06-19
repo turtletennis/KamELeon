@@ -1,7 +1,7 @@
 extends TileMapLayer
 
 
-@export_enum ("Normal", "Red", "Blue", "Green") var color_index : int
+@export var color_index : ChameleonColour.Colour
 
 func _ready() -> void:
 	GameManager.color_changed.connect(change_color)

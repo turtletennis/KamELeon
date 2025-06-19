@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://br50y2ljwiwa0"]
+
+[ext_resource type="PackedScene" uid="uid://dddlpk1enc4l0" path="res://prefabs/BlockerBase.tscn" id="1_pn6u3"]
+
+[node name="RoseBlocker" instance=ExtResource("1_pn6u3")]
+objectColour = 3
+
+[node name="Sprite" parent="." index="0"]
+frame = 2

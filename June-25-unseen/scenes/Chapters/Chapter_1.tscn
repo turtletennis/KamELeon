@@ -1,14 +1,17 @@
-[gd_scene load_steps=15 format=4 uid="uid://b0fge1jbl8w8s"]
+[gd_scene load_steps=18 format=4 uid="uid://b0fge1jbl8w8s"]
 
 [ext_resource type="PackedScene" uid="uid://bda3ca1mxqdym" path="res://scenes/Chapters/ChapterBase.tscn" id="1_rovs1"]
 [ext_resource type="Script" uid="uid://ng0u1it2b1h0" path="res://addons/cameraregion2d/CameraRegion2D.gd" id="2_dk4i5"]
 [ext_resource type="Script" uid="uid://bpqsytj8gjeac" path="res://addons/cameraregion2d/CameraTransition.gd" id="3_gy0hy"]
-[ext_resource type="PackedScene" uid="uid://c6vx6h2wdm7py" path="res://prefabs/RespawnPoint.tscn" id="4_dk4i5"]
-[ext_resource type="PackedScene" uid="uid://rittry0gwngo" path="res://prefabs/ColorBug.tscn" id="6_lnl3j"]
+[ext_resource type="PackedScene" path="res://prefabs/RespawnPoint.tscn" id="4_dk4i5"]
+[ext_resource type="PackedScene" path="res://prefabs/ColorBug.tscn" id="6_lnl3j"]
 [ext_resource type="Resource" uid="uid://b6r5dfwp51kvk" path="res://scripts/resources/red_bug_resource.tres" id="7_mbnh7"]
 [ext_resource type="Resource" uid="uid://dfuyglot3yr5f" path="res://scripts/resources/blue_bug_resource.tres" id="8_xh06f"]
 [ext_resource type="PackedScene" uid="uid://cigtmqgwunqp0" path="res://prefabs/MovingPlatform.tscn" id="9_ja6ly"]
 [ext_resource type="Resource" uid="uid://gbg7f57j4lq3" path="res://scripts/resources/green_bug_resource.tres" id="9_jgd0q"]
+[ext_resource type="PackedScene" uid="uid://dfy241huv8gbl" path="res://prefabs/BlockerRed.tscn" id="10_xh06f"]
+[ext_resource type="PackedScene" uid="uid://br50y2ljwiwa0" path="res://prefabs/BlockerBlue.tscn" id="11_jgd0q"]
+[ext_resource type="PackedScene" uid="uid://mf54s417et2c" path="res://prefabs/BlockerGreen.tscn" id="12_ncdvl"]
 
 [sub_resource type="Curve" id="Curve_x3q80"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -43,9 +46,11 @@ tile_map_data = PackedByteArray("AAAYAAgAAAAFAAAAAAAYAAkAAAAFAAIAAAA=")
 
 [node name="blue_tiles" parent="." index="4"]
 tile_map_data = PackedByteArray("AAAbAAgAAAAFAAAAAAAbAAkAAAAFAAIAAAA=")
+color_index = 3
 
 [node name="green_tiles" parent="." index="5"]
 tile_map_data = PackedByteArray("AAAeAAgAAAAFAAAAAAAeAAkAAAAFAAIAAAA=")
+color_index = 2
 
 [node name="CameraRegion2D" type="Node2D" parent="CameraRegionController2D" index="0"]
 position = Vector2(638, 360)
@@ -124,6 +129,18 @@ bug_resource = ExtResource("9_jgd0q")
 
 [node name="moving_platform" parent="." index="19" instance=ExtResource("9_ja6ly")]
 position = Vector2(2309, 353)
+
+[node name="BlockerApple" parent="." index="20" instance=ExtResource("12_ncdvl")]
+position = Vector2(1568, 479)
+debug = true
+
+[node name="BlockerRose" parent="." index="21" instance=ExtResource("10_xh06f")]
+position = Vector2(1760, 480)
+debug = true
+
+[node name="BlockerSapphire" parent="." index="22" instance=ExtResource("11_jgd0q")]
+position = Vector2(1952, 480)
+debug = true
 
 [connection signal="body_entered" from="Area2D" to="player" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D_2" to="player" method="_on_area_2d_body_entered"]

@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cy5on7pkto8yn"]
+[gd_scene load_steps=6 format=3 uid="uid://cy5on7pkto8yn"]
 
 [ext_resource type="Theme" uid="uid://7giom6xpji7b" path="res://assets/ui/theme/main_theme.tres" id="1_11hie"]
+[ext_resource type="Script" uid="uid://chsrdigk0ciyn" path="res://scripts/UI/MainMenu.gd" id="2_4vh8y"]
 [ext_resource type="Script" uid="uid://tj8en4qjr8d7" path="res://scripts/UI/SoundEffectsOptions.gd" id="2_58fj5"]
 [ext_resource type="AudioStream" uid="uid://csule7h84oc21" path="res://assets/music/Super Power Cool Dude.mp3" id="3_3h7gc"]
+[ext_resource type="PackedScene" uid="uid://b0fge1jbl8w8s" path="res://scenes/Chapters/Chapter_1.tscn" id="3_b1p1q"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -12,6 +14,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_11hie")
+script = ExtResource("2_4vh8y")
+firstScene = ExtResource("3_b1p1q")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -110,6 +114,7 @@ volume_db = -36.511
 autoplay = true
 bus = &"MusicMain"
 
+[connection signal="pressed" from="PanelContainer/CenterContainer/HBoxContainer/StartButton" to="." method="StartGame"]
 [connection signal="value_changed" from="OptionsPanel/PanelContainer/GridContainer/MasterVolumeSlider" to="OptionsPanel" method="_on_master_volume_slider_value_changed"]
 [connection signal="value_changed" from="OptionsPanel/PanelContainer/GridContainer/MusicVolumeSlider" to="OptionsPanel" method="_on_music_volume_slider_value_changed"]
 [connection signal="value_changed" from="OptionsPanel/PanelContainer/GridContainer/EffectsVolumeSlider" to="OptionsPanel" method="_on_effects_volume_slider_value_changed"]
