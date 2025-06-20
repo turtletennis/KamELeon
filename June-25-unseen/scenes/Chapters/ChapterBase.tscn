@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bda3ca1mxqdym"]
+[gd_scene load_steps=7 format=3 uid="uid://bda3ca1mxqdym"]
 
 [ext_resource type="TileSet" uid="uid://dycbkeaxj62qw" path="res://assets/tiles/vector grass.tres" id="1_t1qet"]
 [ext_resource type="Script" uid="uid://odrbd7ohc1g5" path="res://addons/cameraregion2d/CameraRegionController2D.gd" id="2_7kyf7"]
 [ext_resource type="Script" uid="uid://ddyltod36isap" path="res://scripts/colord_tiles.gd" id="2_tehvk"]
 [ext_resource type="PackedScene" uid="uid://bs11isf4ve882" path="res://prefabs/Player.tscn" id="3_tehvk"]
 [ext_resource type="PackedScene" uid="uid://yy8yk6kpn2ox" path="res://prefabs/fade.tscn" id="5_tehvk"]
+[ext_resource type="AudioStream" uid="uid://c04cf3o8epreb" path="res://assets/music/Out There lofi.mp3" id="6_a2vsd"]
 
 [node name="chapter_base" type="Node2D"]
 
@@ -47,3 +48,8 @@ metadata/_custom_type_script = "uid://odrbd7ohc1g5"
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Fade" parent="." instance=ExtResource("5_tehvk")]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_a2vsd")
+autoplay = true
+bus = &"MusicMain"
