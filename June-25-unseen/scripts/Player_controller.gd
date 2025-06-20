@@ -22,6 +22,7 @@ extends CharacterBody2D
 @onready var left_ray_cast_1: RayCast2D = $left_ray_cast_1
 @onready var left_ray_cast_2: RayCast2D = $left_ray_cast_2
 @onready var coyotee_timer: Timer = $coyotee_timer
+@onready var death_particles: GPUParticles2D =$death_particles
 
 @onready var state_machine: Node = $state_machine
 @onready var sprite:SpriteColourChanger = $AnimatedSprite2D
@@ -50,6 +51,7 @@ func die():
 
 func respawn():
 	global_position = GameManager.current_checkpoint_position
+	GameManager.fade.fadeFromBlack()
 
 func coyotee_time():
 	coyotee_time_active = true
@@ -66,8 +68,6 @@ func change_color(color_index:ChameleonColour.Colour):
 	print_debug("player colour changing to ",color_index)
 	sprite.setColour(color_index)
 
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_spikes_body_entered(body:Node2D) -> void:
 	if body.is_in_group("player"):
 		body.die()

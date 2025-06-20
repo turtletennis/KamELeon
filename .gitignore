@@ -14,3 +14,7 @@ export_credentials.cfg
 data_*/
 mono_crash.*.json
 /Exports
+
+/June-25-unseen/kameleon-web.zip
+/June-25-unseen/kameleon-web/*
+/June-25-unseen/recordings/

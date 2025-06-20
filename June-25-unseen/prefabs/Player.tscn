@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://bs11isf4ve882"]
+[gd_scene load_steps=67 format=3 uid="uid://bs11isf4ve882"]
 
 [ext_resource type="Script" uid="uid://bkxjeydfq35ws" path="res://scripts/Player_controller.gd" id="1_g2els"]
 [ext_resource type="Shader" uid="uid://byyqhrabelps4" path="res://assets/shaders/hsv.gdshader" id="1_sf8ex"]
@@ -384,6 +384,24 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(3.6, 12.7)
 
+[sub_resource type="Gradient" id="Gradient_8mk5r"]
+offsets = PackedFloat32Array(0.159851, 0.713755, 1)
+colors = PackedColorArray(0.854902, 0.145098, 0, 1, 0.81992, 0.114281, 0.0399792, 0.895888, 0.690196, 0, 0.188235, 0.101961)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1y3c5"]
+gradient = SubResource("Gradient_8mk5r")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v0g1t"]
+particle_flag_disable_z = true
+inherit_velocity_ratio = 0.523
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 235.62
+initial_velocity_max = 235.62
+gravity = Vector3(0, 500, 0)
+scale_min = 0.5
+scale_max = 1.5
+color_ramp = SubResource("GradientTexture1D_1y3c5")
+
 [node name="player" type="CharacterBody2D" groups=["player"]]
 z_index = 1
 collision_mask = 2
@@ -481,6 +499,15 @@ collision_mask = 2
 position = Vector2(-11, 23)
 target_position = Vector2(-2, 0)
 collision_mask = 2
+
+[node name="death_particles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 200
+lifetime = 1.5
+one_shot = true
+explosiveness = 0.9
+randomness = 0.48
+process_material = SubResource("ParticleProcessMaterial_v0g1t")
 
 [connection signal="timeout" from="coyotee_timer" to="." method="_on_coyotee_timer_timeout"]
 [connection signal="timeout" from="state_machine/falling/jump_buffer_timer" to="state_machine/falling" method="_on_jump_buffer_timer_timeout"]

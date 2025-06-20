@@ -1,6 +1,7 @@
 extends Node
 
 var player : CharacterBody2D
+var fade : Fade 
 var current_checkpoint_position : Vector2
 
 signal color_changed(color :ChameleonColour.Colour)
