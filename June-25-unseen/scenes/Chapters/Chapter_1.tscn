@@ -97,7 +97,7 @@ position = Vector2(1664, 480)
 bug_resource = ExtResource("7_mbnh7")
 
 [node name="color_bug_2" parent="." index="16" instance=ExtResource("6_lnl3j")]
-position = Vector2(1856, 352)
+position = Vector2(1856, 448)
 bug_resource = ExtResource("8_xh06f")
 
 [node name="color_bug_3" parent="." index="17" instance=ExtResource("6_lnl3j")]
