@@ -3,8 +3,8 @@
 [ext_resource type="Theme" uid="uid://7giom6xpji7b" path="res://assets/ui/theme/main_theme.tres" id="1_11hie"]
 [ext_resource type="Script" uid="uid://chsrdigk0ciyn" path="res://scripts/UI/MainMenu.gd" id="2_4vh8y"]
 [ext_resource type="Script" uid="uid://tj8en4qjr8d7" path="res://scripts/UI/SoundEffectsOptions.gd" id="2_58fj5"]
-[ext_resource type="AudioStream" uid="uid://csule7h84oc21" path="res://assets/music/Super Power Cool Dude.mp3" id="3_3h7gc"]
 [ext_resource type="PackedScene" uid="uid://b0fge1jbl8w8s" path="res://scenes/Chapters/Chapter_1.tscn" id="3_b1p1q"]
+[ext_resource type="AudioStream" uid="uid://bl8k36th2wbbh" path="res://assets/music/Out There v2.mp3" id="5_b1p1q"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -109,8 +109,8 @@ size_flags_horizontal = 2
 size_flags_vertical = 4
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_3h7gc")
-volume_db = -36.511
+stream = ExtResource("5_b1p1q")
+volume_db = -5.0
 autoplay = true
 bus = &"MusicMain"
 
