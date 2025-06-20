@@ -24,7 +24,7 @@ extends CharacterBody2D
 @onready var coyotee_timer: Timer = $coyotee_timer
 @onready var death_particles: GPUParticles2D =$death_particles
 
-@onready var state_machine: Node = $state_machine
+@onready var state_machine:StateMachine = $state_machine
 @onready var sprite:SpriteColourChanger = $AnimatedSprite2D
 var on_left_wall : bool
 var on_right_wall : bool
@@ -49,6 +49,8 @@ func _physics_process(_delta: float) -> void:
 func die():
 	state_machine.on_child_transition(state_machine.current_state, "dead")
 
+func level_complete():
+	state_machine.on_child_transition(state_machine.current_state,"cutscene")
 func respawn():
 	global_position = GameManager.current_checkpoint_position
 	GameManager.fade.fadeFromBlack()

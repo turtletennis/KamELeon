@@ -8,7 +8,7 @@ extends Node
 
 signal transitioned(state: PlayerState, new_state_name: String)
 
-@onready var player : PlayerController = get_owner()
+@onready var player:PlayerController = get_owner()
 var direction : float
 var wall_direction : bool
 

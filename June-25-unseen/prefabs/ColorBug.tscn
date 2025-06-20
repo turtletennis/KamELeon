@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://rittry0gwngo"]
+[gd_scene load_steps=4 format=3 uid="uid://pxinfa3k51nv"]
 
 [ext_resource type="Script" uid="uid://caq7byq0vnl1b" path="res://scripts/ColorBug.gd" id="1_cu0id"]
 [ext_resource type="Texture2D" uid="uid://dbq8t6bs7a5x8" path="res://assets/sprites/blue_bug.png" id="2_iyh4x"]
