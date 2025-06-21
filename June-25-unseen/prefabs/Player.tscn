@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=4 uid="uid://bs11isf4ve882"]
+[gd_scene load_steps=53 format=4 uid="uid://bs11isf4ve882"]
 
 [ext_resource type="Script" uid="uid://bkxjeydfq35ws" path="res://scripts/Player_controller.gd" id="1_g2els"]
 [ext_resource type="Shader" uid="uid://byyqhrabelps4" path="res://assets/shaders/hsv.gdshader" id="1_sf8ex"]
@@ -278,7 +278,7 @@ movement_speed = 500
 air_movement_speed = 500
 acceleration = 5000
 decceleration = 5000
-jump_power = 800
+jump_power = 600
 jump_gravity = 2000
 fall_gravity = 2000
 max_fall_speed = 6000
