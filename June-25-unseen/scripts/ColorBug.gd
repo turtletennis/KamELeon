@@ -15,5 +15,8 @@ func _on_body_entered(body: Node2D) -> void:
 		GameManager.change_color(color_index)
 		eat_sfxPlayer.play()
 		visible = false
-		await get_tree().create_timer(1).timeout
-		visible = true
+		var timer = get_tree().create_timer(1)
+		timer.timeout.connect(_make_visible)
+
+func _make_visible():
+	visible = true
