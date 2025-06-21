@@ -22,8 +22,11 @@ extends CharacterBody2D
 @onready var left_ray_cast_1: RayCast2D = $left_ray_cast_1
 @onready var left_ray_cast_2: RayCast2D = $left_ray_cast_2
 @onready var coyotee_timer: Timer = $coyotee_timer
-@onready var death_particles: GPUParticles2D =$death_particles
-
+@onready var death_particles: GPUParticles2D = $death_particles
+@onready var death_sfx_player: AudioStreamPlayer = $death_AudioStreamPlayer
+@onready var jump_sfx_player: AudioStreamPlayer = $jump_AudioStreamPlayer
+@onready var double_jump_sfx_player: AudioStreamPlayer = $double_jump_AudioStreamPlayer
+@onready var wall_jump_sfx_player: AudioStreamPlayer = $wall_jumpAudioStreamPlayer
 @onready var state_machine:StateMachine = $state_machine
 @onready var sprite:SpriteColourChanger = $AnimatedSprite2D
 var on_left_wall : bool

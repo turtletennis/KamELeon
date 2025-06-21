@@ -7,6 +7,7 @@ func enter():
 	player.animation.play("death")
 	GameManager.fade.fadeToBlack()
 	player.death_particles.emitting = true
+	player.death_sfx_player.play()
 	await get_tree().create_timer(player.time_to_respawn).timeout 
 	transitioned.emit.call_deferred(self, "falling")
 	player.respawn()
