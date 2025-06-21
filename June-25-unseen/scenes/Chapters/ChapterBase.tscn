@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bda3ca1mxqdym"]
+[gd_scene load_steps=8 format=3 uid="uid://bda3ca1mxqdym"]
 
+[ext_resource type="PackedScene" uid="uid://ceyiegmg1vv7g" path="res://scenes/Background/CaveBackground.tscn" id="1_fh17v"]
 [ext_resource type="TileSet" uid="uid://dycbkeaxj62qw" path="res://assets/tiles/vector grass.tres" id="1_t1qet"]
 [ext_resource type="Script" uid="uid://odrbd7ohc1g5" path="res://addons/cameraregion2d/CameraRegionController2D.gd" id="2_7kyf7"]
 [ext_resource type="Script" uid="uid://ddyltod36isap" path="res://scripts/colord_tiles.gd" id="2_tehvk"]
@@ -8,6 +9,8 @@
 [ext_resource type="AudioStream" uid="uid://c04cf3o8epreb" path="res://assets/music/Out There lofi.mp3" id="6_a2vsd"]
 
 [node name="chapter_base" type="Node2D"]
+
+[node name="CaveBackground" parent="." instance=ExtResource("1_fh17v")]
 
 [node name="base_tiles" type="TileMapLayer" parent="."]
 modulate = Color(1, 0.643137, 1, 1)

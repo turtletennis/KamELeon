@@ -1,9 +1,7 @@
-[gd_scene load_steps=25 format=4 uid="uid://b0fge1jbl8w8s"]
+[gd_scene load_steps=21 format=4 uid="uid://b0fge1jbl8w8s"]
 
 [ext_resource type="PackedScene" uid="uid://bda3ca1mxqdym" path="res://scenes/Chapters/ChapterBase.tscn" id="1_rovs1"]
-[ext_resource type="Texture2D" uid="uid://b55vsrdkf0kcc" path="res://assets/sprites/parallax_background1.png" id="2_10skh"]
 [ext_resource type="Script" uid="uid://ng0u1it2b1h0" path="res://addons/cameraregion2d/CameraRegion2D.gd" id="2_dk4i5"]
-[ext_resource type="Texture2D" uid="uid://jxlc8w3ce2tf" path="res://assets/sprites/parallax_background2.png" id="3_1dtiw"]
 [ext_resource type="Script" uid="uid://bpqsytj8gjeac" path="res://addons/cameraregion2d/CameraTransition.gd" id="3_gy0hy"]
 [ext_resource type="PackedScene" uid="uid://c6vx6h2wdm7py" path="res://prefabs/RespawnPoint.tscn" id="4_dk4i5"]
 [ext_resource type="PackedScene" uid="uid://bov2yt4slyd0w" path="res://prefabs/Spikes.tscn" id="4_jgd0q"]
@@ -17,16 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://mf54s417et2c" path="res://prefabs/BlockerGreen.tscn" id="12_ncdvl"]
 [ext_resource type="PackedScene" uid="uid://chssdjvemcrmf" path="res://prefabs/GoalButterfly.tscn" id="14_ncdvl"]
 [ext_resource type="Theme" uid="uid://7giom6xpji7b" path="res://assets/ui/theme/main_theme.tres" id="15_goy6t"]
-
-[sub_resource type="Gradient" id="Gradient_goy6t"]
-offsets = PackedFloat32Array(0, 0.248744, 1)
-colors = PackedColorArray(0.65098, 0.333333, 0.372549, 1, 0.290196, 0.188235, 0.321569, 1, 0.121569, 0.0627451, 0.164706, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_10skh"]
-gradient = SubResource("Gradient_goy6t")
-width = 1280
-height = 720
-fill_to = Vector2(0, 1)
 
 [sub_resource type="Curve" id="Curve_x3q80"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -52,44 +40,6 @@ metadata/_custom_type_script = "uid://bpqsytj8gjeac"
 size = Vector2(10000, 500)
 
 [node name="chapter_base" instance=ExtResource("1_rovs1")]
-
-[node name="CaveBackground" type="Node2D" parent="." index="0"]
-z_index = -50
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="CaveBackground" index="0"]
-
-[node name="cave_farmost" type="ParallaxLayer" parent="CaveBackground/ParallaxBackground" index="0"]
-motion_scale = Vector2(0, 0)
-motion_mirroring = Vector2(1280, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="CaveBackground/ParallaxBackground/cave_farmost" index="0"]
-texture = SubResource("GradientTexture2D_10skh")
-centered = false
-
-[node name="cave_far1" type="ParallaxLayer" parent="CaveBackground/ParallaxBackground" index="1"]
-motion_scale = Vector2(0.25, 0)
-motion_mirroring = Vector2(1280, 0)
-
-[node name="rock_sprite_far1" type="Sprite2D" parent="CaveBackground/ParallaxBackground/cave_far1" index="0"]
-texture = ExtResource("2_10skh")
-centered = false
-
-[node name="cave_far2" type="ParallaxLayer" parent="CaveBackground/ParallaxBackground" index="2"]
-motion_scale = Vector2(0.25, 0)
-
-[node name="rock_sprite_far1" type="Sprite2D" parent="CaveBackground/ParallaxBackground/cave_far2" index="0"]
-modulate = Color(0.800491, 0.800491, 0.800491, 1)
-position = Vector2(535, 0)
-texture = ExtResource("2_10skh")
-centered = false
-
-[node name="cave_near1" type="ParallaxLayer" parent="CaveBackground/ParallaxBackground" index="3"]
-motion_scale = Vector2(0.45, 0)
-motion_mirroring = Vector2(1280, 0)
-
-[node name="rock_sprite_near1" type="Sprite2D" parent="CaveBackground/ParallaxBackground/cave_near1" index="0"]
-texture = ExtResource("3_1dtiw")
-centered = false
 
 [node name="base_tiles" parent="." index="1"]
 modulate = Color(1, 1, 1, 1)
@@ -139,52 +89,52 @@ metadata/_custom_type_script = "uid://ng0u1it2b1h0"
 [node name="player" parent="." index="8"]
 position = Vector2(59, 585)
 
-[node name="Spikes" parent="." index="10" instance=ExtResource("4_jgd0q")]
+[node name="Spikes" parent="." index="9" instance=ExtResource("4_jgd0q")]
 position = Vector2(768, 608)
 
-[node name="respawn_point" parent="." index="11" instance=ExtResource("4_dk4i5")]
+[node name="respawn_point" parent="." index="10" instance=ExtResource("4_dk4i5")]
 position = Vector2(111, 0)
 
-[node name="respawn_point_2" parent="." index="12" instance=ExtResource("4_dk4i5")]
+[node name="respawn_point_2" parent="." index="11" instance=ExtResource("4_dk4i5")]
 position = Vector2(1220, 0)
 
-[node name="respawn_point_3" parent="." index="13" instance=ExtResource("4_dk4i5")]
+[node name="respawn_point_3" parent="." index="12" instance=ExtResource("4_dk4i5")]
 position = Vector2(1316, 0)
 
-[node name="respawn_point_4" parent="." index="14" instance=ExtResource("4_dk4i5")]
+[node name="respawn_point_4" parent="." index="13" instance=ExtResource("4_dk4i5")]
 position = Vector2(2048, -32)
 
-[node name="respawn_point_5" parent="." index="15" instance=ExtResource("4_dk4i5")]
+[node name="respawn_point_5" parent="." index="14" instance=ExtResource("4_dk4i5")]
 position = Vector2(3264, 0)
 
-[node name="color_bug" parent="." index="16" instance=ExtResource("6_lnl3j")]
-position = Vector2(1664, 480)
+[node name="color_bug" parent="." index="15" instance=ExtResource("6_lnl3j")]
+position = Vector2(1664, 427)
 bug_resource = ExtResource("7_mbnh7")
 
-[node name="color_bug_2" parent="." index="17" instance=ExtResource("6_lnl3j")]
+[node name="color_bug_2" parent="." index="16" instance=ExtResource("6_lnl3j")]
 position = Vector2(1856, 448)
 bug_resource = ExtResource("8_xh06f")
 
-[node name="color_bug_3" parent="." index="18" instance=ExtResource("6_lnl3j")]
+[node name="color_bug_3" parent="." index="17" instance=ExtResource("6_lnl3j")]
 position = Vector2(1376, 512)
 bug_resource = ExtResource("9_jgd0q")
 
-[node name="moving_platform" parent="." index="19" instance=ExtResource("9_ja6ly")]
+[node name="moving_platform" parent="." index="18" instance=ExtResource("9_ja6ly")]
 position = Vector2(2309, 353)
 
-[node name="BlockerApple" parent="." index="20" instance=ExtResource("12_ncdvl")]
+[node name="BlockerApple" parent="." index="19" instance=ExtResource("12_ncdvl")]
 position = Vector2(1568, 608)
 
-[node name="BlockerRose" parent="." index="21" instance=ExtResource("10_xh06f")]
+[node name="BlockerRose" parent="." index="20" instance=ExtResource("10_xh06f")]
 position = Vector2(1760, 608)
 
-[node name="BlockerRose_2" parent="." index="22" instance=ExtResource("10_xh06f")]
+[node name="BlockerRose_2" parent="." index="21" instance=ExtResource("10_xh06f")]
 position = Vector2(1952, 544)
 
-[node name="BlockerSapphire" parent="." index="23" instance=ExtResource("11_jgd0q")]
+[node name="BlockerSapphire" parent="." index="22" instance=ExtResource("11_jgd0q")]
 position = Vector2(2336, -672)
 
-[node name="Spikes_3" parent="." index="24" instance=ExtResource("4_jgd0q")]
+[node name="Spikes_3" parent="." index="23" instance=ExtResource("4_jgd0q")]
 position = Vector2(2208, 608)
 
 [node name="Spikes_2" parent="Spikes_3" index="2" instance=ExtResource("4_jgd0q")]
@@ -229,7 +179,7 @@ position = Vector2(832, 0)
 [node name="Spikes_16" parent="Spikes_3" index="15" instance=ExtResource("4_jgd0q")]
 position = Vector2(896, 0)
 
-[node name="goal_butterfly" parent="." index="25" instance=ExtResource("14_ncdvl")]
+[node name="goal_butterfly" parent="." index="24" instance=ExtResource("14_ncdvl")]
 position = Vector2(3712, 590)
 
 [node name="RichTextLabel-EatMe_2" type="RichTextLabel" parent="goal_butterfly" index="3"]
@@ -242,7 +192,7 @@ theme = ExtResource("15_goy6t")
 text = "Eat Me"
 horizontal_alignment = 1
 
-[node name="RichTextLabel-EatMe" type="RichTextLabel" parent="." index="26"]
+[node name="RichTextLabel-EatMe" type="RichTextLabel" parent="." index="25"]
 offset_left = 1280.0
 offset_top = 464.0
 offset_right = 1472.0
@@ -251,7 +201,7 @@ theme = ExtResource("15_goy6t")
 text = "Eat Me"
 horizontal_alignment = 1
 
-[node name="RichTextLabel-EatMe_3" type="RichTextLabel" parent="." index="27"]
+[node name="RichTextLabel-EatMe_3" type="RichTextLabel" parent="." index="26"]
 offset_left = 704.0
 offset_top = 544.0
 offset_right = 928.0
@@ -260,7 +210,7 @@ theme = ExtResource("15_goy6t")
 text = "Safety spikes?"
 horizontal_alignment = 1
 
-[node name="Fall death zone" type="Area2D" parent="." index="29"]
+[node name="Fall death zone" type="Area2D" parent="." index="28"]
 position = Vector2(66, 1250)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fall death zone" index="0"]
