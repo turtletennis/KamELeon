@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var air_movement_speed : int = 100
 @export var acceleration : int = 1000
 @export var decceleration : int = 1000
-@export var jump_power : int = 200
+@export var jump_power : int = 800
 @export var jump_gravity : int = 600
 @export var fall_gravity : int = 600
 @export var max_fall_speed : int = 1200

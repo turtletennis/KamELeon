@@ -278,7 +278,6 @@ movement_speed = 500
 air_movement_speed = 500
 acceleration = 5000
 decceleration = 5000
-jump_power = 600
 jump_gravity = 2000
 fall_gravity = 2000
 max_fall_speed = 6000
