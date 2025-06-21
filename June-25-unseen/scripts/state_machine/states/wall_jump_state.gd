@@ -6,6 +6,7 @@ func enter():
 	
 	# apply jump
 	player.velocity.y -= player.wall_jump_power
+	player.wall_jump_sfx_player.play()
 	if wall_direction:
 		player.velocity.x -= player.wall_jump_power * 0.6
 	else:

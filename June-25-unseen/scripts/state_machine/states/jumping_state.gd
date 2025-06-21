@@ -4,6 +4,10 @@ extends PlayerState
 
 func enter():
 	player.animation.play("jump")
+	if(player.double_jump_available):
+		player.jump_sfx_player.play()
+	else:
+		player.double_jump_sfx_player.play()
 	player.velocity.y = 0
 	player.velocity.y -= player.jump_power
 

@@ -13,17 +13,17 @@ var sat_parameter = "saturation_mult"
 var shaderMat:ShaderMaterial
 
 func _ready() -> void:
-    shaderMat = material as ShaderMaterial
+	shaderMat = material as ShaderMaterial
 
 func setColour(desiredColour : ChameleonColour.Colour):
-    var hue = 0
-    var sat = 1
-    if(desiredColour == ChameleonColour.Colour.RED):
-        hue = red_hue
-    elif(desiredColour == ChameleonColour.Colour.BLUE):
-        hue = blue_hue
-    elif(desiredColour == ChameleonColour.Colour.NORMAL):
-        sat = normal_saturation_mult
-    shaderMat.set_shader_parameter(hue_parameter,hue)
-    shaderMat.set_shader_parameter(sat_parameter,sat)
-    
+	var hue = 0
+	var sat = 1
+	if(desiredColour == ChameleonColour.Colour.RED):
+		hue = red_hue
+	elif(desiredColour == ChameleonColour.Colour.BLUE):
+		hue = blue_hue
+	elif(desiredColour == ChameleonColour.Colour.NORMAL):
+		sat = normal_saturation_mult
+	shaderMat.set_shader_parameter(hue_parameter,hue)
+	shaderMat.set_shader_parameter(sat_parameter,sat)
+	
