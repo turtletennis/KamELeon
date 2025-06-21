@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cy5on7pkto8yn"]
+[gd_scene load_steps=7 format=3 uid="uid://cy5on7pkto8yn"]
 
 [ext_resource type="Theme" uid="uid://7giom6xpji7b" path="res://assets/ui/theme/main_theme.tres" id="1_11hie"]
 [ext_resource type="Script" uid="uid://chsrdigk0ciyn" path="res://scripts/UI/MainMenu.gd" id="2_4vh8y"]
 [ext_resource type="Script" uid="uid://tj8en4qjr8d7" path="res://scripts/UI/SoundEffectsOptions.gd" id="2_58fj5"]
 [ext_resource type="PackedScene" uid="uid://b0fge1jbl8w8s" path="res://scenes/Chapters/Chapter_1.tscn" id="3_b1p1q"]
+[ext_resource type="Script" uid="uid://brhwmrhptuevv" path="res://scenes/UI/OptionsPanel.gd" id="4_s7yn2"]
 [ext_resource type="AudioStream" uid="uid://bl8k36th2wbbh" path="res://assets/music/Out There v2.mp3" id="5_b1p1q"]
 
 [node name="MainMenu" type="Control"]
@@ -51,30 +52,33 @@ layout_mode = 2
 text = "Quit
 "
 
-[node name="OptionsPanel" type="PanelContainer" parent="." node_paths=PackedStringArray("_masterSlider", "_musicSlider", "_effectsSlider")]
+[node name="OptionsPanel" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -174.0
-offset_top = -21.0
-offset_right = -150.0
-offset_bottom = 9.0
+offset_left = -757.0
+offset_top = -94.0
+offset_right = -192.0
+offset_bottom = 132.0
 grow_horizontal = 0
 grow_vertical = 2
-script = ExtResource("2_58fj5")
-_masterSlider = NodePath("PanelContainer/GridContainer/MasterVolumeSlider")
-_musicSlider = NodePath("PanelContainer/GridContainer/MusicVolumeSlider")
-_effectsSlider = NodePath("PanelContainer/GridContainer/EffectsVolumeSlider")
+script = ExtResource("4_s7yn2")
 
-[node name="PanelContainer" type="PanelContainer" parent="OptionsPanel"]
+[node name="PanelContainer" type="VBoxContainer" parent="OptionsPanel"]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="OptionsPanel/PanelContainer"]
+[node name="GridContainer" type="GridContainer" parent="OptionsPanel/PanelContainer" node_paths=PackedStringArray("_masterSlider", "_musicSlider", "_effectsSlider")]
 layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/v_separation = 8
 columns = 2
+script = ExtResource("2_58fj5")
+_masterSlider = NodePath("MasterVolumeSlider")
+_musicSlider = NodePath("MusicVolumeSlider")
+_effectsSlider = NodePath("EffectsVolumeSlider")
 
 [node name="MasterVolumeLabel" type="Label" parent="OptionsPanel/PanelContainer/GridContainer"]
 layout_mode = 2
@@ -85,6 +89,7 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 4
+step = 5.0
 
 [node name="MusicVolumeLabel" type="Label" parent="OptionsPanel/PanelContainer/GridContainer"]
 layout_mode = 2
@@ -95,8 +100,7 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 4
-max_value = 1.0
-step = 0.1
+step = 5.0
 
 [node name="EffectsVolumeLabel" type="Label" parent="OptionsPanel/PanelContainer/GridContainer"]
 layout_mode = 2
@@ -107,6 +111,13 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 4
+step = 5.0
+
+[node name="Button" type="Button" parent="OptionsPanel/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Save"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_b1p1q")
@@ -115,6 +126,7 @@ autoplay = true
 bus = &"MusicMain"
 
 [connection signal="pressed" from="PanelContainer/CenterContainer/HBoxContainer/StartButton" to="." method="StartGame"]
-[connection signal="value_changed" from="OptionsPanel/PanelContainer/GridContainer/MasterVolumeSlider" to="OptionsPanel" method="_on_master_volume_slider_value_changed"]
-[connection signal="value_changed" from="OptionsPanel/PanelContainer/GridContainer/MusicVolumeSlider" to="OptionsPanel" method="_on_music_volume_slider_value_changed"]
-[connection signal="value_changed" from="OptionsPanel/PanelContainer/GridContainer/EffectsVolumeSlider" to="OptionsPanel" method="_on_effects_volume_slider_value_changed"]
+[connection signal="value_changed" from="OptionsPanel/PanelContainer/GridContainer/MasterVolumeSlider" to="OptionsPanel/PanelContainer/GridContainer" method="_on_master_volume_slider_value_changed"]
+[connection signal="value_changed" from="OptionsPanel/PanelContainer/GridContainer/MusicVolumeSlider" to="OptionsPanel/PanelContainer/GridContainer" method="_on_music_volume_slider_value_changed"]
+[connection signal="value_changed" from="OptionsPanel/PanelContainer/GridContainer/EffectsVolumeSlider" to="OptionsPanel/PanelContainer/GridContainer" method="_on_effects_volume_slider_value_changed"]
+[connection signal="pressed" from="OptionsPanel/PanelContainer/Button" to="OptionsPanel" method="_on_save_pressed"]
