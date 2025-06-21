@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://chssdjvemcrmf"]
 
 [ext_resource type="Script" uid="uid://b7nj5xg6v20yj" path="res://scripts/GoalButterfly.gd" id="1_muk30"]
-[ext_resource type="PackedScene" uid="uid://bs8hl5ipyyltd" path="res://scenes/Chapters/Chapter_2.tscn" id="2_wg10d"]
+[ext_resource type="PackedScene" uid="uid://bvkwausfoac70" path="res://scenes/Chapters/Chapter_2.tscn" id="2_wg10d"]
 [ext_resource type="Texture2D" uid="uid://cupy5c5gfjr2i" path="res://assets/sprites/objects.png" id="3_lrbxv"]
 [ext_resource type="AudioStream" uid="uid://vichnbcytpqp" path="res://assets/SFX/level-complete.tres" id="4_wg10d"]
 
