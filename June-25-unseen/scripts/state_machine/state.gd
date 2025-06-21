@@ -19,9 +19,11 @@ func _physics_process(delta: float) -> void:
 	# flipping sprite toward direction its moving
 	
 	if player.velocity.x > 0 :
-		player.animation.flip_h = false
-	if player.velocity.x < 0 :
+		#player.animation.flip_h = false
 		player.animation.flip_h = true
+	if player.velocity.x < 0 :
+		#player.animation.flip_h = true
+		player.animation.flip_h = false
 	
 	# getting wall direction
 	if player.on_any_wall and !player.is_on_floor():
