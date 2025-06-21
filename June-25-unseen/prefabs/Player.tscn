@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://bs11isf4ve882"]
+[gd_scene load_steps=47 format=3 uid="uid://bs11isf4ve882"]
 
 [ext_resource type="Script" uid="uid://bkxjeydfq35ws" path="res://scripts/Player_controller.gd" id="1_g2els"]
 [ext_resource type="Shader" uid="uid://byyqhrabelps4" path="res://assets/shaders/hsv.gdshader" id="1_sf8ex"]
@@ -80,10 +80,6 @@ region = Rect2(64, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_wxp3c"]
 atlas = ExtResource("3_8mk5r")
 region = Rect2(352, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_by1qc"]
-atlas = ExtResource("3_8mk5r")
-region = Rect2(320, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a45g5"]
 atlas = ExtResource("3_8mk5r")
@@ -194,9 +190,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wxp3c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_by1qc")
 }],
 "loop": true,
 "name": &"jump",
@@ -249,7 +242,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(4, 10.15)
+size = Vector2(4, 7.15)
 
 [sub_resource type="Gradient" id="Gradient_8mk5r"]
 offsets = PackedFloat32Array(0.159851, 0.713755, 1)
@@ -277,7 +270,7 @@ movement_speed = 500
 air_movement_speed = 500
 acceleration = 5000
 decceleration = 5000
-jump_power = 600
+jump_power = 800
 jump_gravity = 2000
 fall_gravity = 2000
 max_fall_speed = 6000
@@ -293,7 +286,7 @@ one_shot = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 material = SubResource("ShaderMaterial_1y3c5")
-position = Vector2(-1.90735e-06, -7.62939e-06)
+position = Vector2(-1, -32)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_gvmy4")
 animation = &"idle"
@@ -302,7 +295,7 @@ flip_h = true
 script = ExtResource("4_8mk5r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 5.375)
+position = Vector2(2.38419e-07, -19)
 scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_g2els")
 
