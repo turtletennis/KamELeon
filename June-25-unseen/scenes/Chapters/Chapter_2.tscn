@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://bs8hl5ipyyltd"]
+[gd_scene load_steps=20 format=4 uid="uid://bvkwausfoac70"]
 
 [ext_resource type="PackedScene" uid="uid://bda3ca1mxqdym" path="res://scenes/Chapters/ChapterBase.tscn" id="1_1ggi7"]
 [ext_resource type="Theme" uid="uid://7giom6xpji7b" path="res://assets/ui/theme/main_theme.tres" id="2_8mkdb"]

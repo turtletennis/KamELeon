@@ -4,40 +4,40 @@ var MasterVolume: float = 100.0:
 	get: return MasterVolume
 	set(value):
 		MasterVolume = value
-		NotifyChange()
+		notify_change()
 var MusicVolume: float = 100.0:
 	get: return MusicVolume
 	set(value):
 		MusicVolume = value
-		NotifyChange()
+		notify_change()
 var EffectVolume: float = 100.0:
 	get: return EffectVolume
 	set(value):
 		EffectVolume = value
-		NotifyChange()
+		notify_change()
 
 var MasterMuted: bool = false:
 	get: return MasterMuted
 	set(value):
 		MasterMuted = value
-		NotifyChange()
+		notify_change()
 		
 var MusicMuted: bool = false:
 	get: return MusicMuted
 	set(value):
 		MusicMuted = value
-		NotifyChange()
+		notify_change()
 var EffectMuted: bool = false:
 	get: return EffectMuted
 	set(value):
 		EffectMuted = value
-		NotifyChange()
+		notify_change()
 
 func _init() -> void:
 	super._init("Audio")
-	configKeyMap["MasterVolume"] = &"MasterVolume"
-	configKeyMap["MusicVolume"] = &"MusicVolume"
-	configKeyMap["EffectVolume"] = &"EffectVolume"
-	configKeyMap["MasterMuted"] = &"MasterMuted"
-	configKeyMap["MusicMuted"] = &"MusicMuted"
-	configKeyMap["EffectMuted"] = &"EffectMuted"
+	_config_key_map["MasterVolume"] = &"MasterVolume"
+	_config_key_map["MusicVolume"] = &"MusicVolume"
+	_config_key_map["EffectVolume"] = &"EffectVolume"
+	_config_key_map["MasterMuted"] = &"MasterMuted"
+	_config_key_map["MusicMuted"] = &"MusicMuted"
+	_config_key_map["EffectMuted"] = &"EffectMuted"

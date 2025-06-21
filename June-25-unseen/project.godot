@@ -11,21 +11,22 @@ config_version=5
 [application]
 
 config/name="KamELeon"
-run/main_scene="uid://br5stdthny2l0"
+run/main_scene="uid://cy5on7pkto8yn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/image="uid://ccbd7x76duxtb"
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=1000
 
 [autoload]
 
-FictionalOptionsManager="*res://addons/fictional_options_manager/options-manager.gd"
+KameOptionsManager="*res://scripts/Globals/KameOptionsManager.gd"
 AudioManager="*res://scripts/Globals/AudioManager.gd"
 GameManager="*res://scripts/globals/game_manager.gd"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/size/resizable=false
 window/size/borderless=true
 window/stretch/mode="canvas_items"
