@@ -1,14 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://cy5on7pkto8yn"]
+[gd_scene load_steps=14 format=3 uid="uid://cy5on7pkto8yn"]
 
 [ext_resource type="Theme" uid="uid://7giom6xpji7b" path="res://assets/ui/theme/main_theme.tres" id="1_11hie"]
 [ext_resource type="Script" uid="uid://chsrdigk0ciyn" path="res://scripts/UI/MainMenu.gd" id="2_4vh8y"]
 [ext_resource type="Script" uid="uid://tj8en4qjr8d7" path="res://scripts/UI/SoundEffectsOptions.gd" id="2_58fj5"]
 [ext_resource type="PackedScene" uid="uid://b0fge1jbl8w8s" path="res://scenes/Chapters/Chapter_1.tscn" id="3_b1p1q"]
+[ext_resource type="Texture2D" uid="uid://bsul3dyj8kiwr" path="res://assets/sprites/title.png" id="4_6lq7x"]
+[ext_resource type="Texture2D" uid="uid://7pf0g0wjp4gs" path="res://assets/sprites/mainMenu_background.png" id="4_n327r"]
 [ext_resource type="AudioStream" uid="uid://b1876xid8tsr3" path="res://assets/SFX/button-select.tres" id="4_s7yn2"]
+[ext_resource type="Shader" uid="uid://b7nrlsohbx5we" path="res://assets/shaders/scroll.gdshader" id="4_sfdnv"]
 [ext_resource type="Texture2D" uid="uid://kef33gnyo0sv" path="res://assets/ui/theme/keyboard_arrows_horizontal.png" id="5_5r3px"]
 [ext_resource type="SpriteFrames" uid="uid://cdoan1ff773bb" path="res://assets/sprites/Player-sprite-anims.tres" id="5_kgeya"]
 [ext_resource type="Texture2D" uid="uid://1ny1qs3cfxdo" path="res://assets/ui/theme/keyboard_space.png" id="7_qa57o"]
 [ext_resource type="AudioStream" uid="uid://dqsbe3fnehicx" path="res://assets/music/game_lofi.ogg" id="8_qa57o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_frhrr"]
+shader = ExtResource("4_sfdnv")
+shader_parameter/speed = 0.1
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("clickAudioPlayer")]
 layout_mode = 3
@@ -22,12 +29,53 @@ script = ExtResource("2_4vh8y")
 firstScene = ExtResource("3_b1p1q")
 clickAudioPlayer = NodePath("AudioStreamPlayer_click")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(779, 1)
+color = Color(0.063982, 0.169532, 0.151278, 1)
+
+[node name="Pattern" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.552941)
+texture_repeat = 2
+material = SubResource("ShaderMaterial_frhrr")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_n327r")
+
+[node name="TitleTexture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -301.5
+offset_top = 32.0
+offset_right = 301.5
+offset_bottom = 225.0
+grow_horizontal = 2
+texture = ExtResource("4_6lq7x")
+
 [node name="StartButton" type="Button" parent="."]
-layout_mode = 2
-offset_left = 575.0
-offset_top = 201.0
-offset_right = 667.0
-offset_bottom = 258.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -28.5
+offset_right = 46.0
+offset_bottom = 28.5
+grow_horizontal = 2
+grow_vertical = 2
 text = "Start"
 
 [node name="OptionsPanel" type="PanelContainer" parent="."]
