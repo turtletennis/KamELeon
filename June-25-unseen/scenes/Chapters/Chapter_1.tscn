@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://b0fge1jbl8w8s"]
+[gd_scene load_steps=22 format=4 uid="uid://b0fge1jbl8w8s"]
 
 [ext_resource type="PackedScene" uid="uid://bda3ca1mxqdym" path="res://scenes/Chapters/ChapterBase.tscn" id="1_rovs1"]
 [ext_resource type="Script" uid="uid://ng0u1it2b1h0" path="res://addons/cameraregion2d/CameraRegion2D.gd" id="2_dk4i5"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://mf54s417et2c" path="res://prefabs/BlockerGreen.tscn" id="12_ncdvl"]
 [ext_resource type="PackedScene" uid="uid://chssdjvemcrmf" path="res://prefabs/GoalButterfly.tscn" id="14_ncdvl"]
 [ext_resource type="Theme" uid="uid://7giom6xpji7b" path="res://assets/ui/theme/main_theme.tres" id="15_goy6t"]
+[ext_resource type="AudioStream" uid="uid://blbn3weo7gdy5" path="res://assets/music/game_orchestra.ogg" id="16_10skh"]
 
 [sub_resource type="Curve" id="Curve_x3q80"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -215,6 +216,10 @@ position = Vector2(66, 1250)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fall death zone" index="0"]
 shape = SubResource("RectangleShape2D_jgd0q")
+
+[node name="MusicPlayer" parent="." index="30"]
+stream = ExtResource("16_10skh")
+parameters/looping = true
 
 [connection signal="body_entered" from="Spikes" to="player" method="_on_spikes_body_entered"]
 [connection signal="body_entered" from="Spikes_3" to="player" method="_on_spikes_body_entered"]

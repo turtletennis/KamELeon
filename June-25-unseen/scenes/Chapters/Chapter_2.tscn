@@ -13,8 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://bov2yt4slyd0w" path="res://prefabs/Spikes.tscn" id="8_2xfai"]
 [ext_resource type="PackedScene" uid="uid://dddlpk1enc4l0" path="res://prefabs/BlockerBase.tscn" id="10_gsh8v"]
 [ext_resource type="PackedScene" uid="uid://mf54s417et2c" path="res://prefabs/BlockerGreen.tscn" id="12_0ty7r"]
-[ext_resource type="AudioStream" uid="uid://corxo8i0yxo18" path="res://assets/music/Out There Chiptune.mp3" id="12_j58m0"]
 [ext_resource type="PackedScene" uid="uid://dfy241huv8gbl" path="res://prefabs/BlockerRed.tscn" id="13_0ty7r"]
+[ext_resource type="AudioStream" uid="uid://cthv43ur5rccw" path="res://assets/music/game_chiptune.ogg" id="15_gsh8v"]
 
 [sub_resource type="Curve" id="Curve_mipad"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -326,7 +326,8 @@ position = Vector2(2720, -416)
 position = Vector2(2784, -256)
 
 [node name="MusicPlayer" parent="." index="25"]
-stream = ExtResource("12_j58m0")
+stream = ExtResource("15_gsh8v")
+parameters/looping = false
 
 [connection signal="body_entered" from="base_tiles/Spikes" to="player" method="_on_spikes_body_entered"]
 [connection signal="body_entered" from="base_tiles/Spikes/Spikes_2" to="player" method="_on_spikes_body_entered"]

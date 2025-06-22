@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://b0fge1jbl8w8s" path="res://scenes/Chapters/Chapter_1.tscn" id="3_b1p1q"]
 [ext_resource type="AudioStream" uid="uid://b1876xid8tsr3" path="res://assets/SFX/button-select.tres" id="4_s7yn2"]
 [ext_resource type="Texture2D" uid="uid://kef33gnyo0sv" path="res://assets/ui/theme/keyboard_arrows_horizontal.png" id="5_5r3px"]
-[ext_resource type="AudioStream" uid="uid://bl8k36th2wbbh" path="res://assets/music/Out There v2.mp3" id="5_b1p1q"]
 [ext_resource type="SpriteFrames" uid="uid://cdoan1ff773bb" path="res://assets/sprites/Player-sprite-anims.tres" id="5_kgeya"]
 [ext_resource type="Texture2D" uid="uid://1ny1qs3cfxdo" path="res://assets/ui/theme/keyboard_space.png" id="7_qa57o"]
+[ext_resource type="AudioStream" uid="uid://dqsbe3fnehicx" path="res://assets/music/game_lofi.ogg" id="8_qa57o"]
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("clickAudioPlayer")]
 layout_mode = 3
@@ -159,10 +159,11 @@ layout_mode = 2
 text = "JUMP"
 
 [node name="AudioStreamPlayer_music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_b1p1q")
+stream = ExtResource("8_qa57o")
 volume_db = -5.0
 autoplay = true
 bus = &"MusicMain"
+parameters/looping = true
 
 [node name="AudioStreamPlayer_click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_s7yn2")
