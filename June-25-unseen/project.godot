@@ -19,8 +19,8 @@ boot_splash/minimum_display_time=1000
 
 [autoload]
 
-KameOptionsManager="*res://scripts/Globals/KameOptionsManager.gd"
-AudioManager="*res://scripts/Globals/AudioManager.gd"
+KameOptionsManager="*res://scripts/globals/KameOptionsManager.gd"
+AudioManager="*res://scripts/globals/AudioManager.gd"
 GameManager="*res://scripts/globals/game_manager.gd"
 
 [display]
