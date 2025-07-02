@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://chssdjvemcrmf"]
+
+[ext_resource type="Script" uid="uid://b7nj5xg6v20yj" path="res://scripts/GoalButterfly.gd" id="1_muk30"]
+[ext_resource type="PackedScene" uid="uid://bvkwausfoac70" path="res://scenes/Chapters/Chapter_2.tscn" id="2_wg10d"]
+[ext_resource type="Texture2D" uid="uid://cupy5c5gfjr2i" path="res://assets/sprites/objects.png" id="3_lrbxv"]
+[ext_resource type="AudioStream" uid="uid://vichnbcytpqp" path="res://assets/SFX/level-complete.tres" id="4_wg10d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ncdvl"]
+size = Vector2(64, 64)
+
+[sub_resource type="Gradient" id="Gradient_goy6t"]
+offsets = PackedFloat32Array(0, 0.0714286, 0.142857, 0.214286, 0.285714, 0.357143, 0.5, 0.642857, 0.928571)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.85, 0, 1, 0.3, 1, 0, 1, 0, 1, 0.566667, 1, 0, 0.583333, 1, 1, 0.283333, 0, 1, 1, 0.85, 0, 0.736667, 1, 0.36, 0, 0.306, 0.505882, 0.36, 0, 0.306, 0)
+metadata/_snap_enabled = true
+metadata/_snap_count = 14
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_10skh"]
+gradient = SubResource("Gradient_goy6t")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1dtiw"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_10skh")
+
+[node name="goal_butterfly" type="Area2D"]
+script = ExtResource("1_muk30")
+next_scene = ExtResource("2_wg10d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_lrbxv")
+hframes = 4
+vframes = 4
+frame = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ncdvl")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 100
+lifetime = 1.5
+process_material = SubResource("ParticleProcessMaterial_1dtiw")
+
+[node name="LevelComplete_AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_wg10d")
+bus = &"SFX"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

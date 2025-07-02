@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dddlpk1enc4l0"]
+
+[ext_resource type="Script" uid="uid://bk2tg544cilly" path="res://scripts/Coloured_blocker.gd" id="1_8k34b"]
+[ext_resource type="Texture2D" uid="uid://cupy5c5gfjr2i" path="res://assets/sprites/objects.png" id="2_njrww"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xh06f"]
+size = Vector2(64, 64)
+
+[node name="Blocker" type="AnimatableBody2D"]
+collision_layer = 2
+script = ExtResource("1_8k34b")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(1, 0.983961)
+texture = ExtResource("2_njrww")
+hframes = 4
+vframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xh06f")

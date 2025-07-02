@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bov2yt4slyd0w"]
+
+[ext_resource type="Texture2D" uid="uid://cupy5c5gfjr2i" path="res://assets/sprites/objects.png" id="1_xh5ig"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rovs1"]
+size = Vector2(60, 48)
+
+[node name="Spikes" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_rovs1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_xh5ig")
+hframes = 4
+vframes = 4
+frame = 10

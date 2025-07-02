@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://pxinfa3k51nv"]
+
+[ext_resource type="Script" uid="uid://caq7byq0vnl1b" path="res://scripts/ColorBug.gd" id="1_cu0id"]
+[ext_resource type="Texture2D" uid="uid://dbq8t6bs7a5x8" path="res://assets/sprites/blue_bug.png" id="2_iyh4x"]
+[ext_resource type="AudioStream" uid="uid://n2sqvo77471c" path="res://assets/SFX/eat-fly.tres" id="3_kyihy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iyh4x"]
+size = Vector2(16, 16)
+
+[node name="color_bug" type="Area2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_cu0id")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_iyh4x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_iyh4x")
+
+[node name="AudioStreamPlayer2D_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_kyihy")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

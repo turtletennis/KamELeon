@@ -1,0 +1,125 @@
+[gd_scene load_steps=7 format=3 uid="uid://cy5on7pkto8yn"]
+
+[ext_resource type="Theme" uid="uid://7giom6xpji7b" path="res://assets/ui/theme/main_theme.tres" id="1_11hie"]
+[ext_resource type="Script" uid="uid://chsrdigk0ciyn" path="res://scripts/UI/MainMenu.gd" id="2_4vh8y"]
+[ext_resource type="Script" uid="uid://tj8en4qjr8d7" path="res://scripts/UI/SoundEffectsOptions.gd" id="2_58fj5"]
+[ext_resource type="PackedScene" uid="uid://b0fge1jbl8w8s" path="res://scenes/Chapters/Chapter_1.tscn" id="3_b1p1q"]
+[ext_resource type="AudioStream" uid="uid://b1876xid8tsr3" path="res://assets/SFX/button-select.tres" id="4_s7yn2"]
+[ext_resource type="AudioStream" uid="uid://bl8k36th2wbbh" path="res://assets/music/Out There v2.mp3" id="5_b1p1q"]
+
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("clickAudioPlayer")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_11hie")
+script = ExtResource("2_4vh8y")
+firstScene = ExtResource("3_b1p1q")
+clickAudioPlayer = NodePath("AudioStreamPlayer_click")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 239.0
+offset_top = -62.0
+offset_right = 329.0
+offset_bottom = 97.0
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="VBoxContainer" parent="PanelContainer/CenterContainer"]
+layout_mode = 2
+theme = ExtResource("1_11hie")
+
+[node name="StartButton" type="Button" parent="PanelContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="OptionsButton" type="Button" parent="PanelContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "Options
+"
+
+[node name="QuitButton" type="Button" parent="PanelContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "Quit
+"
+
+[node name="OptionsPanel" type="PanelContainer" parent="." node_paths=PackedStringArray("_masterSlider", "_musicSlider", "_effectsSlider")]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -174.0
+offset_top = -21.0
+offset_right = -150.0
+offset_bottom = 9.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("2_58fj5")
+_masterSlider = NodePath("PanelContainer/GridContainer/MasterVolumeSlider")
+_musicSlider = NodePath("PanelContainer/GridContainer/MusicVolumeSlider")
+_effectsSlider = NodePath("PanelContainer/GridContainer/EffectsVolumeSlider")
+
+[node name="PanelContainer" type="PanelContainer" parent="OptionsPanel"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="OptionsPanel/PanelContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="MasterVolumeLabel" type="Label" parent="OptionsPanel/PanelContainer/GridContainer"]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="MasterVolumeSlider" type="HSlider" parent="OptionsPanel/PanelContainer/GridContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+
+[node name="MusicVolumeLabel" type="Label" parent="OptionsPanel/PanelContainer/GridContainer"]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="MusicVolumeSlider" type="HSlider" parent="OptionsPanel/PanelContainer/GridContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.1
+
+[node name="EffectsVolumeLabel" type="Label" parent="OptionsPanel/PanelContainer/GridContainer"]
+layout_mode = 2
+text = "SFX Volume"
+
+[node name="EffectsVolumeSlider" type="HSlider" parent="OptionsPanel/PanelContainer/GridContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+
+[node name="AudioStreamPlayer_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_b1p1q")
+volume_db = -5.0
+autoplay = true
+bus = &"MusicMain"
+
+[node name="AudioStreamPlayer_click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_s7yn2")
+
+[connection signal="pressed" from="PanelContainer/CenterContainer/HBoxContainer/StartButton" to="." method="StartGame"]
+[connection signal="value_changed" from="OptionsPanel/PanelContainer/GridContainer/MasterVolumeSlider" to="OptionsPanel" method="_on_master_volume_slider_value_changed"]
+[connection signal="value_changed" from="OptionsPanel/PanelContainer/GridContainer/MusicVolumeSlider" to="OptionsPanel" method="_on_music_volume_slider_value_changed"]
+[connection signal="value_changed" from="OptionsPanel/PanelContainer/GridContainer/EffectsVolumeSlider" to="OptionsPanel" method="_on_effects_volume_slider_value_changed"]

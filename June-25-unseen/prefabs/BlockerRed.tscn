@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfy241huv8gbl"]
+
+[ext_resource type="PackedScene" uid="uid://dddlpk1enc4l0" path="res://prefabs/BlockerBase.tscn" id="1_y2k8r"]
+[ext_resource type="Texture2D" uid="uid://cupy5c5gfjr2i" path="res://assets/sprites/objects.png" id="2_njrww"]
+
+[node name="RoseBlocker" instance=ExtResource("1_y2k8r")]
+objectColour = 1
+
+[node name="Sprite_3" type="Sprite2D" parent="." index="0"]
+position = Vector2(11, -23)
+scale = Vector2(1, 0.983961)
+texture = ExtResource("2_njrww")
+hframes = 4
+vframes = 4
+
+[node name="Sprite_2" type="Sprite2D" parent="." index="2"]
+position = Vector2(-9, -23)
+scale = Vector2(1, 0.983961)
+texture = ExtResource("2_njrww")
+hframes = 4
+vframes = 4
