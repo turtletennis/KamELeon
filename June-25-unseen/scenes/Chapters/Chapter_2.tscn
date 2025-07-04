@@ -295,7 +295,7 @@ transition = SubResource("Resource_6xxa2")
 metadata/_custom_type_script = "uid://ng0u1it2b1h0"
 
 [node name="player" parent="." index="9"]
-position = Vector2(-1792, 704)
+position = Vector2(-1770, 704)
 
 [node name="Camera2D" parent="." index="10"]
 position = Vector2(-1664, 416)
