@@ -18,6 +18,7 @@ specular_texture = ExtResource("3_fm60g")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nxp5r"]
 texture = SubResource("CanvasTexture_8osgy")
 texture_region_size = Vector2i(64, 64)
+use_texture_padding = false
 0:0/0 = 0
 0:0/0/terrain_set = 0
 1:0/0 = 0

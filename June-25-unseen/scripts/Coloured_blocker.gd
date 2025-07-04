@@ -30,7 +30,7 @@ func set_collision(collision_disabled:bool):
 	var player_delta = GameManager.player.global_position-global_position
 	if(player_delta.length()<size):
 		print_debug("avoiding player soft lock")
-		var timer = get_tree().create_timer(0.2)
+		var timer = get_tree().create_timer(0.1)
 		timer.timeout.connect(set_collision.bind(collision_disabled))
 	else:
 		
