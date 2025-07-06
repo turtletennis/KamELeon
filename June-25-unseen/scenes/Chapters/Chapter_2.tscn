@@ -122,7 +122,10 @@ position = Vector2(2976, -832)
 [node name="respawn_point_4" parent="base_tiles" index="20" instance=ExtResource("7_2xfai")]
 position = Vector2(3808, -832)
 
-[node name="Spikes" parent="base_tiles" index="21" instance=ExtResource("8_2xfai")]
+[node name="respawn_point_5" parent="base_tiles" index="21" instance=ExtResource("7_2xfai")]
+position = Vector2(5600, -1600)
+
+[node name="Spikes" parent="base_tiles" index="22" instance=ExtResource("8_2xfai")]
 position = Vector2(2144, -160)
 
 [node name="Spikes_2" parent="base_tiles/Spikes" index="2" instance=ExtResource("8_2xfai")]
@@ -161,37 +164,37 @@ position = Vector2(704, 0)
 [node name="Spikes_13" parent="base_tiles/Spikes" index="13" instance=ExtResource("8_2xfai")]
 position = Vector2(768, 0)
 
-[node name="SapphireBlocker_9" parent="base_tiles" index="22" instance=ExtResource("3_ebhqd")]
+[node name="SapphireBlocker_9" parent="base_tiles" index="23" instance=ExtResource("3_ebhqd")]
 position = Vector2(2912, -352)
 
-[node name="SapphireBlocker_10" parent="base_tiles" index="23" instance=ExtResource("3_ebhqd")]
+[node name="SapphireBlocker_10" parent="base_tiles" index="24" instance=ExtResource("3_ebhqd")]
 position = Vector2(2912, -416)
 
-[node name="SapphireBlocker_11" parent="base_tiles" index="24" instance=ExtResource("3_ebhqd")]
+[node name="SapphireBlocker_11" parent="base_tiles" index="25" instance=ExtResource("3_ebhqd")]
 position = Vector2(2912, -480)
 
-[node name="SapphireBlocker_12" parent="base_tiles" index="25" instance=ExtResource("3_ebhqd")]
+[node name="SapphireBlocker_12" parent="base_tiles" index="26" instance=ExtResource("3_ebhqd")]
 position = Vector2(2912, -544)
 
-[node name="SapphireBlocker_13" parent="base_tiles" index="26" instance=ExtResource("3_ebhqd")]
+[node name="SapphireBlocker_13" parent="base_tiles" index="27" instance=ExtResource("3_ebhqd")]
 position = Vector2(2912, -608)
 
-[node name="SapphireBlocker_14" parent="base_tiles" index="27" instance=ExtResource("3_ebhqd")]
+[node name="SapphireBlocker_14" parent="base_tiles" index="28" instance=ExtResource("3_ebhqd")]
 position = Vector2(2912, -672)
 
-[node name="SapphireBlocker_15" parent="base_tiles" index="28" instance=ExtResource("3_ebhqd")]
+[node name="SapphireBlocker_15" parent="base_tiles" index="29" instance=ExtResource("3_ebhqd")]
 position = Vector2(2912, -736)
 
-[node name="SapphireBlocker_16" parent="base_tiles" index="29" instance=ExtResource("3_ebhqd")]
+[node name="SapphireBlocker_16" parent="base_tiles" index="30" instance=ExtResource("3_ebhqd")]
 position = Vector2(4448, -288)
 
-[node name="SapphireBlocker_17" parent="base_tiles" index="30" instance=ExtResource("3_ebhqd")]
+[node name="SapphireBlocker_17" parent="base_tiles" index="31" instance=ExtResource("3_ebhqd")]
 position = Vector2(4256, -400)
 
-[node name="AppleBlocker" parent="base_tiles" index="31" instance=ExtResource("12_0ty7r")]
+[node name="AppleBlocker" parent="base_tiles" index="32" instance=ExtResource("12_0ty7r")]
 position = Vector2(4448, -800)
 
-[node name="RoseBlocker" parent="base_tiles" index="32" instance=ExtResource("13_0ty7r")]
+[node name="RoseBlocker" parent="base_tiles" index="33" instance=ExtResource("13_0ty7r")]
 position = Vector2(4352, -608)
 
 [node name="CameraRegion2D" type="Node2D" parent="CameraRegionController2D" index="0"]
